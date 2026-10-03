@@ -33,13 +33,21 @@ const trustItems = [
 </section>
 
 <style>
-  .trust-strip {
-    position: relative;
-    width: 100%;
-    border-top: 1px solid var(--color-border);
-    border-bottom: 1px solid var(--color-border);
-    background: var(--color-white);
-  }
+ .trust-strip {
+  position: relative;
+  width: 100%;
+
+  border-top: 1px solid rgba(0, 114, 255, 0.18);
+  border-bottom: 1px solid rgba(0, 114, 255, 0.18);
+
+  background:
+  linear-gradient(
+    105deg,
+    rgba(0, 180, 219, 0.14) 0%,
+    rgba(0, 114, 255, 0.10) 55%,
+    rgba(0, 184, 184, 0.08) 100%
+  );
+}
 
   .trust-inner {
     width: min(1200px, calc(100% - 48px));

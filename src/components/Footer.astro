@@ -1,0 +1,306 @@
+---
+const navigation = [
+  {
+    title: "Company",
+    links: [
+      { label: "About", href: "/about" },
+      { label: "Services", href: "/services" },
+      { label: "Platforms", href: "/platforms" },
+      { label: "Insights", href: "/insights" },
+      { label: "Contact", href: "/contact" },
+    ],
+  },
+  {
+    title: "Services",
+    links: [
+      {
+        label: "IAM Strategy & Architecture",
+        href: "/services/iam-strategy-architecture",
+      },
+      {
+        label: "Identity Modernization",
+        href: "/services/identity-modernization",
+      },
+      {
+        label: "Implementation & Integration",
+        href: "/services/implementation-integration",
+      },
+      {
+        label: "Managed Identity & Support",
+        href: "/services/managed-identity-support",
+      },
+    ],
+  },
+];
+---
+
+<footer class="site-footer">
+  <div class="footer-main">
+    <div class="footer-inner">
+
+      <div class="footer-brand">
+        <a href="/" class="footer-logo" aria-label="Isocore Solutions home">
+          <img
+            src="/images/isocore.svg"
+            alt="Isocore Solutions"
+            loading="lazy"
+            decoding="async"
+          />
+        </a>
+
+        <p>
+          Enterprise Identity & Access Management engineering
+          for cloud, hybrid, and on-premises environments.
+        </p>
+
+        <a href="/contact" class="footer-contact-link">
+          Schedule an IAM Assessment
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <div class="footer-navigation">
+        {navigation.map((group) => (
+          <nav class="footer-nav-group" aria-label={group.title}>
+            <h2>{group.title}</h2>
+
+            <ul>
+              {group.links.map((link) => (
+                <li>
+                  <a href={link.href}>
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        ))}
+      </div>
+
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <p>
+        © {new Date().getFullYear()} Isocore Solutions LLC. All rights reserved.
+      </p>
+
+      <div class="footer-legal">
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    width: 100%;
+    background: var(--color-dark);
+    color: var(--color-white);
+  }
+
+  /* MAIN */
+
+  .footer-main {
+    border-top: 1px solid rgba(216, 229, 239, 0.12);
+  }
+
+  .footer-inner {
+    width: min(1200px, calc(100% - 48px));
+    margin-inline: auto;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(420px, 1fr);
+    gap: 100px;
+
+    padding-block: 72px;
+  }
+
+  /* BRAND */
+
+  .footer-brand {
+    max-width: 430px;
+  }
+
+  .footer-logo {
+    display: inline-flex;
+    width: 180px;
+    margin-bottom: 24px;
+  }
+
+  .footer-logo img {
+    width: 100%;
+    height: auto;
+  }
+
+  .footer-brand p {
+    max-width: 380px;
+    margin: 0 0 28px;
+
+    color: #a9bbcd;
+    font-size: 0.88rem;
+    line-height: 1.75;
+  }
+
+  .footer-contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    color: var(--color-cyan);
+
+    font-family: var(--font-mono);
+    font-size: 0.67rem;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+
+    transition:
+      color var(--transition-fast),
+      gap var(--transition-fast);
+  }
+
+  .footer-contact-link span {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+  }
+
+  .footer-contact-link:hover {
+    gap: 15px;
+    color: #5cc8ff;
+  }
+
+  /* NAVIGATION */
+
+  .footer-navigation {
+    display: grid;
+    grid-template-columns: 0.7fr 1.3fr;
+    gap: 70px;
+  }
+
+  .footer-nav-group h2 {
+    margin: 0 0 20px;
+
+    color: #7f95aa;
+
+    font-family: var(--font-mono);
+    font-size: 0.63rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  .footer-nav-group ul {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+  }
+
+  .footer-nav-group a {
+    color: #d7e2eb;
+
+    font-size: 0.8rem;
+    line-height: 1.5;
+
+    transition: color var(--transition-fast);
+  }
+
+  .footer-nav-group a:hover {
+    color: var(--color-cyan);
+  }
+
+  /* BOTTOM */
+
+  .footer-bottom {
+    border-top: 1px solid rgba(216, 229, 239, 0.12);
+  }
+
+  .footer-bottom-inner {
+    width: min(1200px, calc(100% - 48px));
+    min-height: 64px;
+    margin-inline: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+  }
+
+  .footer-bottom p {
+    margin: 0;
+
+    color: #71869b;
+
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    line-height: 1.5;
+  }
+
+  .footer-legal {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .footer-legal a {
+    color: #71869b;
+
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    line-height: 1.5;
+
+    transition: color var(--transition-fast);
+  }
+
+  .footer-legal a:hover {
+    color: #d7e2eb;
+  }
+
+  /* RESPONSIVE */
+
+  @media (max-width: 900px) {
+    .footer-inner {
+      grid-template-columns: 1fr;
+      gap: 55px;
+    }
+
+    .footer-brand {
+      max-width: 600px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .footer-inner {
+      width: calc(100% - 40px);
+      padding-block: 56px;
+    }
+
+    .footer-logo {
+      width: 150px;
+    }
+
+    .footer-navigation {
+      grid-template-columns: 1fr;
+      gap: 38px;
+    }
+
+    .footer-bottom-inner {
+      width: calc(100% - 40px);
+      min-height: auto;
+
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 14px;
+
+      padding-block: 20px;
+    }
+  }
+</style>

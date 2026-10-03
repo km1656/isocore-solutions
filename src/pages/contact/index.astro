@@ -1,0 +1,544 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Eyebrow from "../../components/Eyebrow.astro";
+---
+
+<BaseLayout
+  title="Contact | Isocore Solutions"
+  description="Connect with Isocore Solutions to discuss enterprise Identity & Access Management architecture, modernization, implementation, and support."
+>
+  <main>
+    <section class="contact-hero">
+      <div class="contact-grid" aria-hidden="true"></div>
+      <div class="contact-glow" aria-hidden="true"></div>
+
+      <div class="contact-inner">
+        <div class="contact-intro">
+          <Eyebrow variant="bracket" text="Start a Conversation" />
+
+          <h1>
+            Let's build a stronger
+            <span class="text-gradient"> identity foundation.</span>
+          </h1>
+
+          <p class="contact-lead">
+            Tell us where your identity environment stands today,
+            where you need to go, and what you're trying to solve.
+            We'll help identify the right path forward.
+          </p>
+
+          <div class="contact-details">
+  <div class="contact-detail">
+    <span class="detail-label">Office</span>
+    <address class="detail-value">
+      30 N Gould St<br />
+      Ste R<br />
+      Sheridan, WY 82801<br />
+      USA
+    </address>
+  </div>
+
+  <div class="contact-detail">
+    <span class="detail-label">Phone</span>
+    <a class="detail-value contact-link" href="tel:+1XXXXXXXXXX">
+      +1 XXX XXX XXXX
+    </a>
+  </div>
+
+  <div class="contact-detail">
+    <span class="detail-label">Engagements</span>
+    <span class="detail-value">
+      Architecture · Modernization · Implementation · Support
+    </span>
+  </div>
+
+  <div class="contact-detail">
+    <span class="detail-label">Focus</span>
+    <span class="detail-value">
+      Enterprise IAM · Cloud · Hybrid · Directory Infrastructure
+    </span>
+  </div>
+</div>
+        </div>
+
+        <div class="contact-form-wrap">
+          <div class="form-heading">
+            <span class="form-label">IAM Assessment</span>
+            <h2>Tell us about your environment.</h2>
+            <p>
+              A few details will help us understand your requirements
+              before we connect.
+            </p>
+          </div>
+
+          <form class="contact-form" action="#" method="post">
+            <div class="form-row">
+              <label>
+                <span>Full name</span>
+                <input
+                  type="text"
+                  name="name"
+                  autocomplete="name"
+                  placeholder="Your name"
+                  required
+                />
+              </label>
+
+              <label>
+                <span>Work email</span>
+                <input
+                  type="email"
+                  name="email"
+                  autocomplete="email"
+                  placeholder="you@company.com"
+                  required
+                />
+              </label>
+            </div>
+
+            <div class="form-row">
+              <label>
+                <span>Company</span>
+                <input
+                  type="text"
+                  name="company"
+                  autocomplete="organization"
+                  placeholder="Company name"
+                />
+              </label>
+
+              <label>
+                <span>Role</span>
+                <input
+                  type="text"
+                  name="role"
+                  autocomplete="organization-title"
+                  placeholder="Your role"
+                />
+              </label>
+            </div>
+
+            <label>
+              <span>What can we help with?</span>
+              <select name="service" required>
+                <option value="" disabled selected>
+                  Select an area
+                </option>
+                <option value="strategy">
+                  IAM Strategy & Architecture
+                </option>
+                <option value="modernization">
+                  Identity Modernization
+                </option>
+                <option value="implementation">
+                  Implementation & Integration
+                </option>
+                <option value="managed">
+                  Managed Identity & Support
+                </option>
+                <option value="other">
+                  Other IAM Requirements
+                </option>
+              </select>
+            </label>
+
+            <label>
+              <span>Tell us about your environment</span>
+              <textarea
+                name="message"
+                rows="6"
+                placeholder="Describe your current identity environment, challenges, or objectives."
+                required
+              ></textarea>
+            </label>
+
+            <button type="submit" class="form-submit">
+              <span>Request an IAM Assessment</span>
+              <span aria-hidden="true">→</span>
+            </button>
+
+            <p class="form-note">
+              Your information is used only to understand your requirements
+              and respond to your inquiry.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .contact-hero {
+    position: relative;
+    min-height: calc(100vh - 76px);
+    overflow: hidden;
+    background:
+      radial-gradient(
+        circle at 82% 30%,
+        rgba(0, 180, 219, 0.07),
+        transparent 28%
+      ),
+      radial-gradient(
+        circle at 15% 80%,
+        rgba(0, 114, 255, 0.045),
+        transparent 30%
+      ),
+      var(--color-bg);
+  }
+
+  .contact-grid {
+    position: absolute;
+    inset: 0;
+    opacity: 0.35;
+    background-image:
+      linear-gradient(
+        rgba(0, 114, 255, 0.035) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        90deg,
+        rgba(0, 114, 255, 0.035) 1px,
+        transparent 1px
+      );
+    background-size: 72px 72px;
+    mask-image: linear-gradient(
+      to bottom,
+      black,
+      transparent 85%
+    );
+    pointer-events: none;
+  }
+
+  .contact-glow {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    top: 12%;
+    right: -180px;
+    border-radius: 50%;
+    background: var(--color-cyan);
+    opacity: 0.045;
+    filter: blur(100px);
+    pointer-events: none;
+  }
+
+  .contact-inner {
+    position: relative;
+    z-index: 2;
+
+    width: min(
+      1200px,
+      calc(100% - 48px)
+    );
+
+    margin-inline: auto;
+
+    display: grid;
+    grid-template-columns:
+      minmax(0, 0.82fr)
+      minmax(0, 1.18fr);
+
+    gap: 100px;
+
+    padding-block: 130px 110px;
+  }
+
+  /* INTRO */
+
+  .contact-intro {
+    align-self: start;
+    max-width: 540px;
+  }
+
+  .contact-intro h1 {
+    margin: 0 0 28px;
+
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 5vw, 4.6rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.055em;
+  }
+
+  .contact-lead {
+    max-width: 500px;
+    margin: 0;
+
+    color: var(--color-text-secondary);
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+  .contact-details {
+    margin-top: 58px;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .contact-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    padding-block: 20px;
+
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .detail-label {
+    color: var(--color-primary);
+
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+  }
+
+  .detail-value {
+    color: var(--color-text-secondary);
+
+    font-size: 0.84rem;
+    line-height: 1.6;
+  }
+
+  /* FORM */
+
+  .contact-form-wrap {
+    padding: 42px;
+
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-card);
+  }
+
+  .form-heading {
+    margin-bottom: 34px;
+  }
+
+  .form-label {
+    display: block;
+    margin-bottom: 10px;
+
+    color: var(--color-primary);
+
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .form-heading h2 {
+    margin: 0 0 10px;
+
+    font-size: clamp(1.8rem, 3vw, 2.45rem);
+    line-height: 1.08;
+  }
+
+  .form-heading p {
+    margin: 0;
+
+    color: var(--color-text-secondary);
+    font-size: 0.88rem;
+    line-height: 1.7;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+
+  .contact-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .contact-form label > span {
+    color: var(--color-text);
+
+    font-size: 0.76rem;
+    font-weight: 600;
+  }
+
+  .contact-form input,
+  .contact-form select,
+  .contact-form textarea {
+    width: 100%;
+
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+
+    background: var(--color-bg);
+    color: var(--color-text);
+
+    padding: 13px 14px;
+
+    font-family: var(--font-sans);
+    font-size: 0.84rem;
+
+    outline: none;
+
+    transition:
+      border-color var(--transition-fast),
+      box-shadow var(--transition-fast),
+      background var(--transition-fast);
+  }
+
+  .contact-form input::placeholder,
+  .contact-form textarea::placeholder {
+    color: var(--color-text-muted);
+  }
+
+  .contact-form input:hover,
+  .contact-form select:hover,
+  .contact-form textarea:hover {
+    border-color: var(--color-border-strong);
+  }
+
+  .contact-form input:focus,
+  .contact-form select:focus,
+  .contact-form textarea:focus {
+    border-color: var(--color-primary);
+
+    background: var(--color-white);
+
+    box-shadow:
+      0 0 0 3px rgba(0, 114, 255, 0.08);
+  }
+
+  .contact-form textarea {
+    min-height: 145px;
+    resize: vertical;
+    line-height: 1.6;
+  }
+
+  .contact-form select {
+    appearance: none;
+
+    background-image:
+      linear-gradient(45deg, transparent 50%, var(--color-text-muted) 50%),
+      linear-gradient(135deg, var(--color-text-muted) 50%, transparent 50%);
+
+    background-position:
+      calc(100% - 17px) 52%,
+      calc(100% - 12px) 52%;
+
+    background-size:
+      5px 5px,
+      5px 5px;
+
+    background-repeat: no-repeat;
+  }
+
+  .form-submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    width: 100%;
+
+    margin-top: 4px;
+    padding: 15px 18px;
+
+    border: 0;
+    border-radius: var(--radius-sm);
+
+    background: var(--color-primary);
+    color: var(--color-white);
+
+    font-family: var(--font-sans);
+    font-size: 0.84rem;
+    font-weight: 700;
+
+    transition:
+      background var(--transition-fast),
+      transform var(--transition-fast),
+      box-shadow var(--transition-fast);
+  }
+
+  .form-submit:hover {
+    background: var(--color-primary-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 22px rgba(0, 114, 255, 0.2);
+  }
+
+  .form-submit span:last-child {
+    font-size: 1.1rem;
+  }
+
+  .form-note {
+    margin: 0;
+
+    color: var(--color-text-muted);
+    font-size: 0.68rem;
+    line-height: 1.6;
+  }
+
+  /* RESPONSIVE */
+
+  @media (max-width: 1000px) {
+    .contact-inner {
+      grid-template-columns: 1fr;
+      gap: 70px;
+      padding-block: 110px 90px;
+    }
+
+    .contact-intro {
+      max-width: 720px;
+    }
+
+    .contact-lead {
+      max-width: 650px;
+    }
+
+    .contact-details {
+      max-width: 650px;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .contact-inner {
+      width: calc(100% - 40px);
+      gap: 52px;
+      padding-block: 100px 70px;
+    }
+
+    .contact-intro h1 {
+      font-size: clamp(2.7rem, 12vw, 3.6rem);
+    }
+
+    .contact-details {
+      margin-top: 42px;
+    }
+
+    .contact-form-wrap {
+      padding: 28px 22px;
+    }
+
+    .form-row {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .contact-inner {
+      width: calc(100% - 32px);
+      padding-block: 88px 60px;
+    }
+
+    .contact-form-wrap {
+      padding: 24px 18px;
+    }
+  }
+</style>
