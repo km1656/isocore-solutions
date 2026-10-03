@@ -635,13 +635,15 @@ import CTASection from "../../components/CTASection.astro";
       #00b8c8 55%,
       #0a2a6b 100%
     );
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    transform: perspective(10px);
   }
 
-    .capability:hover h3,
-.capability:hover p,
-.capability:hover a {
+.capability:hover h3, .capability:hover a {
   color: var(--color-white);
+}
+  .capability:hover p {
+  color: rgba(255, 255, 255, 0.78);
 }
 
   .capability h3 {
