@@ -1,0 +1,322 @@
+<div class="gateway" aria-hidden="true">
+  <div class="gateway-glow"></div>
+
+  <div class="gateway-frame">
+    <div class="panel panel-left">
+      <span></span>
+    </div>
+
+    <div class="panel panel-center">
+      <span class="access-node"></span>
+      <span class="access-line"></span>
+    </div>
+
+    <div class="panel panel-right">
+      <span></span>
+    </div>
+  </div>
+
+  <div class="gateway-grid"></div>
+
+  <div class="connection connection-top">
+    <span></span>
+  </div>
+
+  <div class="connection connection-right">
+    <span></span>
+  </div>
+
+  <div class="connection connection-bottom">
+    <span></span>
+  </div>
+</div>
+
+<style>
+  .gateway {
+    position: relative;
+
+    width: min(520px, 42vw);
+    aspect-ratio: 1;
+
+    display: grid;
+    place-items: center;
+  }
+
+  .gateway-glow {
+    position: absolute;
+    width: 70%;
+    height: 70%;
+
+    border-radius: 50%;
+
+    background:
+      radial-gradient(
+        circle,
+        rgba(0, 180, 219, 0.2),
+        rgba(0, 114, 255, 0.08) 38%,
+        transparent 72%
+      );
+
+    filter: blur(30px);
+  }
+
+  .gateway-frame {
+    position: relative;
+    z-index: 2;
+
+    width: 64%;
+    height: 64%;
+
+    display: flex;
+    align-items: stretch;
+
+    transform: perspective(900px) rotateX(2deg);
+  }
+
+  .panel {
+    position: relative;
+
+    height: 100%;
+
+    border: 1px solid rgba(83, 177, 222, 0.35);
+
+    overflow: hidden;
+  }
+
+  .panel::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+      linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.08),
+        transparent 45%
+      );
+  }
+
+  .panel-left {
+    width: 34%;
+
+    transform:
+      perspective(500px)
+      rotateY(18deg)
+      skewY(-3deg);
+
+    background:
+      linear-gradient(
+        135deg,
+        #0d3b66,
+        #0072c6
+      );
+
+    box-shadow:
+      -20px 25px 50px rgba(0, 0, 0, 0.35),
+      inset -12px 0 20px rgba(0, 0, 0, 0.18);
+  }
+
+  .panel-center {
+    z-index: 3;
+
+    width: 32%;
+
+    border-color: rgba(230, 246, 255, 0.35);
+
+    background:
+      linear-gradient(
+        180deg,
+        #00b4db,
+        #0072c6
+      );
+
+    box-shadow:
+      0 0 45px rgba(0, 180, 219, 0.18);
+  }
+
+  .panel-right {
+    width: 34%;
+
+    transform:
+      perspective(500px)
+      rotateY(-18deg)
+      skewY(3deg);
+
+    background:
+      linear-gradient(
+        135deg,
+        #0072c6,
+        #00b4db
+      );
+
+    box-shadow:
+      20px 25px 50px rgba(0, 0, 0, 0.35),
+      inset 12px 0 20px rgba(255, 255, 255, 0.06);
+  }
+
+  .access-node {
+    position: absolute;
+    z-index: 4;
+
+    top: 50%;
+    left: 50%;
+
+    width: 30px;
+    height: 30px;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background: #061426;
+
+    box-shadow:
+      0 0 0 7px rgba(230, 246, 255, 0.08),
+      0 0 30px rgba(0, 180, 219, 0.45);
+  }
+
+  .access-line {
+    position: absolute;
+    z-index: 3;
+
+    left: 50%;
+    bottom: -22%;
+
+    width: 2px;
+    height: 72%;
+
+    transform: translateX(-50%);
+
+    background:
+      linear-gradient(
+        to bottom,
+        #e6f6ff,
+        #00b4db,
+        transparent
+      );
+  }
+
+  .gateway-grid {
+    position: absolute;
+    inset: 12%;
+
+    background-image:
+      linear-gradient(
+        rgba(0, 180, 219, 0.08) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        90deg,
+        rgba(0, 180, 219, 0.08) 1px,
+        transparent 1px
+      );
+
+    background-size: 28px 28px;
+
+    mask-image: radial-gradient(
+      ellipse,
+      black 10%,
+      transparent 70%
+    );
+  }
+
+  .connection {
+    position: absolute;
+    z-index: 4;
+
+    display: flex;
+    align-items: center;
+
+    width: 22%;
+    height: 1px;
+
+    background:
+      linear-gradient(
+        90deg,
+        transparent,
+        rgba(0, 180, 219, 0.7)
+      );
+  }
+
+  .connection span {
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: #00b4db;
+
+    box-shadow:
+      0 0 12px rgba(0, 180, 219, 0.8);
+  }
+
+  .connection-top {
+    top: 24%;
+    right: 8%;
+  }
+
+  .connection-right {
+    right: 2%;
+    top: 50%;
+
+    transform: rotate(90deg);
+  }
+
+  .connection-bottom {
+    bottom: 19%;
+    left: 8%;
+
+    transform: rotate(180deg);
+  }
+
+  @media (max-width: 900px) {
+    .gateway {
+      width: min(460px, 80vw);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .gateway {
+      width: min(380px, 90vw);
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .gateway-glow {
+      animation: gateway-pulse 5s ease-in-out infinite;
+    }
+
+    .access-node {
+      animation: node-pulse 3s ease-in-out infinite;
+    }
+
+    @keyframes gateway-pulse {
+      0%,
+      100% {
+        opacity: 0.7;
+        transform: scale(0.96);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.04);
+      }
+    }
+
+    @keyframes node-pulse {
+      0%,
+      100% {
+        box-shadow:
+          0 0 0 7px rgba(230, 246, 255, 0.08),
+          0 0 20px rgba(0, 180, 219, 0.3);
+      }
+
+      50% {
+        box-shadow:
+          0 0 0 9px rgba(230, 246, 255, 0.1),
+          0 0 35px rgba(0, 180, 219, 0.55);
+      }
+    }
+  }
+</style>

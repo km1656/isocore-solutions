@@ -1,0 +1,225 @@
+---
+import Eyebrow from "./Eyebrow.astro";
+
+const valuePoints = [
+  {
+    title: "Architect for the enterprise",
+    description:
+      "Design identity architectures around business requirements, security controls, operational realities, and long-term scalability.",
+  },
+  {
+    title: "Modernize without disruption",
+    description:
+      "Transform legacy directories and identity infrastructure through structured modernization, migration, and integration strategies.",
+  },
+  {
+    title: "Engineer for the long term",
+    description:
+      "Build identity platforms that remain maintainable, governed, resilient, and adaptable as enterprise environments evolve.",
+  },
+];
+---
+
+<section class="value-section">
+  <div class="value-inner">
+
+    <div class="value-intro">
+      <Eyebrow
+        variant="bracket"
+        text="Why Isocore"
+      />
+
+      <h2>
+        Identity infrastructure
+        <span class="text-gradient"> built to endure.</span>
+      </h2>
+
+      <p class="value-lead">
+        Identity is more than authentication. It is foundational
+        infrastructure connecting people, applications, devices,
+        directories, and security controls across the enterprise.
+      </p>
+
+      <p class="value-support">
+        Isocore brings architecture, engineering, modernization,
+        and operational expertise together to build identity
+        environments that work today—and continue to work as
+        your organization changes.
+      </p>
+    </div>
+
+    <div class="value-points">
+      {valuePoints.map((point) => (
+        <article class="value-point">
+          <h3>{point.title}</h3>
+          <p>{point.description}</p>
+        </article>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .value-section {
+    position: relative;
+    width: 100%;
+    padding-block: 120px;
+    background: var(--color-bg);
+    overflow: hidden;
+  }
+
+  .value-inner {
+    width: min(1200px, calc(100% - 48px));
+    margin-inline: auto;
+
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    gap: 110px;
+    align-items: start;
+  }
+
+  /* INTRO */
+
+  .value-intro {
+    max-width: 570px;
+  }
+
+  .value-intro h2 {
+    margin: 0 0 28px;
+    max-width: 560px;
+
+    font-size: clamp(2.5rem, 4.5vw, 4rem);
+    font-weight: 750;
+    line-height: 1.02;
+    letter-spacing: -0.045em;
+  }
+
+  .value-lead {
+    margin-bottom: 20px;
+
+    color: var(--color-text);
+    font-size: 1.08rem;
+    font-weight: 500;
+    line-height: 1.7;
+  }
+
+  .value-support {
+    max-width: 520px;
+    margin: 0;
+
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.75;
+  }
+
+  /* VALUE POINTS */
+
+  .value-points {
+    display: flex;
+    flex-direction: column;
+
+    border-top: 1px solid var(--color-border);
+  }
+
+  .value-point {
+    position: relative;
+    padding: 32px 0 34px;
+
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .value-point::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    width: 0;
+    height: 1px;
+
+    background: var(--color-primary);
+
+    transition:
+      width var(--transition-normal),
+      background var(--transition-normal);
+  }
+
+  .value-point:hover::before {
+    width: 72px;
+    background: var(--color-cyan);
+  }
+
+  .value-point h3 {
+    margin: 0 0 10px;
+
+    color: var(--color-text);
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .value-point p {
+    max-width: 570px;
+    margin: 0;
+
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  /* RESPONSIVE */
+
+  @media (max-width: 1000px) {
+    .value-inner {
+      grid-template-columns: 1fr;
+      gap: 64px;
+    }
+
+    .value-intro {
+      max-width: 700px;
+    }
+
+    .value-support {
+      max-width: 650px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .value-section {
+      padding-block: 88px;
+    }
+
+    .value-inner {
+      width: calc(100% - 40px);
+      gap: 52px;
+    }
+
+    .value-intro h2 {
+      margin-bottom: 24px;
+      font-size: clamp(2.35rem, 10vw, 3.25rem);
+    }
+
+    .value-lead {
+      font-size: 1rem;
+    }
+
+    .value-point {
+      padding-block: 27px 29px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .value-section {
+      padding-block: 72px;
+    }
+
+    .value-point h3 {
+      font-size: 1.1rem;
+    }
+
+    .value-point p {
+      font-size: 0.86rem;
+    }
+  }
+</style>

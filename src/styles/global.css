@@ -1,5 +1,9 @@
 @import "./tokens.css";
 
+/* =================================
+   RESET
+   ================================= */
+
 *,
 *::before,
 *::after {
@@ -21,13 +25,19 @@ body {
   line-height: 1.6;
 
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
   text-rendering: optimizeLegibility;
 }
 
-body::selection {
+::selection {
   background: var(--color-primary);
   color: var(--color-white);
 }
+
+/* =================================
+   ELEMENTS
+   ================================= */
 
 a {
   color: inherit;
@@ -51,37 +61,53 @@ svg {
   max-width: 100%;
 }
 
-h1,
-h2,
-h3,
-h4,
-p {
-  margin-top: 0;
-}
+/* =================================
+   TYPOGRAPHY
+   ================================= */
 
 h1,
 h2,
 h3,
 h4 {
-  line-height: 1.15;
-  letter-spacing: -0.025em;
+  margin-top: 0;
+
+  color: var(--color-text);
+
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.045em;
 }
 
 h1 {
-  font-size: clamp(2.75rem, 6vw, 5.25rem);
+  font-size: clamp(3rem, 6vw, 5.25rem);
+  font-weight: 800;
 }
 
 h2 {
-  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-size: clamp(2.25rem, 4.5vw, 4rem);
+  font-weight: 750;
 }
 
 h3 {
-  font-size: clamp(1.25rem, 2vw, 1.6rem);
+  font-size: clamp(1.2rem, 2vw, 1.45rem);
+  font-weight: 700;
+}
+
+h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
 }
 
 p {
+  margin-top: 0;
   color: var(--color-text-secondary);
+  font-family: var(--font-sans);
 }
+
+/* =================================
+   LAYOUT
+   ================================= */
 
 .container {
   width: min(
@@ -101,6 +127,10 @@ p {
   margin-bottom: 48px;
 }
 
+/* =================================
+   EYEBROW
+   ================================= */
+
 .section-eyebrow {
   display: inline-flex;
   align-items: center;
@@ -108,11 +138,13 @@ p {
 
   margin-bottom: 16px;
 
-  color: var(--color-cyan);
+  color: var(--color-primary);
 
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  line-height: 1.2;
   text-transform: uppercase;
 }
 
@@ -125,6 +157,10 @@ p {
   background: var(--color-cyan);
 }
 
+/* =================================
+   GRADIENT TEXT
+   ================================= */
+
 .text-gradient {
   background: linear-gradient(
     90deg,
@@ -134,8 +170,13 @@ p {
 
   -webkit-background-clip: text;
   background-clip: text;
+
   color: transparent;
 }
+
+/* =================================
+   LIGHT THEME GLOW
+   ================================= */
 
 .glow {
   position: relative;
@@ -154,11 +195,36 @@ p {
 
   background: var(--color-cyan);
 
-  opacity: 0.08;
-  filter: blur(100px);
+  opacity: 0.06;
+
+  filter: blur(110px);
 
   pointer-events: none;
 }
+
+/* =================================
+   DARK SECTION UTILITY
+   ================================= */
+
+.section-dark {
+  background: var(--color-dark);
+  color: var(--color-white);
+}
+
+.section-dark h1,
+.section-dark h2,
+.section-dark h3,
+.section-dark h4 {
+  color: var(--color-white);
+}
+
+.section-dark p {
+  color: #a9bbcd;
+}
+
+/* =================================
+   RESPONSIVE
+   ================================= */
 
 @media (max-width: 768px) {
   :root {

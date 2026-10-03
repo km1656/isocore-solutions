@@ -1,0 +1,259 @@
+---
+import Eyebrow from "./Eyebrow.astro";
+
+const services = [
+  {
+    title: "IAM Strategy & Architecture",
+    description:
+      "Define identity strategies, target architectures, governance models, and roadmaps aligned with enterprise security and business requirements.",
+    link: "/services/iam-strategy-architecture",
+  },
+  {
+    title: "Identity Modernization",
+    description:
+      "Modernize legacy directories, authentication infrastructure, and identity platforms across cloud, hybrid, and on-premises environments.",
+    link: "/services/identity-modernization",
+  },
+  {
+    title: "Implementation & Integration",
+    description:
+      "Engineer and integrate identity platforms, directories, applications, authentication services, and enterprise security controls.",
+    link: "/services/implementation-integration",
+  },
+  {
+    title: "Managed Identity & Support",
+    description:
+      "Extend your identity engineering capabilities with operational support, platform administration, troubleshooting, and continuous improvement.",
+    link: "/services/managed-identity-support",
+  },
+];
+---
+
+<section class="services-section">
+  <div class="services-inner">
+
+    <header class="services-header">
+      <div class="services-heading">
+        <Eyebrow
+          variant="bracket"
+          text="What We Do"
+        />
+
+        <h2>
+          Identity engineering
+          <span class="text-gradient"> from strategy to operations.</span>
+        </h2>
+      </div>
+
+      <p class="services-intro">
+        From enterprise IAM architecture through implementation,
+        modernization, and ongoing support, Isocore provides the
+        engineering expertise required across the identity lifecycle.
+      </p>
+    </header>
+
+    <div class="services-list">
+      {services.map((service) => (
+        <article class="service-item">
+          <div class="service-content">
+            <h3>{service.title}</h3>
+            <p>{service.description}</p>
+          </div>
+
+          <a
+            href={service.link}
+            class="service-link"
+            aria-label={`Explore ${service.title}`}
+          >
+            <span>Explore service</span>
+            <span aria-hidden="true">→</span>
+          </a>
+        </article>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .services-section {
+    width: 100%;
+    padding-block: 120px;
+    background: var(--color-surface-raised);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .services-inner {
+    width: min(1200px, calc(100% - 48px));
+    margin-inline: auto;
+  }
+
+  /* HEADER */
+
+  .services-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 0.7fr);
+    gap: 90px;
+    align-items: end;
+
+    margin-bottom: 64px;
+  }
+
+  .services-heading h2 {
+    max-width: 700px;
+    margin: 0;
+
+    font-size: clamp(2.5rem, 4.5vw, 4rem);
+    font-weight: 750;
+    line-height: 1.02;
+    letter-spacing: -0.045em;
+  }
+
+  .services-intro {
+    max-width: 470px;
+    margin: 0;
+
+    color: var(--color-text-secondary);
+    font-size: 0.96rem;
+    line-height: 1.75;
+  }
+
+  /* SERVICES */
+
+  .services-list {
+    border-top: 1px solid var(--color-border-strong);
+  }
+
+  .service-item {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 60px;
+    align-items: center;
+
+    padding: 34px 0;
+
+    border-bottom: 1px solid var(--color-border);
+    transition:
+      padding-left var(--transition-normal),
+      padding-right var(--transition-normal),
+      background var(--transition-normal);
+  }
+
+  .service-content {
+    max-width: 760px;
+  }
+
+  .service-content h3 {
+    margin: 0 0 9px;
+
+    color: var(--color-text);
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
+
+  .service-content p {
+    max-width: 700px;
+    margin: 0;
+
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  /* LINK */
+
+  .service-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    flex-shrink: 0;
+
+    color: var(--color-primary);
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+
+    transition:
+      color var(--transition-fast),
+      gap var(--transition-fast);
+  }
+
+  .service-link span:last-child {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .service-item:hover {
+      padding-left: 12px;
+      padding-right: 12px;
+      background: rgba(255, 255, 255, 0.6);
+    }
+
+    .service-item:hover .service-link {
+      gap: 15px;
+      color: var(--color-cyan);
+    }
+  }
+
+  /* RESPONSIVE */
+
+  @media (max-width: 900px) {
+    .services-header {
+      grid-template-columns: 1fr;
+      gap: 28px;
+      margin-bottom: 48px;
+    }
+
+    .services-intro {
+      max-width: 650px;
+    }
+
+    .service-item {
+      grid-template-columns: 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .service-link {
+      justify-self: start;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .services-section {
+      padding-block: 88px;
+    }
+
+    .services-inner {
+      width: calc(100% - 40px);
+    }
+
+    .services-heading h2 {
+      font-size: clamp(2.35rem, 10vw, 3.25rem);
+    }
+
+    .service-item {
+      padding-block: 28px;
+    }
+
+    .service-content h3 {
+      font-size: 1.15rem;
+    }
+
+    .service-content p {
+      font-size: 0.86rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .services-section {
+      padding-block: 72px;
+    }
+  }
+</style>

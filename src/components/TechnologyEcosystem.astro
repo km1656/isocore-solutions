@@ -1,0 +1,337 @@
+---
+import Eyebrow from "./Eyebrow.astro";
+
+const layers = [
+  {
+    title: "Identity & Access",
+    items: ["IAM Platforms", "Access Management", "Identity Governance"],
+  },
+  {
+    title: "Directory & Infrastructure",
+    items: ["Active Directory", "LDAP", "Directory Services"],
+  },
+  {
+    title: "Authentication",
+    items: ["SSO", "MFA", "Federation", "Adaptive Access"],
+  },
+  {
+    title: "Cloud & Hybrid",
+    items: ["Cloud Identity", "Hybrid Identity", "Enterprise Integration"],
+  },
+  {
+    title: "Applications & Integration",
+    items: ["Application Onboarding", "Identity APIs", "Provisioning"],
+  },
+];
+---
+
+<section class="ecosystem-section">
+  <div class="ecosystem-inner">
+
+    <header class="ecosystem-header">
+      <div class="ecosystem-heading">
+        <Eyebrow
+          variant="bracket"
+          text="Technology Ecosystem"
+        />
+
+        <h2>
+          Identity architecture
+          <span class="text-gradient"> across the enterprise.</span>
+        </h2>
+      </div>
+
+      <p class="ecosystem-intro">
+        Enterprise identity rarely lives in a single platform.
+        Isocore works across the interconnected technologies,
+        infrastructure, and services that make secure access possible.
+      </p>
+    </header>
+
+    <div class="ecosystem-map">
+      <div class="ecosystem-line" aria-hidden="true"></div>
+
+      {layers.map((layer) => (
+        <article class="ecosystem-layer">
+          <div class="layer-heading">
+            <span class="layer-title">{layer.title}</span>
+          </div>
+
+          <div class="layer-items">
+            {layer.items.map((item) => (
+              <span class="layer-item">{item}</span>
+            ))}
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <div class="ecosystem-footer">
+      <p>
+        Vendor-agnostic engineering across cloud, hybrid, and
+        on-premises identity environments.
+      </p>
+
+      <a href="/platforms" class="ecosystem-link">
+        <span>Explore platforms</span>
+        <span aria-hidden="true">→</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .ecosystem-section {
+    position: relative;
+    width: 100%;
+    padding-block: 120px;
+    background: var(--color-white);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .ecosystem-inner {
+    width: min(1200px, calc(100% - 48px));
+    margin-inline: auto;
+  }
+
+  /* HEADER */
+
+  .ecosystem-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 0.7fr);
+    gap: 90px;
+    align-items: end;
+
+    margin-bottom: 70px;
+  }
+
+  .ecosystem-heading h2 {
+    max-width: 700px;
+    margin: 0;
+
+    font-size: clamp(2.5rem, 4.5vw, 4rem);
+    font-weight: 750;
+    line-height: 1.02;
+    letter-spacing: -0.045em;
+  }
+
+  .ecosystem-intro {
+    max-width: 470px;
+    margin: 0;
+
+    color: var(--color-text-secondary);
+    font-size: 0.96rem;
+    line-height: 1.75;
+  }
+
+  /* ARCHITECTURE MAP */
+
+  .ecosystem-map {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    border-top: 1px solid var(--color-border-strong);
+  }
+
+  .ecosystem-layer {
+    position: relative;
+
+    display: grid;
+    grid-template-columns: 280px minmax(0, 1fr);
+    gap: 50px;
+    align-items: center;
+
+    min-height: 88px;
+    padding: 22px 0;
+
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .layer-heading {
+    position: relative;
+  }
+
+  .layer-title {
+    color: var(--color-text);
+    font-size: 0.92rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  .layer-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+  }
+
+  .layer-item {
+    display: inline-flex;
+    align-items: center;
+
+    min-height: 34px;
+    padding: 7px 12px;
+
+    border: 1px solid var(--color-border);
+    border-radius: 5px;
+
+    background: var(--color-bg);
+
+    color: var(--color-text-secondary);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.035em;
+    line-height: 1.2;
+
+    transition:
+      border-color var(--transition-fast),
+      color var(--transition-fast),
+      background var(--transition-fast);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .layer-item:hover {
+      border-color: var(--color-cyan);
+      background: var(--color-cyan);
+      color: var(--color-white);
+      font-size: 0.82rem;
+      letter-spacing: 0.045rem;
+    }
+  }
+
+  /* SUBTLE ARCHITECTURAL LINE */
+
+  .ecosystem-line {
+    position: absolute;
+    left: 280px;
+    top: 0;
+    bottom: 0;
+
+    width: 1px;
+
+    background: var(--color-cyan);
+    pointer-events: none;
+  }
+
+  /* FOOTER */
+
+  .ecosystem-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+
+    padding-top: 30px;
+  }
+
+  .ecosystem-footer p {
+    max-width: 650px;
+    margin: 0;
+
+    color: var(--color-text-muted);
+    font-size: 0.78rem;
+    line-height: 1.6;
+  }
+
+  .ecosystem-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    flex-shrink: 0;
+
+    color: var(--color-primary);
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+
+    transition:
+      color var(--transition-fast),
+      gap var(--transition-fast);
+  }
+
+  .ecosystem-link span:last-child {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1;
+  }
+
+  .ecosystem-link:hover {
+    gap: 15px;
+    color: var(--color-cyan);
+  }
+
+  /* RESPONSIVE */
+
+  @media (max-width: 900px) {
+    .ecosystem-header {
+      grid-template-columns: 1fr;
+      gap: 28px;
+      margin-bottom: 52px;
+    }
+
+    .ecosystem-intro {
+      max-width: 650px;
+    }
+
+    .ecosystem-layer {
+      grid-template-columns: 210px minmax(0, 1fr);
+      gap: 30px;
+    }
+
+    .ecosystem-line {
+      left: 210px;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .ecosystem-section {
+      padding-block: 88px;
+    }
+
+    .ecosystem-inner {
+      width: calc(100% - 40px);
+    }
+
+    .ecosystem-heading h2 {
+      font-size: clamp(2.35rem, 10vw, 3.25rem);
+    }
+
+    .ecosystem-layer {
+      grid-template-columns: 1fr;
+      gap: 14px;
+      padding-block: 25px;
+    }
+
+    .ecosystem-line {
+      display: none;
+    }
+
+    .layer-items {
+      gap: 7px;
+    }
+
+    .layer-item {
+      min-height: 32px;
+      padding: 6px 10px;
+      font-size: 0.58rem;
+    }
+
+    .ecosystem-footer {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .ecosystem-section {
+      padding-block: 72px;
+    }
+  }
+</style>

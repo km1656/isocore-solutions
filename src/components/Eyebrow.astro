@@ -1,0 +1,333 @@
+---
+interface Props {
+  text?: string;
+  variant?: "line" | "bracket" | "system" | "index" | "signal" | "path";
+}
+
+const {
+  text = "Enterprise Identity Engineering",
+  variant = "system",
+} = Astro.props;
+---
+
+<div class={`eyebrow eyebrow-${variant}`}>
+
+  {variant === "line" && (
+    <>
+      <span class="eyebrow-line"></span>
+      <span>{text}</span>
+    </>
+  )}
+
+  {variant === "bracket" && (
+    <>
+      <span class="eyebrow-bracket" aria-hidden="true">
+        [
+      </span>
+
+      <span>{text}</span>
+
+      <span class="eyebrow-bracket" aria-hidden="true">
+        ]
+      </span>
+    </>
+  )}
+
+  {variant === "system" && (
+    <>
+      <span class="eyebrow-node" aria-hidden="true"></span>
+
+      <span>{text}</span>
+
+      <span class="eyebrow-status">
+        SYSTEM
+      </span>
+    </>
+  )}
+
+  {variant === "index" && (
+    <>
+      <span class="eyebrow-number">
+        01
+      </span>
+
+      <span class="eyebrow-divider"></span>
+
+      <span>{text}</span>
+    </>
+  )}
+
+  {variant === "signal" && (
+    <>
+      <span class="eyebrow-signal" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+
+      <span>{text}</span>
+    </>
+  )}
+
+  {variant === "path" && (
+    <>
+      <span class="eyebrow-path" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+
+      <span>{text}</span>
+    </>
+  )}
+
+</div>
+
+
+<style>
+  /* =================================
+     BASE
+     ================================= */
+
+  .eyebrow {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    margin-bottom: 20px;
+
+    color: var(--color-primary);
+
+    font-family: var(--font-mono);
+
+    font-size: 0.68rem;
+
+    font-weight: 600;
+
+    line-height: 1;
+
+    letter-spacing: 0.13em;
+
+    text-transform: uppercase;
+  }
+
+
+  /* =================================
+     01 — LINE
+     
+     Traditional but refined.
+     ================================= */
+
+  .eyebrow-line {
+    width: 26px;
+    height: 1px;
+
+    background: var(--color-cyan);
+  }
+
+
+  /* =================================
+     02 — BRACKET
+     
+     Technical / engineering feel.
+     ================================= */
+
+  .eyebrow-bracket {
+    color: var(--color-cyan);
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    letter-spacing: 0;
+  }
+
+
+  .eyebrow-bracket + span {
+    color: var(--color-primary);
+  }
+
+
+  /* =================================
+     03 — SYSTEM
+     
+     Identity infrastructure / status.
+     ================================= */
+
+  .eyebrow-system {
+    gap: 10px;
+  }
+
+
+  .eyebrow-node {
+    position: relative;
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: var(--color-cyan);
+
+    box-shadow:
+      0 0 0 4px rgba(0, 180, 219, 0.08),
+      0 0 12px rgba(0, 180, 219, 0.28);
+  }
+
+
+  .eyebrow-status {
+    margin-left: 4px;
+
+    padding: 4px 7px;
+
+    border: 1px solid
+      rgba(0, 180, 219, 0.25);
+
+    border-radius: 3px;
+
+    color: var(--color-text-muted);
+
+    font-size: 0.52rem;
+
+    letter-spacing: 0.12em;
+  }
+
+
+  /* =================================
+     04 — INDEX
+     
+     Feels like an engineered system map.
+     ================================= */
+
+  .eyebrow-number {
+    color: var(--color-cyan);
+
+    font-size: 0.65rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0;
+  }
+
+
+  .eyebrow-divider {
+    width: 22px;
+    height: 1px;
+
+    background: var(--color-border-strong);
+  }
+
+
+  /* =================================
+     05 — SIGNAL
+     
+     Small signal / data indicator.
+     ================================= */
+
+  .eyebrow-signal {
+    display: inline-flex;
+
+    align-items: flex-end;
+
+    gap: 2px;
+
+    height: 10px;
+  }
+
+
+  .eyebrow-signal span {
+    display: block;
+
+    width: 2px;
+
+    border-radius: 2px;
+
+    background: var(--color-cyan);
+  }
+
+
+  .eyebrow-signal span:nth-child(1) {
+    height: 4px;
+  }
+
+
+  .eyebrow-signal span:nth-child(2) {
+    height: 7px;
+  }
+
+
+  .eyebrow-signal span:nth-child(3) {
+    height: 10px;
+  }
+
+
+  /* =================================
+     06 — PATH
+     
+     Inspired by identity/access flow.
+     ================================= */
+
+  .eyebrow-path {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 3px;
+  }
+
+
+  .eyebrow-path span {
+    display: block;
+
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: var(--color-cyan);
+  }
+
+
+  .eyebrow-path span:nth-child(2) {
+    width: 18px;
+    height: 1px;
+
+    border-radius: 0;
+
+    background:
+      linear-gradient(
+        90deg,
+        var(--color-cyan),
+        var(--color-primary)
+      );
+  }
+
+
+  .eyebrow-path span:nth-child(3) {
+    width: 6px;
+    height: 6px;
+
+    background: var(--color-primary);
+  }
+
+
+  /* =================================
+     MOBILE
+     ================================= */
+
+  @media (max-width: 700px) {
+    .eyebrow {
+      margin-bottom: 16px;
+
+      font-size: 0.61rem;
+
+      letter-spacing: 0.11em;
+    }
+
+    .eyebrow-status {
+      display: none;
+    }
+  }
+</style>

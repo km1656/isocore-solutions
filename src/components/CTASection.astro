@@ -1,0 +1,229 @@
+---
+import Eyebrow from "./Eyebrow.astro";
+---
+
+<section class="cta-section">
+  <div class="cta-glow cta-glow-one" aria-hidden="true"></div>
+  <div class="cta-glow cta-glow-two" aria-hidden="true"></div>
+
+  <div class="cta-inner">
+    <div class="cta-content">
+
+      <Eyebrow
+        variant="bracket"
+        text="Start a Conversation"
+      />
+
+      <h2>
+        Build an identity
+        <span>foundation that scales.</span>
+      </h2>
+
+      <p>
+        Whether you're modernizing legacy infrastructure,
+        designing a new IAM architecture, or looking for
+        experienced identity engineering support, let's
+        discuss where your environment is today and where
+        it needs to go.
+      </p>
+
+      <div class="cta-actions">
+        <a href="/contact" class="cta-primary">
+          <span>Schedule an IAM Assessment</span>
+          <span aria-hidden="true">→</span>
+        </a>
+
+        <a href="/contact" class="cta-secondary">
+          Talk to Isocore
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta-section {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+
+    background: var(--color-dark);
+    color: var(--color-white);
+  }
+
+  .cta-inner {
+    position: relative;
+    z-index: 2;
+
+    width: min(1200px, calc(100% - 48px));
+    margin-inline: auto;
+
+    padding-block: 120px;
+  }
+
+  .cta-content {
+    max-width: 800px;
+  }
+
+  /* TYPOGRAPHY */
+
+  .cta-content h2 {
+    max-width: 780px;
+    margin: 0 0 28px;
+
+    color: var(--color-white);
+    font-size: clamp(2.8rem, 5vw, 4.75rem);
+    font-weight: 750;
+    line-height: 1;
+    letter-spacing: -0.05em;
+  }
+
+  .cta-content h2 span {
+    display: block;
+
+    background: linear-gradient(
+      90deg,
+      var(--color-cyan),
+      #5cc8ff
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .cta-content p {
+    max-width: 680px;
+    margin: 0 0 38px;
+
+    color: #a9bbcd;
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+
+  /* ACTIONS */
+
+  .cta-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .cta-primary,
+  .cta-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    min-height: 50px;
+    padding: 0 20px;
+
+    font-size: 0.82rem;
+    font-weight: 700;
+
+    transition:
+      background var(--transition-fast),
+      color var(--transition-fast),
+      border-color var(--transition-fast),
+      gap var(--transition-fast);
+  }
+
+  .cta-primary {
+    border: 1px solid var(--color-primary);
+    border-radius: 6px;
+
+    background: var(--color-primary);
+    color: var(--color-white);
+  }
+
+  .cta-primary span:last-child {
+    font-size: 1.05rem;
+    line-height: 1;
+  }
+
+  .cta-primary:hover {
+    background: var(--color-primary-hover);
+    border-color: var(--color-primary-hover);
+    gap: 16px;
+  }
+
+  .cta-secondary {
+    border: 1px solid rgba(216, 229, 239, 0.25);
+    border-radius: 6px;
+
+    color: #dbe7f0;
+  }
+
+  .cta-secondary:hover {
+    border-color: rgba(216, 229, 239, 0.5);
+    color: var(--color-white);
+  }
+
+  /* BACKGROUND */
+
+  .cta-glow {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(90px);
+  }
+
+  .cta-glow-one {
+    width: 520px;
+    height: 520px;
+
+    top: -280px;
+    right: 4%;
+
+    background: var(--color-cyan);
+    opacity: 0.08;
+  }
+
+  .cta-glow-two {
+    width: 420px;
+    height: 420px;
+
+    bottom: -300px;
+    left: 8%;
+
+    background: var(--color-primary);
+    opacity: 0.08;
+  }
+
+  /* RESPONSIVE */
+
+  @media (max-width: 768px) {
+    .cta-inner {
+      width: calc(100% - 40px);
+      padding-block: 88px;
+    }
+
+    .cta-content h2 {
+      font-size: clamp(2.5rem, 10vw, 3.5rem);
+    }
+
+    .cta-content p {
+      font-size: 0.92rem;
+    }
+
+    .cta-actions {
+      align-items: stretch;
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .cta-primary,
+    .cta-secondary {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .cta-inner {
+      padding-block: 72px;
+    }
+  }
+</style>
