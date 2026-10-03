@@ -1,5 +1,10 @@
+---
+---
+
 <header class="site-header">
   <div class="container header-inner">
+
+    <!-- BRAND -->
     <a href="/" class="brand" aria-label="Isocore Solutions home">
       <img
         src="/images/isocore.svg"
@@ -8,20 +13,86 @@
       />
     </a>
 
+    <!-- DESKTOP NAVIGATION -->
     <nav class="desktop-nav" aria-label="Main navigation">
+
       <a href="/">Home</a>
+
       <a href="/about">About</a>
-      <a href="/services">Services</a>
+
+      <!-- SERVICES DROPDOWN -->
+      <div class="nav-dropdown">
+        <button
+          class="nav-dropdown-trigger"
+          type="button"
+          aria-expanded="false"
+          aria-haspopup="true"
+        >
+          <span>Services</span>
+          <span class="dropdown-arrow" aria-hidden="true">⌄</span>
+        </button>
+
+        <div class="nav-dropdown-menu">
+          <a href="/services">
+            <span class="dropdown-title">Services Overview</span>
+            <span class="dropdown-description">
+              Enterprise identity engineering
+            </span>
+          </a>
+
+          <a href="/services/iam-strategy-architecture">
+            <span class="dropdown-title">
+              IAM Strategy & Architecture
+            </span>
+            <span class="dropdown-description">
+              Identity strategy, architecture & roadmaps
+            </span>
+          </a>
+
+          <a href="/services/identity-modernization">
+            <span class="dropdown-title">
+              Identity Modernization
+            </span>
+            <span class="dropdown-description">
+              Modernize legacy identity infrastructure
+            </span>
+          </a>
+
+          <a href="/services/implementation-integration">
+            <span class="dropdown-title">
+              Implementation & Integration
+            </span>
+            <span class="dropdown-description">
+              Implement and connect identity platforms
+            </span>
+          </a>
+
+          <a href="/services/managed-identity-support">
+            <span class="dropdown-title">
+              Managed Identity & Support
+            </span>
+            <span class="dropdown-description">
+              Ongoing identity engineering & operations
+            </span>
+          </a>
+        </div>
+      </div>
+
       <a href="/platforms">Platforms</a>
+
       <a href="/insights">Insights</a>
+
       <a href="/contact">Contact</a>
+
     </nav>
 
-    <a href="/contact" class="header-cta">
+    <!-- HEADER CTA -->
+    <a href="/contact" class="button button-primary header-cta">
       <span>Schedule IAM Assessment</span>
-      <span class="cta-arrow" aria-hidden="true">→</span>
+      <span aria-hidden="true">→</span>
     </a>
 
+    <!-- MOBILE TOGGLE -->
     <button
       class="menu-toggle"
       type="button"
@@ -33,22 +104,71 @@
       <span></span>
       <span></span>
     </button>
+
   </div>
 
+  <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobile-menu">
+
     <nav aria-label="Mobile navigation">
+
       <a href="/">Home</a>
+
       <a href="/about">About</a>
-      <a href="/services">Services</a>
+
+      <!-- MOBILE SERVICES -->
+      <div class="mobile-services">
+
+        <button
+          class="mobile-services-trigger"
+          type="button"
+          aria-expanded="false"
+        >
+          <span>Services</span>
+          <span class="mobile-services-arrow" aria-hidden="true">
+            ↓
+          </span>
+        </button>
+
+        <div class="mobile-services-menu">
+
+          <a href="/services">
+            Services Overview
+          </a>
+
+          <a href="/services/iam-strategy-architecture">
+            IAM Strategy & Architecture
+          </a>
+
+          <a href="/services/identity-modernization">
+            Identity Modernization
+          </a>
+
+          <a href="/services/implementation-integration">
+            Implementation & Integration
+          </a>
+
+          <a href="/services/managed-identity-support">
+            Managed Identity & Support
+          </a>
+
+        </div>
+
+      </div>
+
       <a href="/platforms">Platforms</a>
+
       <a href="/insights">Insights</a>
+
       <a href="/contact">Contact</a>
+
     </nav>
 
-    <a href="/contact" class="mobile-cta">
+    <a href="/contact" class="button button-primary mobile-cta">
       <span>Schedule IAM Assessment</span>
       <span aria-hidden="true">→</span>
     </a>
+
   </div>
 </header>
 
@@ -58,6 +178,65 @@
 
   const mobileMenu =
     document.querySelector<HTMLElement>(".mobile-menu");
+
+  const serviceDropdown =
+    document.querySelector<HTMLElement>(".nav-dropdown");
+
+  const serviceTrigger =
+    document.querySelector<HTMLButtonElement>(
+      ".nav-dropdown-trigger"
+    );
+
+  const mobileServices =
+    document.querySelector<HTMLElement>(".mobile-services");
+
+  const mobileServicesTrigger =
+    document.querySelector<HTMLButtonElement>(
+      ".mobile-services-trigger"
+    );
+
+  /*
+   * Desktop Services dropdown
+   */
+
+  serviceTrigger?.addEventListener("click", () => {
+    const isOpen =
+      serviceTrigger.getAttribute("aria-expanded") === "true";
+
+    serviceTrigger.setAttribute(
+      "aria-expanded",
+      String(!isOpen)
+    );
+
+    serviceDropdown?.classList.toggle(
+      "is-open",
+      !isOpen
+    );
+  });
+
+  /*
+   * Close desktop dropdown when clicking outside
+   */
+
+  document.addEventListener("click", (event) => {
+    const target = event.target as Node;
+
+    if (
+      serviceDropdown &&
+      !serviceDropdown.contains(target)
+    ) {
+      serviceDropdown.classList.remove("is-open");
+
+      serviceTrigger?.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+    }
+  });
+
+  /*
+   * Mobile menu
+   */
 
   menuToggle?.addEventListener("click", () => {
     const isOpen =
@@ -70,23 +249,70 @@
 
     menuToggle.setAttribute(
       "aria-label",
-      isOpen ? "Open navigation" : "Close navigation"
+      isOpen
+        ? "Open navigation"
+        : "Close navigation"
     );
 
-    mobileMenu?.classList.toggle("is-open", !isOpen);
-    menuToggle.classList.toggle("is-open", !isOpen);
+    mobileMenu?.classList.toggle(
+      "is-open",
+      !isOpen
+    );
+
+    menuToggle.classList.toggle(
+      "is-open",
+      !isOpen
+    );
   });
+
+  /*
+   * Mobile Services dropdown
+   */
+
+  mobileServicesTrigger?.addEventListener(
+    "click",
+    () => {
+      const isOpen =
+        mobileServicesTrigger.getAttribute(
+          "aria-expanded"
+        ) === "true";
+
+      mobileServicesTrigger.setAttribute(
+        "aria-expanded",
+        String(!isOpen)
+      );
+
+      mobileServices?.classList.toggle(
+        "is-open",
+        !isOpen
+      );
+    }
+  );
+
+  /*
+   * Close mobile menu after navigation
+   */
 
   mobileMenu?.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", () => {
-      menuToggle?.setAttribute("aria-expanded", "false");
+
+      menuToggle?.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
       menuToggle?.setAttribute(
         "aria-label",
         "Open navigation"
       );
 
-      mobileMenu?.classList.remove("is-open");
-      menuToggle?.classList.remove("is-open");
+      mobileMenu?.classList.remove(
+        "is-open"
+      );
+
+      menuToggle?.classList.remove(
+        "is-open"
+      );
     });
   });
 </script>
@@ -94,7 +320,7 @@
 <style>
   /* =================================
      HEADER
-     ================================= */
+  ================================= */
 
   .site-header {
     position: absolute;
@@ -105,7 +331,8 @@
 
     width: 100%;
 
-    border-bottom: 1px solid rgba(216, 229, 239, 0.9);
+    border-bottom: 1px solid
+      rgba(216, 229, 239, 0.9);
 
     background: rgba(255, 255, 255, 0.94);
 
@@ -118,7 +345,7 @@
 
   /* =================================
      HEADER INNER
-     ================================= */
+  ================================= */
 
   .header-inner {
     display: flex;
@@ -131,7 +358,7 @@
 
   /* =================================
      BRAND
-     ================================= */
+  ================================= */
 
   .brand {
     display: flex;
@@ -141,18 +368,6 @@
 
     margin-right: auto;
   }
-
-  /*
-    Horizontal logo master:
-    600 × 120
-    Aspect ratio: 5:1
-
-    Desktop:
-    180 × 36px
-
-    Mobile:
-    150 × 30px
-  */
 
   .brand-logo {
     display: block;
@@ -165,7 +380,7 @@
 
   /* =================================
      DESKTOP NAVIGATION
-     ================================= */
+  ================================= */
 
   .desktop-nav {
     display: flex;
@@ -174,27 +389,31 @@
     gap: 26px;
   }
 
-  .desktop-nav a {
+  .desktop-nav > a,
+  .nav-dropdown-trigger {
     position: relative;
 
     color: var(--color-text-secondary);
 
+    font-family: var(--font-sans);
     font-size: 0.82rem;
     font-weight: 600;
 
     white-space: nowrap;
-
-    transition:
-      color var(--transition-fast);
   }
 
-  .desktop-nav a::after {
+  .desktop-nav > a {
+    padding-block: 8px;
+  }
+
+  .desktop-nav > a::after,
+  .nav-dropdown-trigger::after {
     content: "";
 
     position: absolute;
 
     left: 0;
-    bottom: -8px;
+    bottom: 0;
 
     width: 0;
     height: 2px;
@@ -207,68 +426,166 @@
       width var(--transition-fast);
   }
 
-  .desktop-nav a:hover {
+  .desktop-nav > a:hover,
+  .nav-dropdown-trigger:hover {
     color: var(--color-text);
   }
 
-  .desktop-nav a:hover::after {
+  .desktop-nav > a:hover::after,
+  .nav-dropdown-trigger:hover::after {
     width: 100%;
   }
 
   /* =================================
-     PRIMARY CTA
-     ================================= */
+     SERVICES DROPDOWN
+  ================================= */
 
-  .header-cta {
+  .nav-dropdown {
+    position: relative;
+  }
+
+  .nav-dropdown-trigger {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
 
-    flex-shrink: 0;
+    gap: 6px;
 
-    min-height: 42px;
+    padding: 8px 0;
 
-    padding: 0 18px;
+    border: 0;
 
-    gap: 9px;
+    background: transparent;
+
+    cursor: pointer;
+  }
+
+  .dropdown-arrow {
+    display: inline-block;
+
+    margin-top: -2px;
+
+    color: var(--color-text-muted);
+
+    font-size: 0.9rem;
+
+    transition:
+      transform var(--transition-fast),
+      color var(--transition-fast);
+  }
+
+  .nav-dropdown.is-open
+    .dropdown-arrow {
+    transform: rotate(180deg);
+    color: var(--color-primary);
+  }
+
+  .nav-dropdown-menu {
+    position: absolute;
+
+    top: calc(100% + 18px);
+    left: 50%;
+
+    width: 330px;
+
+    transform:
+      translateX(-50%)
+      translateY(-6px);
+
+    padding: 8px;
+
+    border: 1px solid var(--color-border);
+
+    border-radius: var(--radius-md);
+
+    background: rgba(255, 255, 255, 0.98);
+
+    box-shadow:
+      0 18px 45px rgba(6, 20, 38, 0.12);
+
+    opacity: 0;
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+      opacity var(--transition-fast),
+      transform var(--transition-fast),
+      visibility var(--transition-fast);
+  }
+
+  .nav-dropdown.is-open
+    .nav-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+
+    pointer-events: auto;
+
+    transform:
+      translateX(-50%)
+      translateY(0);
+  }
+
+  .nav-dropdown-menu a {
+    display: block;
+
+    padding: 13px 14px;
 
     border-radius: var(--radius-sm);
 
-    background: var(--color-primary);
+    transition:
+      background var(--transition-fast);
+  }
 
-    color: var(--color-white);
+  .nav-dropdown-menu a:hover {
+    background: var(--color-surface-raised);
+  }
 
-    font-size: 0.78rem;
+  .dropdown-title {
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: var(--color-text);
+
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
     font-weight: 700;
 
-    white-space: nowrap;
-
-    box-shadow:
-      0 6px 16px rgba(0, 114, 255, 0.14);
-
     transition:
-      background var(--transition-fast),
-      transform var(--transition-fast),
-      box-shadow var(--transition-fast);
+      color var(--transition-fast);
   }
 
-  .header-cta:hover {
-    background: var(--color-primary-hover);
-
-    transform: translateY(-1px);
-
-    box-shadow:
-      0 9px 22px rgba(0, 114, 255, 0.2);
+  .nav-dropdown-menu a:hover
+    .dropdown-title {
+    color: var(--color-primary);
   }
 
-  .cta-arrow {
-    font-size: 1rem;
-    line-height: 1;
+  .dropdown-description {
+    display: block;
+
+    color: var(--color-text-muted);
+
+    font-size: 0.7rem;
+    line-height: 1.45;
+  }
+
+  /* =================================
+     HEADER CTA
+     ================================= */
+
+  .header-cta {
+    min-height: 42px;
+
+    padding-inline: 18px;
+
+    font-size: 0.78rem;
+
+    flex-shrink: 0;
   }
 
   /* =================================
      MOBILE TOGGLE
-     ================================= */
+  ================================= */
 
   .menu-toggle {
     display: none;
@@ -318,36 +635,121 @@
 
   /* Hamburger → X */
 
-  .menu-toggle.is-open span:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
+  .menu-toggle.is-open
+    span:nth-child(1) {
+    transform:
+      translateY(7px)
+      rotate(45deg);
   }
 
-  .menu-toggle.is-open span:nth-child(2) {
+  .menu-toggle.is-open
+    span:nth-child(2) {
     opacity: 0;
   }
 
-  .menu-toggle.is-open span:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
+  .menu-toggle.is-open
+    span:nth-child(3) {
+    transform:
+      translateY(-7px)
+      rotate(-45deg);
   }
 
   /* =================================
      MOBILE MENU
-     ================================= */
+  ================================= */
 
   .mobile-menu {
     display: none;
   }
 
   /* =================================
+     MOBILE SERVICES
+  ================================= */
+
+  .mobile-services {
+    border-bottom: 1px solid
+      var(--color-border);
+  }
+
+  .mobile-services-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+
+    padding: 15px 0;
+
+    border: 0;
+
+    background: transparent;
+
+    color: var(--color-text-secondary);
+
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    font-weight: 600;
+
+    text-align: left;
+
+    cursor: pointer;
+  }
+
+  .mobile-services-trigger:hover {
+    color: var(--color-primary);
+  }
+
+  .mobile-services-arrow {
+    font-size: 1rem;
+
+    transition:
+      transform var(--transition-fast);
+  }
+
+  .mobile-services.is-open
+    .mobile-services-arrow {
+    transform: rotate(180deg);
+  }
+
+  .mobile-services-menu {
+    display: none;
+
+    padding: 0 0 8px 14px;
+  }
+
+  .mobile-services.is-open
+    .mobile-services-menu {
+    display: block;
+  }
+
+  .mobile-services-menu a {
+    display: block;
+
+    padding: 11px 0;
+
+    border: 0 !important;
+
+    color: var(--color-text-muted) !important;
+
+    font-size: 0.84rem !important;
+    font-weight: 500 !important;
+  }
+
+  .mobile-services-menu a:hover {
+    color: var(--color-primary) !important;
+  }
+
+  /* =================================
      TABLET
-     ================================= */
+  ================================= */
 
   @media (max-width: 1100px) {
     .desktop-nav {
       gap: 20px;
     }
 
-    .desktop-nav a {
+    .desktop-nav > a,
+    .nav-dropdown-trigger {
       font-size: 0.78rem;
     }
 
@@ -362,7 +764,7 @@
 
   /* =================================
      MOBILE / TABLET
-     ================================= */
+  ================================= */
 
   @media (max-width: 960px) {
     .desktop-nav,
@@ -377,14 +779,19 @@
     .mobile-menu.is-open {
       display: block;
 
-      border-top: 1px solid var(--color-border);
+      border-top: 1px solid
+        var(--color-border);
 
       background: rgba(255, 255, 255, 0.98);
 
-      padding: 20px var(--container-padding) 28px;
+      padding:
+        20px
+        var(--container-padding)
+        28px;
 
       box-shadow:
-        0 14px 32px rgba(6, 20, 38, 0.08);
+        0 14px 32px
+        rgba(6, 20, 38, 0.08);
     }
 
     .mobile-menu nav {
@@ -392,12 +799,13 @@
       flex-direction: column;
     }
 
-    .mobile-menu nav a {
+    .mobile-menu nav > a {
       display: block;
 
       padding: 15px 0;
 
-      border-bottom: 1px solid var(--color-border);
+      border-bottom: 1px solid
+        var(--color-border);
 
       color: var(--color-text-secondary);
 
@@ -408,42 +816,24 @@
         color var(--transition-fast);
     }
 
-    .mobile-menu nav a:hover {
+    .mobile-menu nav > a:hover {
       color: var(--color-primary);
     }
 
     .mobile-cta {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      width: 100%;
 
       margin-top: 22px;
 
       min-height: 48px;
 
-      padding: 0 18px;
-
-      border-radius: var(--radius-sm);
-
-      background: var(--color-primary);
-
-      color: var(--color-white);
-
       font-size: 0.88rem;
-      font-weight: 700;
-
-      box-shadow:
-        0 6px 16px rgba(0, 114, 255, 0.14);
-    }
-
-    .mobile-cta span:last-child {
-      font-size: 1.1rem;
     }
   }
 
   /* =================================
      SMALL MOBILE
-     ================================= */
+  ================================= */
 
   @media (max-width: 600px) {
     .header-inner {
