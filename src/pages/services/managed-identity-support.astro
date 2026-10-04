@@ -19,7 +19,7 @@ import Eyebrow from "../../components/Eyebrow.astro";
 
           <h1>
             Keep identity infrastructure
-            <span class="text-gradient">resilient and reliable.</span>
+            <span class="text-gradient"> resilient and reliable.</span>
           </h1>
 
           <p class="hero-description">
@@ -46,7 +46,7 @@ import Eyebrow from "../../components/Eyebrow.astro";
     <section class="section solve-section">
       <div class="container">
         <div class="section-header">
-          <Eyebrow text="What We Solve" variant="system" />
+          <Eyebrow text="What We Solve" variant="bracket"/>
 
           <h2>Identity requires ongoing engineering.</h2>
 
@@ -188,7 +188,7 @@ import Eyebrow from "../../components/Eyebrow.astro";
     <section class="section approach-section">
       <div class="container">
         <div class="section-header">
-          <Eyebrow text="How We Approach It" variant="path" />
+          <Eyebrow text="How We Approach It" variant="bracket" />
 
           <h2>Operate. Stabilize. Improve.</h2>
 
@@ -236,7 +236,7 @@ import Eyebrow from "../../components/Eyebrow.astro";
     <section class="section technology-section">
       <div class="container">
         <div class="section-header">
-          <Eyebrow text="Technology Context" variant="signal" />
+          <Eyebrow text="Technology Context" variant="bracket" />
 
           <h2>Support across the identity ecosystem.</h2>
 
@@ -336,7 +336,7 @@ import Eyebrow from "../../components/Eyebrow.astro";
       </div>
     </section>
 
-    <CTASection />
+    
   </main>
 </BaseLayout>
 
@@ -400,54 +400,22 @@ import Eyebrow from "../../components/Eyebrow.astro";
     gap: 14px;
   }
 
-  .button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    min-height: 52px;
-    padding: 0 22px;
-    border: 1px solid transparent;
-    border-radius: var(--radius-sm);
-    font-size: 0.88rem;
-    font-weight: 700;
-    transition:
-      background var(--transition-normal),
-      border-color var(--transition-normal),
-      color var(--transition-normal),
-      transform var(--transition-normal);
-  }
+  
 
-  .button:hover {
-    transform: translateY(-2px);
-  }
-
-  .button-primary {
-    background: var(--color-primary);
-    color: var(--color-white);
-  }
-
-  .button-primary:hover {
-    background: var(--color-primary-hover);
-  }
-
-  .button-secondary {
-    background: var(--color-white);
-    border-color: var(--color-border-strong);
-    color: var(--color-text);
-  }
-
-  .button-secondary:hover {
-    border-color: var(--color-primary);
-    color: var(--color-primary);
-  }
-
+  
   .solve-section {
-    background: var(--color-white);
+    background:
+    linear-gradient(
+      145deg,
+      #008fd0 0%,
+      #00b8c8 45%,
+      #0a2a6b 100%
+    );
   }
 
   .section-header {
     max-width: 760px;
+    color: var(--color-white)
   }
 
   .solve-grid {
@@ -466,12 +434,14 @@ import Eyebrow from "../../components/Eyebrow.astro";
 
   .solve-item h3 {
     margin-bottom: 14px;
+    color: var(--color-white)
   }
 
   .solve-item p {
     margin-bottom: 0;
     font-size: 0.94rem;
     line-height: 1.7;
+    color: rgba(255, 255, 255, 0.76);
   }
 
   .capabilities-section {
@@ -579,20 +549,21 @@ import Eyebrow from "../../components/Eyebrow.astro";
   }
 
   .engagement-section {
-    background: var(--color-white);
+    
+    background:
+    linear-gradient(
+      145deg,
+      #008fd0 0%,
+      #00b8c8 45%,
+      #0a2a6b 100%
+    );
   }
 
   .engagement-panel {
     position: relative;
     overflow: hidden;
     padding: 72px;
-    background: linear-gradient(
-      135deg,
-      #061426 0%,
-      #0a2a4a 55%,
-      #006b8f 100%
-    );
-    color: var(--color-white);
+  
   }
 
   .engagement-panel::after {
