@@ -703,13 +703,19 @@ const architecturePrinciples = [
     line-height: 1.75;
   }
 
- .capability-list span {
+.capability-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.capability-list span {
   padding: 6px 9px;
   border: 1px solid var(--color-border);
   background: var(--color-surface);
   color: var(--color-text-muted);
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.55rem;
   line-height: 1.2;
   letter-spacing: 0.02em;
   transition:
@@ -724,16 +730,13 @@ const architecturePrinciples = [
   background: rgba(0, 180, 219, 0.05);
 }
 
-  .capability-list span {
-    padding: 6px 9px;
-    border: 1px solid var(--color-border);
-    background: var(--color-surface);
-    color: var(--color-text-muted);
-    font-family: var(--font-mono);
-    font-size: 0.55rem;
-    line-height: 1.2;
-    letter-spacing: 0.02em;
-  }
+.technology-card:hover .capability-list span {
+  color: var(--color-cyan);
+  border-color: rgba(0, 180, 219, 0.35);
+  background: rgba(0, 180, 219, 0.05);
+}
+
+
 
   /* =================================
      TECHNOLOGY ECOSYSTEM
