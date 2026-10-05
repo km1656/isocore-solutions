@@ -1,6 +1,5 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import CTASection from "../../components/CTASection.astro";
 import Eyebrow from "../../components/Eyebrow.astro";
 ---
 
@@ -311,8 +310,8 @@ import Eyebrow from "../../components/Eyebrow.astro";
       </div>
     </section>
 
-    <!-- CTA -->
-    <CTASection />
+    
+  
   </main>
 </BaseLayout>
 
@@ -802,6 +801,7 @@ import Eyebrow from "../../components/Eyebrow.astro";
 
   .perspective-section {
     background: var(--color-bg);
+   
   }
 
   .perspective-panel {
@@ -812,7 +812,7 @@ import Eyebrow from "../../components/Eyebrow.astro";
 
     display: flex;
     align-items: center;
-
+    max-width: 1320px;
     padding: 72px;
 
     background:
@@ -830,7 +830,7 @@ import Eyebrow from "../../components/Eyebrow.astro";
     position: relative;
     z-index: 2;
 
-    max-width: 700px;
+    max-width: 1320px;
   }
 
   .perspective-content :global(.eyebrow-bracket) {
