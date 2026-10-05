@@ -3,11 +3,11 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Eyebrow from "../../components/Eyebrow.astro";
 import CTASection from "../../components/CTASection.astro";
 
-const platformGroups = [
+const technologyAreas = [
   {
     title: "Identity & Access",
     description:
-      "Core identity and access capabilities used to establish, manage, and control enterprise identities.",
+      "Core identity capabilities used to establish, manage, and control access across the enterprise.",
     capabilities: [
       "IAM Platforms",
       "Access Management",
@@ -18,7 +18,7 @@ const platformGroups = [
   {
     title: "Directory Services",
     description:
-      "Directory infrastructure that provides the identity foundation for users, systems, applications, and services.",
+      "Directory infrastructure providing the identity foundation for users, systems, applications, and services.",
     capabilities: [
       "Active Directory",
       "LDAP",
@@ -40,7 +40,7 @@ const platformGroups = [
   {
     title: "Identity Governance",
     description:
-      "Governance capabilities that support identity lifecycle management, access controls, and accountability.",
+      "Governance capabilities supporting identity lifecycle management, access controls, compliance, and accountability.",
     capabilities: [
       "Access Governance",
       "Access Reviews",
@@ -71,274 +71,371 @@ const platformGroups = [
     ],
   },
 ];
+
+const technologyEcosystem = [
+  {
+    title: "Workforce Identity",
+    description:
+      "Identity platforms supporting workforce access, authentication, federation, and modern enterprise sign-on.",
+    vendors: [
+      "Microsoft Entra",
+      "Okta",
+      "Ping Identity",
+      "IBM Security Verify",
+      "OneLogin",
+      "JumpCloud",
+      "Cisco Duo",
+    ],
+  },
+  {
+    title: "Directory Services",
+    description:
+      "Directory technologies providing foundational identity stores and connectivity across enterprise environments.",
+    vendors: [
+      "Microsoft Active Directory",
+      "Microsoft Entra Domain Services",
+      "OpenLDAP",
+      "389 Directory Server",
+      "RadiantOne",
+      "JumpCloud",
+      "Google Cloud Identity",
+    ],
+  },
+  {
+    title: "Identity Governance",
+    description:
+      "Platforms supporting lifecycle management, access governance, certifications, policy, and compliance.",
+    vendors: [
+      "SailPoint",
+      "Saviynt",
+      "Microsoft Entra ID Governance",
+      "One Identity",
+      "Omada",
+      "IBM",
+      "Oracle",
+      "Okta Identity Governance",
+    ],
+  },
+  {
+    title: "Privileged Access",
+    description:
+      "Privileged identity technologies focused on elevated access, credential protection, and administrative control.",
+    vendors: [
+      "CyberArk",
+      "BeyondTrust",
+      "Delinea",
+      "One Identity",
+      "WALLIX",
+      "ManageEngine",
+      "Netwrix",
+      "StrongDM",
+    ],
+  },
+  {
+    title: "Cloud Identity",
+    description:
+      "Cloud identity and access technologies supporting modern infrastructure, applications, and distributed environments.",
+    vendors: [
+      "Microsoft Azure",
+      "Amazon Web Services",
+      "Google Cloud",
+      "Oracle Cloud",
+      "IBM Cloud",
+    ],
+  },
+  {
+    title: "Customer Identity",
+    description:
+      "Identity platforms supporting secure customer, consumer, partner, and external-user experiences.",
+    vendors: [
+      "Okta / Auth0",
+      "Microsoft Entra External ID",
+      "Ping Identity",
+      "ForgeRock",
+      "IBM Security Verify",
+      "AWS Cognito",
+      "WSO2",
+    ],
+  },
+  {
+    title: "Authentication & Federation",
+    description:
+      "Platforms and technologies enabling modern authentication, federation, SSO, and application trust.",
+    vendors: [
+      "Microsoft Entra",
+      "Okta",
+      "Ping Identity",
+      "Auth0",
+      "IBM Security Verify",
+      "ForgeRock",
+      "Cisco Duo",
+      "WSO2",
+    ],
+  },
+  {
+    title: "Machine & Secrets Identity",
+    description:
+      "Technologies securing non-human identities, credentials, secrets, keys, and machine-to-machine access.",
+    vendors: [
+      "CyberArk",
+      "HashiCorp Vault",
+      "Venafi",
+      "Keyfactor",
+      "Azure Key Vault",
+      "AWS Secrets Manager",
+      "Google Secret Manager",
+      "Akeyless",
+    ],
+  },
+];
+
+const architectureLayers = [
+  {
+    title: "Identity",
+    items: ["Users", "Service Accounts", "Devices", "Workloads"],
+  },
+  {
+    title: "Access",
+    items: ["Authentication", "Authorization", "SSO", "MFA"],
+  },
+  {
+    title: "Platforms",
+    items: ["IAM", "Directories", "Governance", "Cloud Identity"],
+  },
+  {
+    title: "Enterprise",
+    items: ["Applications", "Infrastructure", "Security", "Business Systems"],
+  },
+];
+
+const architecturePrinciples = [
+  {
+    title: "Environment",
+    description:
+      "Understand the existing identity infrastructure, dependencies, applications, and operational constraints.",
+  },
+  {
+    title: "Requirements",
+    description:
+      "Define the identity, access, security, integration, governance, and operational capabilities required.",
+  },
+  {
+    title: "Architecture",
+    description:
+      "Establish an architecture that provides a practical foundation for selecting and implementing technology.",
+  },
+];
 ---
 
 <BaseLayout
   title="Platforms | Isocore Solutions"
-  description="Enterprise identity platforms, directory services, authentication, governance, cloud identity, and application integration expertise."
+  description="Enterprise identity platforms, directories, authentication, governance, cloud identity, privileged access, and application integration expertise."
 >
   <main>
-
     <!-- HERO -->
-
     <section class="platform-hero">
       <div class="platform-grid" aria-hidden="true"></div>
       <div class="platform-glow" aria-hidden="true"></div>
 
-      <div class="platform-hero-inner">
+      <div class="platform-hero-inner container">
         <div class="platform-hero-copy">
-
-          <Eyebrow
-            variant="bracket"
-            text="Technology Ecosystem"
-          />
+          <Eyebrow variant="bracket" text="Technology Ecosystem" />
 
           <h1>
             Identity technology
-            <span class="text-gradient">
-              across the enterprise.
-            </span>
+            <span class="text-gradient">across the enterprise.</span>
           </h1>
 
           <p>
-            Isocore works across the platforms, directories,
-            authentication systems, cloud environments, and
-            applications that make enterprise identity operate.
+            Isocore works across the platforms, directories, authentication
+            systems, cloud environments, and applications that make enterprise
+            identity operate.
           </p>
-
         </div>
 
         <div class="platform-context">
-
-          <span class="context-label">
-            Enterprise Identity
-          </span>
-
+          <span class="context-label">Enterprise Identity</span>
           <div class="context-line"></div>
-
           <p>
-            Architecture and engineering across cloud,
-            hybrid, and on-premises identity environments.
+            Architecture and engineering across cloud, hybrid, and
+            on-premises identity environments.
           </p>
-
         </div>
       </div>
     </section>
 
-
-    <!-- INTRO -->
-
+    <!-- PLATFORM PERSPECTIVE -->
     <section class="platform-intro section">
-      <div class="platform-intro-inner">
-
+      <div class="container platform-intro-inner">
         <div class="section-header">
-
-          <Eyebrow
-            variant="bracket"
-            text="Platform Perspective"
-          />
+          <Eyebrow variant="bracket" text="Platform Perspective" />
 
           <h2>
-            Technology is only useful
-            when it works <span class="text-gradient">together.</span>
+            Technology is only useful when it
+            <span class="text-gradient">works together.</span>
           </h2>
-
         </div>
 
         <div class="intro-content">
-
           <p class="intro-lead">
-            Enterprise identity rarely lives inside a single platform.
-            It sits at the intersection of directories, applications,
-            authentication, security, cloud infrastructure, and
-            operational processes.
+            Enterprise identity rarely lives inside a single platform. It sits
+            at the intersection of directories, applications, authentication,
+            security, cloud infrastructure, and operational processes.
           </p>
 
           <div class="intro-copy">
             <p>
-              Isocore approaches identity as an interconnected
-              technology environment rather than a collection of
-              isolated products.
+              Isocore approaches identity as an interconnected technology
+              environment rather than a collection of isolated products.
             </p>
 
             <p>
-              Our engineering work considers how platforms interact,
-              where identity information originates, how access is
-              enforced, and how the environment needs to operate
-              over time.
+              Our engineering work considers how platforms interact, where
+              identity information originates, how access is enforced, and how
+              the environment needs to operate over time.
             </p>
           </div>
-
         </div>
       </div>
     </section>
 
-
-    <!-- PLATFORM GROUPS -->
-
-    <section class="platform-groups">
-      <div class="platform-groups-inner">
-
+    <!-- TECHNOLOGY AREAS -->
+    <section class="technology-areas section">
+      <div class="container">
         <div class="section-header">
-
-          <Eyebrow
-            variant="bracket"
-            text="Technology Areas"
-          />
+          <Eyebrow variant="bracket" text="Technology Areas" />
 
           <h2>
-            An identity ecosystem,
-            <span class="text-gradient">
-              not a product list.
-            </span>
-          </h2>
-
-        </div>
-
-        <div class="platform-list">
-
-          {platformGroups.map((group) => (
-            <article class="platform-row">
-
-              <div class="platform-row-heading">
-                <h3>{group.title}</h3>
-              </div>
-
-              <div class="platform-row-content">
-
-                <p>
-                  {group.description}
-                </p>
-
-                <div class="platform-capabilities">
-                  {group.capabilities.map((capability) => (
-                    <span>{capability}</span>
-                  ))}
-                </div>
-
-              </div>
-
-            </article>
-          ))}
-
-        </div>
-
-      </div>
-    </section>
-
-
-    <!-- ARCHITECTURE -->
-
-    <section class="platform-architecture">
-      <div class="architecture-inner">
-
-        <div class="architecture-copy">
-
-          <Eyebrow
-            variant="bracket"
-            text="Architecture Context"
-          />
-
-          <h2>
-            Identity connects
-            <span class="text-gradient">
-              everything.
-            </span>
+            The identity capabilities behind
+            <span class="text-gradient">the technology.</span>
           </h2>
 
           <p>
-            A successful identity environment has to connect
-            people, applications, devices, directories, cloud
-            services, and security controls through consistent
-            identity and access patterns.
+            We work across the identity layers that connect people,
+            applications, infrastructure, security controls, and business
+            systems.
           </p>
-
         </div>
 
-        <div class="architecture-map">
+        <div class="technology-area-grid">
+          {
+            technologyAreas.map((area) => (
+              <article class="technology-card">
+                <div class="technology-card-top">
+                  <span class="technology-card-line" aria-hidden="true"></span>
+                  <h3>{area.title}</h3>
+                </div>
 
-          <div class="architecture-layer">
+                <p>{area.description}</p>
 
-            <span class="layer-title">
-              Identity
-            </span>
-
-            <div class="layer-items">
-              <span>Users</span>
-              <span>Service Accounts</span>
-              <span>Devices</span>
-              <span>Workloads</span>
-            </div>
-
-          </div>
-
-          <div class="architecture-layer">
-
-            <span class="layer-title">
-              Access
-            </span>
-
-            <div class="layer-items">
-              <span>Authentication</span>
-              <span>Authorization</span>
-              <span>SSO</span>
-              <span>MFA</span>
-            </div>
-
-          </div>
-
-          <div class="architecture-layer">
-
-            <span class="layer-title">
-              Platforms
-            </span>
-
-            <div class="layer-items">
-              <span>IAM</span>
-              <span>Directories</span>
-              <span>Governance</span>
-              <span>Cloud Identity</span>
-            </div>
-
-          </div>
-
-          <div class="architecture-layer">
-
-            <span class="layer-title">
-              Enterprise
-            </span>
-
-            <div class="layer-items">
-              <span>Applications</span>
-              <span>Infrastructure</span>
-              <span>Security</span>
-              <span>Business Systems</span>
-            </div>
-
-          </div>
-
+                <div class="capability-list">
+                  {area.capabilities.map((capability) => (
+                    <span>{capability}</span>
+                  ))}
+                </div>
+              </article>
+            ))
+          }
         </div>
       </div>
     </section>
 
+    <!-- TECHNOLOGY ECOSYSTEM -->
+    <section class="ecosystem section">
+      <div class="container">
+        <div class="section-header ecosystem-header">
+          <Eyebrow variant="bracket" text="Technology Ecosystem" />
 
-    <!-- VENDOR NEUTRALITY -->
+          <h2>
+            Leading platforms.
+            <span class="text-gradient">Enterprise context.</span>
+          </h2>
 
-    <section class="platform-neutral section">
-      <div class="neutral-inner">
+          <p>
+            Identity environments are rarely built around one product. Isocore
+            works across leading platforms and technologies while keeping
+            architecture, integration, governance, and long-term operation at
+            the center.
+          </p>
+        </div>
 
+        <div class="ecosystem-grid">
+          {
+            technologyEcosystem.map((category) => (
+              <article class="ecosystem-card">
+                <div class="ecosystem-card-header">
+                  <span class="ecosystem-marker" aria-hidden="true"></span>
+                  <h3>{category.title}</h3>
+                </div>
+
+                <p>{category.description}</p>
+
+                <div class="vendor-list">
+                  {category.vendors.map((vendor) => (
+                    <span>{vendor}</span>
+                  ))}
+                </div>
+              </article>
+            ))
+          }
+        </div>
+
+        <div class="ecosystem-note">
+          <div class="ecosystem-note-mark" aria-hidden="true"></div>
+          <p>
+            Technology ecosystems vary by organization. Platform selection
+            should follow architecture, requirements, existing investments,
+            operating model, and long-term objectives.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ARCHITECTURE -->
+    <section class="platform-architecture">
+      <div class="container architecture-inner">
+        <div class="architecture-copy">
+          <Eyebrow variant="bracket" text="Architecture Context" />
+
+          <h2>
+            Identity connects
+            <span class="text-gradient">everything.</span>
+          </h2>
+
+          <p>
+            A successful identity environment has to connect people,
+            applications, devices, directories, cloud services, and security
+            controls through consistent identity and access patterns.
+          </p>
+        </div>
+
+        <div class="architecture-map">
+          {
+            architectureLayers.map((layer) => (
+              <div class="architecture-layer">
+                <span class="layer-title">{layer.title}</span>
+
+                <div class="layer-items">
+                  {layer.items.map((item) => (
+                    <span>{item}</span>
+                  ))}
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- ARCHITECTURE FIRST -->
+    <section class="platform-approach section">
+      <div class="container">
         <div class="section-header">
-
-          <Eyebrow
-            variant="bracket"
-            text="Platform Approach"
-          />
+          <Eyebrow variant="bracket" text="Platform Approach" />
 
           <h2>
             Architecture first.
-            <span class="text-gradient">
-              Technology second.
-            </span>
+            <span class="text-gradient">Technology second.</span>
           </h2>
 
           <p>
@@ -346,62 +443,37 @@ const platformGroups = [
             requirements, existing environment, operating model, and
             long-term objectives.
           </p>
-
         </div>
 
-        <div class="neutral-content">
-
-          <div class="neutral-point">
-            <h3>Environment</h3>
-            <p>
-              Understand the existing identity infrastructure,
-              dependencies, applications, and operational constraints.
-            </p>
-          </div>
-
-          <div class="neutral-point">
-            <h3>Requirements</h3>
-            <p>
-              Define the identity, access, security, integration,
-              governance, and operational capabilities required.
-            </p>
-          </div>
-
-          <div class="neutral-point">
-            <h3>Architecture</h3>
-            <p>
-              Establish an architecture that provides a practical
-              foundation for selecting and implementing technology.
-            </p>
-          </div>
-
+        <div class="approach-grid">
+          {
+            architecturePrinciples.map((principle) => (
+              <article class="approach-card">
+                <span class="approach-rule" aria-hidden="true"></span>
+                <h3>{principle.title}</h3>
+                <p>{principle.description}</p>
+              </article>
+            ))
+          }
         </div>
       </div>
     </section>
 
-
     <CTASection />
-
   </main>
 </BaseLayout>
 
-
 <style>
-
   /* =================================
      HERO
      ================================= */
 
   .platform-hero {
     position: relative;
-
     min-height: 610px;
-
     display: flex;
     align-items: center;
-
     overflow: hidden;
-
     background:
       radial-gradient(
         circle at 78% 42%,
@@ -419,9 +491,7 @@ const platformGroups = [
   .platform-grid {
     position: absolute;
     inset: 0;
-
     opacity: 0.3;
-
     background-image:
       linear-gradient(
         rgba(0, 114, 255, 0.035) 1px,
@@ -432,201 +502,138 @@ const platformGroups = [
         rgba(0, 114, 255, 0.035) 1px,
         transparent 1px
       );
-
     background-size: 72px 72px;
-
-    mask-image:
-      linear-gradient(
-        to bottom,
-        black,
-        transparent 90%
-      );
+    mask-image: linear-gradient(to bottom, black, transparent 90%);
   }
 
   .platform-glow {
     position: absolute;
-
     width: 500px;
     height: 500px;
-
     right: -180px;
     top: 10%;
-
     border-radius: 50%;
-
     background: var(--color-cyan);
-
     opacity: 0.05;
-
     filter: blur(110px);
-
     pointer-events: none;
   }
 
   .platform-hero-inner {
     position: relative;
     z-index: 2;
-
-    width: min(
-      1200px,
-      calc(100% - 48px)
-    );
-
-    margin-inline: auto;
-
     display: grid;
-
-    grid-template-columns:
-      minmax(0, 1fr)
-      minmax(260px, 0.42fr);
-
-    gap: 100px;
-
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 0.38fr);
+    gap: 110px;
     align-items: end;
-
     padding-block: 125px 90px;
   }
 
   .platform-hero-copy {
-    max-width: 760px;
+    max-width: 790px;
   }
 
   .platform-hero h1 {
     margin: 0 0 28px;
-
-    font-size: clamp(
-      3.25rem,
-      5.7vw,
-      5rem
-    );
-
+    font-size: clamp(3.25rem, 5.7vw, 5rem);
     line-height: 1;
-
     letter-spacing: -0.055em;
   }
 
   .platform-hero-copy > p {
-    max-width: 650px;
-
+    max-width: 680px;
     margin: 0;
-
     color: var(--color-text-secondary);
-
     font-size: 1rem;
-
     line-height: 1.8;
   }
 
   .platform-context {
-    padding-left: 26px;
-
+    padding-left: 28px;
     border-left: 1px solid var(--color-border-strong);
   }
 
   .context-label {
     color: var(--color-primary);
-
     font-family: var(--font-mono);
-
     font-size: 0.62rem;
-
     font-weight: 700;
-
     letter-spacing: 0.12em;
-
     text-transform: uppercase;
   }
 
   .context-line {
-    width: 36px;
+    width: 38px;
     height: 1px;
-
     margin-block: 17px;
-
-    background:
-      linear-gradient(
-        90deg,
-        var(--color-primary),
-        var(--color-cyan)
-      );
+    background: linear-gradient(
+      90deg,
+      var(--color-primary),
+      var(--color-cyan)
+    );
   }
 
   .platform-context p {
+    max-width: 300px;
     margin: 0;
-
     color: var(--color-text-secondary);
-
     font-size: 0.83rem;
-
     line-height: 1.7;
   }
 
-
   /* =================================
-     INTRO
+     PLATFORM PERSPECTIVE
      ================================= */
 
   .platform-intro {
     background: var(--color-white);
-
     border-top: 1px solid var(--color-border);
     border-bottom: 1px solid var(--color-border);
   }
 
   .platform-intro-inner {
-    width: min(
-      1200px,
-      calc(100% - 48px)
-    );
-
-    margin-inline: auto;
+    padding-block: 100px;
   }
 
-  .platform-intro h2,
-  .platform-groups h2,
-  .platform-neutral h2 {
-    margin-bottom: 0;
+  .section-header {
+    max-width: 760px;
+    margin-bottom: 50px;
+  }
+
+  .section-header h2 {
+    margin-bottom: 20px;
+  }
+
+  .section-header > p {
+    max-width: 680px;
+    margin: 0;
+    font-size: 0.96rem;
+    line-height: 1.8;
   }
 
   .intro-content {
     display: grid;
-
-    grid-template-columns:
-      minmax(0, 0.9fr)
-      minmax(0, 1.1fr);
-
-    gap: 100px;
-
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 110px;
     margin-top: 58px;
-
     padding-top: 42px;
-
     border-top: 1px solid var(--color-border);
   }
 
   .intro-lead {
     margin: 0;
-
     color: var(--color-text);
-
     font-family: var(--font-display);
-
-    font-size: 1.35rem;
-
+    font-size: 1.4rem;
     font-weight: 650;
-
     line-height: 1.5;
-
     letter-spacing: -0.025em;
   }
 
   .intro-copy p {
     margin: 0 0 20px;
-
     color: var(--color-text-secondary);
-
     font-size: 0.94rem;
-
     line-height: 1.8;
   }
 
@@ -634,102 +641,219 @@ const platformGroups = [
     margin-bottom: 0;
   }
 
-
   /* =================================
-     PLATFORM GROUPS
+     TECHNOLOGY AREAS
      ================================= */
 
-  .platform-groups {
-    padding-block: 120px;
-
+  .technology-areas {
     background: var(--color-bg);
   }
 
-  .platform-groups-inner {
-    width: min(
-      1200px,
-      calc(100% - 48px)
-    );
-
-    margin-inline: auto;
-  }
-
-  .platform-list {
-    margin-top: 58px;
-
-    border-top: 1px solid var(--color-border);
-  }
-
-  .platform-row {
+  .technology-area-grid {
     display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1px;
+    margin-top: 58px;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    background: var(--color-border);
+  }
 
-    grid-template-columns:
-      minmax(260px, 0.7fr)
-      minmax(0, 1.3fr);
-
-    gap: 80px;
-
-    padding-block: 34px;
-
-    border-bottom: 1px solid var(--color-border);
-
+  .technology-card {
+    min-height: 310px;
+    padding: 34px;
+    background: var(--color-white);
     transition:
       background var(--transition-normal),
-      padding-left var(--transition-normal),
-      padding-right var(--transition-normal);
+      transform var(--transition-normal);
   }
 
-  .platform-row:hover {
+  .technology-card:hover {
     background: var(--color-surface-raised);
-
-    padding-left: 18px;
-    padding-right: 18px;
   }
 
-  .platform-row h3 {
+  .technology-card-top {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+    margin-bottom: 24px;
+  }
+
+  .technology-card-line {
+    flex: 0 0 auto;
+    width: 26px;
+    height: 2px;
+    margin-top: 10px;
+    background: linear-gradient(
+      90deg,
+      var(--color-primary),
+      var(--color-cyan)
+    );
+  }
+
+  .technology-card h3 {
     margin: 0;
-
-    font-size: 1.15rem;
+    font-size: 1.2rem;
   }
 
-  .platform-row-content > p {
-    max-width: 620px;
-
-    margin: 0 0 18px;
-
-    color: var(--color-text-secondary);
-
-    font-size: 0.88rem;
-
+  .technology-card > p {
+    max-width: 430px;
+    margin: 0 0 24px;
+    font-size: 0.87rem;
     line-height: 1.75;
   }
 
-  .platform-capabilities {
-    display: flex;
+ .capability-list span {
+  padding: 6px 9px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  transition:
+    color var(--transition-fast),
+    border-color var(--transition-fast),
+    background var(--transition-fast);
+}
 
-    flex-wrap: wrap;
+.technology-card:hover .capability-list span {
+  color: var(--color-cyan);
+  border-color: rgba(0, 180, 219, 0.35);
+  background: rgba(0, 180, 219, 0.05);
+}
 
-    gap: 8px;
-  }
-
-  .platform-capabilities span {
+  .capability-list span {
     padding: 6px 9px;
-
     border: 1px solid var(--color-border);
-
-    background: var(--color-white);
-
+    background: var(--color-surface);
     color: var(--color-text-muted);
-
     font-family: var(--font-mono);
-
-    font-size: 0.56rem;
-
+    font-size: 0.55rem;
     line-height: 1.2;
-
     letter-spacing: 0.02em;
   }
 
+  /* =================================
+     TECHNOLOGY ECOSYSTEM
+     ================================= */
+
+  .ecosystem {
+    background: var(--color-white);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .ecosystem-header {
+    max-width: 800px;
+  }
+
+  .ecosystem-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 60px;
+  }
+
+  .ecosystem-card {
+    padding: 32px;
+    border: 1px solid var(--color-border);
+    background:
+      linear-gradient(
+        145deg,
+        rgba(0, 180, 219, 0.025),
+        transparent 45%
+      ),
+      var(--color-white);
+    transition:
+      border-color var(--transition-normal),
+      box-shadow var(--transition-normal),
+      transform var(--transition-normal);
+  }
+
+  .ecosystem-card:hover {
+    border-color: var(--color-border-strong);
+    box-shadow: var(--shadow-card);
+    transform: translateY(-2px);
+  }
+
+  .ecosystem-card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .ecosystem-marker {
+    width: 8px;
+    height: 8px;
+    flex: 0 0 auto;
+    border-radius: 50%;
+    background: linear-gradient(
+      135deg,
+      var(--color-primary),
+      var(--color-cyan)
+    );
+    box-shadow: 0 0 0 5px rgba(0, 114, 255, 0.06);
+  }
+
+  .ecosystem-card h3 {
+    margin: 0;
+    font-size: 1.15rem;
+  }
+
+  .ecosystem-card > p {
+    max-width: 620px;
+    margin: 0 0 24px;
+    font-size: 0.85rem;
+    line-height: 1.7;
+  }
+
+  .vendor-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .vendor-list span {
+    display: inline-flex;
+    align-items: center;
+    min-height: 34px;
+    padding: 0 11px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    background: var(--color-surface-raised);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  .ecosystem-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    max-width: 900px;
+    margin-top: 42px;
+    padding-top: 28px;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .ecosystem-note-mark {
+    width: 28px;
+    height: 2px;
+    flex: 0 0 auto;
+    margin-top: 10px;
+    background: var(--color-cyan);
+  }
+
+  .ecosystem-note p {
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: 0.8rem;
+    line-height: 1.75;
+  }
 
   /* =================================
      ARCHITECTURE
@@ -737,54 +861,31 @@ const platformGroups = [
 
   .platform-architecture {
     padding-block: 120px;
-
     background: var(--color-dark);
-
     color: var(--color-white);
   }
 
   .architecture-inner {
-    width: min(
-      1200px,
-      calc(100% - 48px)
-    );
-
-    margin-inline: auto;
-
     display: grid;
-
-    grid-template-columns:
-      minmax(0, 0.75fr)
-      minmax(0, 1.25fr);
-
-    gap: 100px;
-
+    grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+    gap: 110px;
     align-items: center;
   }
 
   .architecture-copy {
-    max-width: 520px;
+    max-width: 540px;
   }
 
   .architecture-copy h2 {
     margin: 0 0 24px;
-
     color: var(--color-white);
-
-    font-size: clamp(
-      2.4rem,
-      4vw,
-      3.5rem
-    );
+    font-size: clamp(2.4rem, 4vw, 3.5rem);
   }
 
   .architecture-copy p {
     margin: 0;
-
     color: #a9bbcd;
-
     font-size: 0.94rem;
-
     line-height: 1.8;
   }
 
@@ -794,214 +895,196 @@ const platformGroups = [
 
   .architecture-layer {
     display: grid;
-
     grid-template-columns: 130px 1fr;
-
     align-items: center;
-
-    min-height: 76px;
-
+    min-height: 78px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.14);
   }
 
   .layer-title {
     color: var(--color-white);
-
     font-family: var(--font-mono);
-
     font-size: 0.61rem;
-
     font-weight: 600;
-
     letter-spacing: 0.08em;
-
     text-transform: uppercase;
   }
 
   .layer-items {
     display: flex;
-
     flex-wrap: wrap;
-
     gap: 8px;
   }
 
   .layer-items span {
     padding: 6px 9px;
-
     border: 1px solid rgba(255, 255, 255, 0.14);
-
     color: #a9bbcd;
-
     font-family: var(--font-mono);
-
     font-size: 0.55rem;
   }
 
-
   /* =================================
-     VENDOR NEUTRAL
+     PLATFORM APPROACH
      ================================= */
 
-  .platform-neutral {
+  .platform-approach {
+    background: var(--color-bg);
+  }
+
+  .approach-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1px;
+    margin-top: 58px;
+    border: 1px solid var(--color-border);
+    background: var(--color-border);
+  }
+
+  .approach-card {
+    min-height: 245px;
+    padding: 34px;
     background: var(--color-white);
   }
 
-  .neutral-inner {
-    width: min(
-      1200px,
-      calc(100% - 48px)
+  .approach-rule {
+    display: block;
+    width: 34px;
+    height: 2px;
+    margin-bottom: 25px;
+    background: linear-gradient(
+      90deg,
+      var(--color-primary),
+      var(--color-cyan)
     );
-
-    margin-inline: auto;
   }
 
-  .neutral-content {
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    margin-top: 58px;
-
-    border-top: 1px solid var(--color-border);
-    border-left: 1px solid var(--color-border);
-  }
-
-  .neutral-point {
-    min-height: 220px;
-
-    padding: 32px;
-
-    border-right: 1px solid var(--color-border);
-    border-bottom: 1px solid var(--color-border);
-  }
-
-  .neutral-point h3 {
-    margin: 0 0 12px;
-
+  .approach-card h3 {
+    margin: 0 0 13px;
     font-size: 1.15rem;
   }
 
-  .neutral-point p {
+  .approach-card p {
     margin: 0;
-
-    color: var(--color-text-secondary);
-
     font-size: 0.86rem;
-
     line-height: 1.75;
   }
-
 
   /* =================================
      RESPONSIVE
      ================================= */
 
-  @media (max-width: 1000px) {
-
+  @media (max-width: 1050px) {
     .platform-hero-inner {
       grid-template-columns: 1fr;
-
       gap: 55px;
     }
 
     .platform-context {
-      max-width: 520px;
+      max-width: 540px;
     }
 
-    .intro-content,
+    .technology-area-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
     .architecture-inner {
       grid-template-columns: 1fr;
-
-      gap: 55px;
+      gap: 60px;
     }
 
-    .neutral-content {
+    .approach-grid {
       grid-template-columns: 1fr;
     }
   }
 
+  @media (max-width: 800px) {
+    .intro-content {
+      grid-template-columns: 1fr;
+      gap: 45px;
+    }
 
-  @media (max-width: 768px) {
+    .ecosystem-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .platform-hero {
+      min-height: auto;
+    }
 
     .platform-hero-inner {
-      width: calc(100% - 40px);
-
-      padding-block: 105px 75px;
+      padding-block: 100px 72px;
     }
 
     .platform-hero h1 {
-      font-size: clamp(
-        2.9rem,
-        11vw,
-        4rem
-      );
+      font-size: clamp(2.9rem, 11vw, 4rem);
     }
 
-    .platform-groups,
+    .platform-intro-inner,
+    .technology-areas,
+    .ecosystem,
+    .platform-approach {
+      padding-block: 76px;
+    }
+
+    .technology-area-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .technology-card {
+      min-height: auto;
+      padding: 28px;
+    }
+
+    .ecosystem-grid {
+      margin-top: 45px;
+    }
+
+    .ecosystem-card {
+      padding: 27px;
+    }
+
     .platform-architecture {
       padding-block: 88px;
     }
 
-    .platform-intro-inner,
-    .platform-groups-inner,
-    .architecture-inner,
-    .neutral-inner {
-      width: calc(100% - 40px);
-    }
-
-    .platform-row {
-      grid-template-columns: 1fr;
-
-      gap: 14px;
-
-      padding-block: 27px;
-    }
-
-    .platform-row:hover {
-      padding-left: 12px;
-      padding-right: 12px;
-    }
-
     .architecture-layer {
       grid-template-columns: 1fr;
-
       gap: 12px;
-
       padding-block: 20px;
     }
 
-    .neutral-point {
+    .approach-grid {
+      margin-top: 45px;
+    }
+
+    .approach-card {
       min-height: auto;
+      padding: 28px;
     }
   }
 
-
   @media (max-width: 500px) {
-
-    .platform-hero-inner,
-    .platform-intro-inner,
-    .platform-groups-inner,
-    .architecture-inner,
-    .neutral-inner {
-      width: calc(100% - 32px);
-    }
-
     .platform-hero-inner {
-      padding-block: 92px 65px;
+      padding-block: 88px 62px;
     }
 
     .platform-context {
       padding-left: 20px;
     }
 
-    .platform-capabilities span {
+    .capability-list span {
       font-size: 0.52rem;
     }
 
-    .neutral-point {
-      padding: 25px;
+    .vendor-list span {
+      font-size: 0.68rem;
+    }
+
+    .ecosystem-note {
+      gap: 13px;
     }
   }
-
 </style>
