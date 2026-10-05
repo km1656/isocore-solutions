@@ -1,0 +1,1001 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Eyebrow from "../../components/Eyebrow.astro";
+
+
+const sectors = [
+  {
+    title: "Financial Services",
+    description:
+      "Identity environments where access, governance, resilience, and regulatory requirements must operate together.",
+    capabilities: [
+      "Workforce Identity",
+      "Identity Governance",
+      "Privileged Access",
+      "Authentication & Federation",
+    ],
+  },
+  {
+    title: "Healthcare",
+    description:
+      "Identity architectures supporting complex workforces, clinical applications, hybrid infrastructure, and sensitive access requirements.",
+    capabilities: [
+      "Workforce Identity",
+      "Application Access",
+      "Privileged Access",
+      "Hybrid Identity",
+    ],
+  },
+  {
+    title: "Manufacturing",
+    description:
+      "Identity engineering across distributed workforces, enterprise applications, operational environments, and hybrid infrastructure.",
+    capabilities: [
+      "Workforce Identity",
+      "Directory Services",
+      "Application Integration",
+      "Privileged Access",
+    ],
+  },
+  {
+    title: "Technology & Software",
+    description:
+      "Identity foundations designed for cloud-first organizations, distributed teams, application ecosystems, and modern development environments.",
+    capabilities: [
+      "Cloud Identity",
+      "Workforce IAM",
+      "Federation",
+      "Machine Identity",
+    ],
+  },
+  {
+    title: "Energy & Utilities",
+    description:
+      "Identity architectures built for operational continuity, distributed environments, privileged access, and complex infrastructure.",
+    capabilities: [
+      "Workforce Identity",
+      "Privileged Access",
+      "Hybrid Identity",
+      "Infrastructure Access",
+    ],
+  },
+  {
+    title: "Professional & Business Services",
+    description:
+      "Identity environments supporting distributed workforces, client-facing applications, collaboration platforms, and changing organizational structures.",
+    capabilities: [
+      "Lifecycle Management",
+      "Federation",
+      "Application Access",
+      "Identity Governance",
+    ],
+  },
+  {
+    title: "Public Sector",
+    description:
+      "Identity engineering for complex organizational environments where security, governance, interoperability, and operational continuity are essential.",
+    capabilities: [
+      "Workforce Identity",
+      "Access Governance",
+      "Federation",
+      "Hybrid Infrastructure",
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Sectors | Isocore Solutions"
+  description="Identity engineering across complex enterprise sectors, including financial services, healthcare, manufacturing, technology, energy, professional services, and public sector organizations."
+>
+  <main>
+    <!-- HERO -->
+    <section class="sectors-hero">
+      <div class="hero-grid"></div>
+
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <Eyebrow text="Sectors" variant="bracket" />
+
+          <h1>
+            Identity engineering across
+            <span class="text-gradient">complex enterprise sectors.</span>
+          </h1>
+
+          <p>
+            Every identity environment operates within its own regulatory,
+            operational, application, workforce, and infrastructure
+            constraints. Isocore applies identity engineering practices to
+            the realities of each sector.
+          </p>
+        </div>
+
+        <div class="hero-system" aria-hidden="true">
+          <div class="system-header">
+            <span>SECTOR CONTEXT</span>
+            <span>IDENTITY</span>
+          </div>
+
+          <div class="system-body">
+            <div class="system-grid"></div>
+
+            <div class="system-ring ring-outer"></div>
+            <div class="system-ring ring-inner"></div>
+
+            <div class="system-line system-line-h"></div>
+            <div class="system-line system-line-v"></div>
+
+            <div class="system-node node-center">
+              <span></span>
+            </div>
+
+            <div class="system-node node-top">
+              <span></span>
+            </div>
+
+            <div class="system-node node-left">
+              <span></span>
+            </div>
+
+            <div class="system-node node-right">
+              <span></span>
+            </div>
+
+            <div class="system-node node-bottom">
+              <span></span>
+            </div>
+
+            <span class="system-label label-top">IDENTITY</span>
+            <span class="system-label label-left">ACCESS</span>
+            <span class="system-label label-right">PLATFORM</span>
+            <span class="system-label label-bottom">ENTERPRISE</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PERSPECTIVE -->
+    <section class="section sector-perspective">
+      <div class="container">
+        <div class="section-header">
+          <Eyebrow text="Sector Perspective" variant="system" />
+
+          <h2>
+            Identity architecture must account for the
+            <span class="text-gradient">environment around it.</span>
+          </h2>
+
+          <p>
+            Technology alone does not define an identity strategy. Regulatory
+            requirements, operating models, application landscapes, workforce
+            patterns, infrastructure, and business continuity all influence
+            how identity should be designed and operated.
+          </p>
+        </div>
+
+        <div class="perspective-grid">
+          <article class="perspective-card">
+            <span class="perspective-marker">01</span>
+
+            <h3>Regulatory Context</h3>
+
+            <p>
+              Identity controls must align with the regulatory, governance,
+              and audit requirements that shape each operating environment.
+            </p>
+          </article>
+
+          <article class="perspective-card">
+            <span class="perspective-marker">02</span>
+
+            <h3>Operational Reality</h3>
+
+            <p>
+              Identity architecture has to work within the realities of
+              distributed teams, operational systems, legacy platforms, and
+              business-critical processes.
+            </p>
+          </article>
+
+          <article class="perspective-card">
+            <span class="perspective-marker">03</span>
+
+            <h3>Technology Landscape</h3>
+
+            <p>
+              Cloud, hybrid, on-premises, SaaS, directories, applications,
+              and infrastructure all contribute to the identity environment.
+            </p>
+          </article>
+
+          <article class="perspective-card">
+            <span class="perspective-marker">04</span>
+
+            <h3>Business Continuity</h3>
+
+            <p>
+              Identity services must remain reliable as organizations evolve,
+              applications change, and access requirements expand.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTORS -->
+    <section class="section sectors-list">
+      <div class="container">
+        <div class="section-header">
+          <Eyebrow text="Sector Expertise" variant="signal" />
+
+          <h2>
+            Identity practices shaped around
+            <span class="text-gradient">your environment.</span>
+          </h2>
+
+          <p>
+            Our engineering approach adapts to the operational and technical
+            characteristics of the organizations we support.
+          </p>
+        </div>
+
+        <div class="sector-grid">
+          {sectors.map((sector) => (
+            <article class="sector-card">
+              <div class="sector-card-top">
+                <span class="sector-status" aria-hidden="true"></span>
+
+                <span class="sector-context">
+                  SECTOR CONTEXT
+                </span>
+              </div>
+
+              <div class="sector-card-content">
+                <h3>{sector.title}</h3>
+
+                <p>{sector.description}</p>
+
+                <div class="capability-list">
+                  {sector.capabilities.map((capability) => (
+                    <span>{capability}</span>
+                  ))}
+                </div>
+              </div>
+
+              <div class="sector-card-footer">
+                <span>Identity Engineering</span>
+                <span aria-hidden="true">→</span>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ARCHITECTURE -->
+    <section class="section section-dark architecture-section">
+      <div class="container">
+        <div class="architecture-layout">
+          <div class="architecture-copy">
+            <Eyebrow
+              text="Enterprise Perspective"
+              variant="bracket"
+            />
+
+            <h2>
+              The sector changes.
+              <span>The identity principles remain.</span>
+            </h2>
+
+            <p>
+              Effective identity engineering starts with understanding the
+              environment, defining the requirements, and designing an
+              architecture that can evolve without compromising security or
+              operational continuity.
+            </p>
+
+            <a href="/services/iam-strategy-architecture" class="button button-secondary">
+              <span>Explore IAM Strategy</span>
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+
+          <div class="architecture-map" aria-hidden="true">
+            <div class="architecture-map-grid"></div>
+
+            <div class="architecture-layer layer-identity">
+              <span>IDENTITY</span>
+            </div>
+
+            <div class="architecture-layer layer-access">
+              <span>ACCESS</span>
+            </div>
+
+            <div class="architecture-layer layer-platforms">
+              <span>PLATFORMS</span>
+            </div>
+
+            <div class="architecture-layer layer-enterprise">
+              <span>ENTERPRISE</span>
+            </div>
+
+            <div class="architecture-core">
+              <span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+  </main>
+</BaseLayout>
+
+<style>
+  /* HERO */
+
+  .sectors-hero {
+    position: relative;
+    overflow: hidden;
+    min-height: 680px;
+    display: flex;
+    align-items: center;
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.5;
+
+    background-image:
+      linear-gradient(
+        rgba(6, 20, 38, 0.035) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        90deg,
+        rgba(6, 20, 38, 0.035) 1px,
+        transparent 1px
+      );
+
+    background-size: 48px 48px;
+  }
+
+  .sectors-hero::after {
+    content: "";
+    position: absolute;
+    top: 8%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: var(--color-cyan);
+    opacity: 0.06;
+    filter: blur(120px);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(400px, 0.8fr);
+    gap: 90px;
+    align-items: center;
+
+    padding-block: 120px;
+  }
+
+  .hero-copy {
+    max-width: 760px;
+  }
+
+  .hero-copy h1 {
+    margin-bottom: 28px;
+  }
+
+  .hero-copy > p {
+    max-width: 680px;
+    margin: 0;
+    font-size: 1.08rem;
+    line-height: 1.8;
+  }
+
+  /* HERO SYSTEM */
+
+  .hero-system {
+    min-height: 390px;
+    border: 1px solid var(--color-border);
+    background: rgba(255, 255, 255, 0.72);
+    box-shadow: var(--shadow-card);
+  }
+
+  .system-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    min-height: 46px;
+    padding-inline: 18px;
+
+    border-bottom: 1px solid var(--color-border);
+
+    color: var(--color-text-muted);
+
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+  }
+
+  .system-header span:last-child {
+    color: var(--color-primary);
+  }
+
+  .system-body {
+    position: relative;
+    min-height: 344px;
+    overflow: hidden;
+  }
+
+  .system-grid {
+    position: absolute;
+    inset: 0;
+
+    background-image:
+      linear-gradient(
+        rgba(6, 20, 38, 0.035) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        90deg,
+        rgba(6, 20, 38, 0.035) 1px,
+        transparent 1px
+      );
+
+    background-size: 32px 32px;
+  }
+
+  .system-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 1px solid rgba(0, 114, 255, 0.12);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .ring-outer {
+    width: 260px;
+    height: 260px;
+  }
+
+  .ring-inner {
+    width: 150px;
+    height: 150px;
+    border-color: rgba(0, 180, 219, 0.18);
+  }
+
+  .system-line {
+    position: absolute;
+    background: rgba(0, 180, 219, 0.24);
+  }
+
+  .system-line-h {
+    top: 50%;
+    left: 22%;
+    width: 56%;
+    height: 1px;
+  }
+
+  .system-line-v {
+    top: 22%;
+    left: 50%;
+    width: 1px;
+    height: 56%;
+  }
+
+  .system-node {
+    position: absolute;
+    z-index: 2;
+
+    width: 14px;
+    height: 14px;
+
+    border: 1px solid rgba(0, 114, 255, 0.55);
+    background: var(--color-bg);
+  }
+
+  .system-node span {
+    position: absolute;
+    inset: 3px;
+    background: var(--color-primary);
+  }
+
+  .node-center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 0 7px rgba(0, 114, 255, 0.06);
+  }
+
+  .node-top {
+    top: 22%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .node-left {
+    top: 50%;
+    left: 22%;
+    transform: translate(-50%, -50%);
+  }
+
+  .node-right {
+    top: 50%;
+    left: 78%;
+    transform: translate(-50%, -50%);
+  }
+
+  .node-bottom {
+    top: 78%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .system-label {
+    position: absolute;
+
+    color: var(--color-text-muted);
+
+    font-family: var(--font-mono);
+    font-size: 0.5rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+  }
+
+  .label-top {
+    top: 12%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .label-left {
+    top: 50%;
+    left: 8%;
+    transform: translateY(-50%);
+  }
+
+  .label-right {
+    top: 50%;
+    right: 7%;
+    transform: translateY(-50%);
+  }
+
+  .label-bottom {
+    bottom: 12%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* PERSPECTIVE */
+
+  .sector-perspective {
+    background: var(--color-surface);
+  }
+
+  .perspective-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+
+  .perspective-card {
+    min-height: 250px;
+    padding: 30px;
+
+    border: 1px solid var(--color-border);
+    background: var(--color-bg);
+
+    transition:
+      border-color var(--transition-normal),
+      transform var(--transition-normal),
+      box-shadow var(--transition-normal);
+  }
+
+  .perspective-card:hover {
+    border-color: var(--color-border-strong);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card);
+  }
+
+  .perspective-marker {
+    display: block;
+    margin-bottom: 42px;
+
+    color: var(--color-cyan);
+
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+  }
+
+  .perspective-card h3 {
+    margin-bottom: 12px;
+  }
+
+  .perspective-card p {
+    margin: 0;
+    font-size: 0.84rem;
+    line-height: 1.7;
+  }
+
+  /* SECTOR LIST */
+
+  .sectors-list {
+    background: var(--color-bg);
+  }
+
+  .sector-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .sector-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 340px;
+
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+
+    transition:
+      border-color var(--transition-normal),
+      transform var(--transition-normal),
+      box-shadow var(--transition-normal);
+  }
+
+  .sector-card:hover {
+    border-color: var(--color-border-strong);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card);
+  }
+
+  .sector-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    min-height: 48px;
+    padding-inline: 20px;
+
+    border-bottom: 1px solid var(--color-border);
+    background:
+    linear-gradient(
+      145deg,
+      #008fd0 0%,
+      #00b8c8 45%,
+      #0a2a6b 100%
+    );
+  }
+
+  .sector-status {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-white);
+    box-shadow: 0 0 0 4px rgba(0, 180, 219, 0.08);
+  }
+
+  .sector-context {
+    color: var(--color-white);
+
+    font-family: var(--font-mono);
+    font-size: 0.54rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+  }
+
+  .sector-card-content {
+    flex: 1;
+    padding: 32px;
+  }
+
+  .sector-card-content h3 {
+    margin-bottom: 14px;
+    font-size: clamp(1.35rem, 2vw, 1.65rem);
+  }
+
+  .sector-card-content p {
+    max-width: 560px;
+    margin-bottom: 26px;
+
+    font-size: 0.86rem;
+    line-height: 1.72;
+  }
+
+  .capability-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+  }
+
+  .capability-list span {
+    padding: 6px 9px;
+
+    border: 1px solid var(--color-border);
+    background: var(--color-bg);
+
+    color: var(--color-text-muted);
+
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+
+    transition:
+      color var(--transition-fast),
+      border-color var(--transition-fast),
+      background var(--transition-fast);
+  }
+
+  .sector-card:hover .capability-list span {
+    color: var(--color-cyan);
+    border-color: rgba(0, 180, 219, 0.35);
+    background: rgba(0, 180, 219, 0.05);
+  }
+
+  .sector-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    min-height: 48px;
+    padding-inline: 20px;
+
+    border-top: 1px solid var(--color-border);
+
+    color: var(--color-text-muted);
+
+    font-family: var(--font-mono);
+    font-size: 0.54rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .sector-card-footer span:last-child {
+    color: var(--color-primary);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    transition: transform var(--transition-fast);
+  }
+
+  .sector-card:hover .sector-card-footer span:last-child {
+    transform: translateX(3px);
+  }
+
+  /* DARK ARCHITECTURE */
+
+  .architecture-section {
+    overflow: hidden;
+  }
+
+  .architecture-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(420px, 1fr);
+    gap: 100px;
+    align-items: center;
+  }
+
+  .architecture-copy {
+    max-width: 620px;
+  }
+
+  .architecture-copy h2 {
+    margin-bottom: 24px;
+  }
+
+  .architecture-copy h2 span {
+    display: block;
+    color: #71869b;
+  }
+
+  .architecture-copy p {
+    margin-bottom: 30px;
+    line-height: 1.8;
+  }
+
+  .architecture-map {
+    position: relative;
+    min-height: 470px;
+    overflow: hidden;
+
+    border: 1px solid rgba(216, 229, 239, 0.12);
+    background: var(--color-dark-surface);
+  }
+
+  .architecture-map-grid {
+    position: absolute;
+    inset: 0;
+
+    background-image:
+      linear-gradient(
+        rgba(216, 229, 239, 0.04) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        90deg,
+        rgba(216, 229, 239, 0.04) 1px,
+        transparent 1px
+      );
+
+    background-size: 34px 34px;
+  }
+
+  .architecture-layer {
+    position: absolute;
+    left: 12%;
+    width: 76%;
+    height: 74px;
+
+    display: flex;
+    align-items: center;
+    padding-left: 22px;
+
+    border: 1px solid rgba(216, 229, 239, 0.12);
+    background: rgba(255, 255, 255, 0.018);
+
+    color: #8196aa;
+
+    font-family: var(--font-mono);
+    font-size: 0.57rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+  }
+
+  .layer-identity {
+    top: 9%;
+  }
+
+  .layer-access {
+    top: 30%;
+  }
+
+  .layer-platforms {
+    top: 51%;
+  }
+
+  .layer-enterprise {
+    top: 72%;
+  }
+
+  .architecture-core {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 3;
+
+    width: 18px;
+    height: 18px;
+
+    border: 1px solid var(--color-cyan);
+    background: var(--color-dark);
+
+    transform: translate(-50%, -50%);
+    box-shadow:
+      0 0 0 8px rgba(0, 180, 219, 0.05),
+      0 0 30px rgba(0, 180, 219, 0.15);
+  }
+
+  .architecture-core span {
+    position: absolute;
+    inset: 4px;
+    background: var(--color-cyan);
+  }
+
+  @media (max-width: 1050px) {
+    .hero-inner {
+      grid-template-columns: 1fr;
+      gap: 60px;
+    }
+
+    .hero-system {
+      max-width: 680px;
+    }
+
+    .perspective-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .architecture-layout {
+      grid-template-columns: 1fr;
+      gap: 60px;
+    }
+
+    .architecture-map {
+      max-width: 700px;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .sectors-hero {
+      min-height: auto;
+    }
+
+    .hero-inner {
+      padding-block: 90px;
+    }
+
+    .hero-system {
+      min-height: 320px;
+    }
+
+    .system-body {
+      min-height: 274px;
+    }
+
+    .perspective-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .sector-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .perspective-card {
+      min-height: auto;
+    }
+
+    .architecture-map {
+      min-height: 390px;
+    }
+
+    .architecture-layer {
+      left: 8%;
+      width: 84%;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .hero-inner {
+      padding-block: 76px;
+    }
+
+    .hero-system {
+      min-height: 280px;
+    }
+
+    .system-body {
+      min-height: 234px;
+    }
+
+    .ring-outer {
+      width: 200px;
+      height: 200px;
+    }
+
+    .ring-inner {
+      width: 120px;
+      height: 120px;
+    }
+
+    .sector-card-content {
+      padding: 26px;
+    }
+
+    .architecture-map {
+      min-height: 330px;
+    }
+
+    .architecture-layer {
+      height: 58px;
+    }
+  }
+</style>
