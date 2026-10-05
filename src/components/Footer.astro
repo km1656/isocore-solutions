@@ -38,26 +38,66 @@ const navigation = [
   <div class="footer-main">
     <div class="footer-inner">
 
-      <div class="footer-brand">
-        <a href="/" class="footer-logo" aria-label="Isocore Solutions home">
-          <img
-            src="/images/isocore.svg"
-            alt="Isocore Solutions"
-            loading="lazy"
-            decoding="async"
-          />
-        </a>
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a
+            href="/"
+            class="footer-logo"
+            aria-label="Isocore Solutions home"
+          >
+            <img
+              src="/images/isocore.svg"
+              alt="Isocore Solutions"
+              loading="lazy"
+              decoding="async"
+            />
+          </a>
 
-        <p>
-          Enterprise Identity & Access Management engineering
-          for cloud, hybrid, and on-premises environments.
-        </p>
+          <p>
+            Enterprise Identity & Access Management engineering for
+            cloud, hybrid, and on-premises environments.
+          </p>
+        </div>
 
-        <a href="/contact" class="footer-contact-link">
-          Schedule an IAM Assessment
-          <span aria-hidden="true">→</span>
-        </a>
+        <div class="footer-system" aria-hidden="true">
+          <div class="system-header">
+            <span>Identity Architecture</span>
+            <span>ACTIVE</span>
+          </div>
+
+          <div class="system-map">
+            <div class="system-line system-line-horizontal"></div>
+            <div class="system-line system-line-vertical"></div>
+
+            <div class="system-node system-node-top">
+              <span></span>
+            </div>
+
+            <div class="system-node system-node-left">
+              <span></span>
+            </div>
+
+            <div class="system-node system-node-center">
+              <span></span>
+            </div>
+
+            <div class="system-node system-node-right">
+              <span></span>
+            </div>
+
+            <div class="system-node system-node-bottom">
+              <span></span>
+            </div>
+
+            <span class="system-label system-label-top">IDENTITY</span>
+            <span class="system-label system-label-left">ACCESS</span>
+            <span class="system-label system-label-right">PLATFORM</span>
+            <span class="system-label system-label-bottom">ENTERPRISE</span>
+          </div>
+        </div>
       </div>
+
+      <div class="footer-divider"></div>
 
       <div class="footer-navigation">
         {navigation.map((group) => (
@@ -67,14 +107,24 @@ const navigation = [
             <ul>
               {group.links.map((link) => (
                 <li>
-                  <a href={link.href}>
-                    {link.label}
-                  </a>
+                  <a href={link.href}>{link.label}</a>
                 </li>
               ))}
             </ul>
           </nav>
         ))}
+
+        <div class="footer-nav-group footer-contact">
+          <h2>Contact</h2>
+
+          <div class="contact-details">
+            <a href="mailto:hr@isocoresolutions.com">
+              hr@isocoresolutions.com
+            </a>
+
+            <span>Wyoming, United States</span>
+          </div>
+        </div>
       </div>
 
     </div>
@@ -87,8 +137,8 @@ const navigation = [
       </p>
 
       <div class="footer-legal">
-        <a href="/privacy">Privacy</a>
-        <a href="/terms">Terms</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms of Use</a>
       </div>
     </div>
   </div>
@@ -101,27 +151,30 @@ const navigation = [
     color: var(--color-white);
   }
 
-  /* MAIN */
-
   .footer-main {
     border-top: 1px solid rgba(216, 229, 239, 0.12);
   }
 
   .footer-inner {
-    width: min(1320px, calc(100% - 48px));
+    width: min(
+      calc(100% - (var(--container-padding) * 2)),
+      var(--container-width)
+    );
     margin-inline: auto;
-
-    display: grid;
-    grid-template-columns: minmax(0, 1.35fr) minmax(420px, 1fr);
-    gap: 100px;
-
-    padding-block: 72px;
+    padding-block: 76px 64px;
   }
 
-  /* BRAND */
+  /* TOP */
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(390px, 0.72fr);
+    gap: 100px;
+    align-items: center;
+  }
 
   .footer-brand {
-    max-width: 430px;
+    max-width: 520px;
   }
 
   .footer-logo {
@@ -136,54 +189,185 @@ const navigation = [
   }
 
   .footer-brand p {
-    max-width: 380px;
-    margin: 0 0 28px;
+    max-width: 440px;
+    margin: 0;
 
-    color: #a9bbcd;
-    font-size: 0.88rem;
+    color: #9fb2c5;
+    font-size: 0.9rem;
     line-height: 1.75;
   }
 
-  .footer-contact-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
+  /* SYSTEM MAP */
 
-    color: var(--color-cyan);
+  .footer-system {
+    min-height: 260px;
+    border: 1px solid rgba(216, 229, 239, 0.12);
+    background: rgba(255, 255, 255, 0.018);
+  }
+
+  .system-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    min-height: 42px;
+    padding-inline: 16px;
+
+    border-bottom: 1px solid rgba(216, 229, 239, 0.1);
+
+    color: #647b91;
 
     font-family: var(--font-mono);
-    font-size: 0.67rem;
+    font-size: 0.54rem;
     font-weight: 600;
-    letter-spacing: 0.07em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-
-    transition:
-      color var(--transition-fast),
-      gap var(--transition-fast);
   }
 
-  .footer-contact-link span {
-    font-family: var(--font-sans);
-    font-size: 1rem;
+  .system-header span:last-child {
+    color: var(--color-cyan);
   }
 
-  .footer-contact-link:hover {
-    gap: 15px;
-    color: #5cc8ff;
+  .system-map {
+    position: relative;
+    min-height: 218px;
+    overflow: hidden;
+
+    background-image:
+      linear-gradient(
+        rgba(216, 229, 239, 0.035) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        90deg,
+        rgba(216, 229, 239, 0.035) 1px,
+        transparent 1px
+      );
+    background-size: 30px 30px;
+  }
+
+  .system-line {
+    position: absolute;
+    background: rgba(0, 180, 219, 0.25);
+  }
+
+  .system-line-horizontal {
+    top: 50%;
+    left: 19%;
+    width: 62%;
+    height: 1px;
+  }
+
+  .system-line-vertical {
+    top: 20%;
+    left: 50%;
+    width: 1px;
+    height: 60%;
+  }
+
+  .system-node {
+    position: absolute;
+    z-index: 2;
+
+    width: 12px;
+    height: 12px;
+
+    border: 1px solid rgba(0, 180, 219, 0.75);
+    background: var(--color-dark);
+  }
+
+  .system-node span {
+    position: absolute;
+    inset: 3px;
+    background: var(--color-cyan);
+  }
+
+  .system-node-top {
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .system-node-left {
+    top: 50%;
+    left: 19%;
+    transform: translate(-50%, -50%);
+  }
+
+  .system-node-center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 0 7px rgba(0, 180, 219, 0.06);
+  }
+
+  .system-node-right {
+    top: 50%;
+    left: 81%;
+    transform: translate(-50%, -50%);
+  }
+
+  .system-node-bottom {
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .system-label {
+    position: absolute;
+
+    color: #5e748a;
+
+    font-family: var(--font-mono);
+    font-size: 0.48rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+  }
+
+  .system-label-top {
+    top: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .system-label-left {
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+  }
+
+  .system-label-right {
+    top: 50%;
+    right: 3%;
+    transform: translateY(-50%);
+  }
+
+  .system-label-bottom {
+    bottom: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* DIVIDER */
+
+  .footer-divider {
+    height: 1px;
+    margin-block: 64px 50px;
+    background: rgba(216, 229, 239, 0.12);
   }
 
   /* NAVIGATION */
 
   .footer-navigation {
     display: grid;
-    grid-template-columns: 0.7fr 1.3fr;
+    grid-template-columns: 0.8fr 1.45fr 1fr;
     gap: 70px;
   }
 
   .footer-nav-group h2 {
     margin: 0 0 20px;
 
-    color: #7f95aa;
+    color: #71869b;
 
     font-family: var(--font-mono);
     font-size: 0.63rem;
@@ -196,7 +380,7 @@ const navigation = [
   .footer-nav-group ul {
     display: flex;
     flex-direction: column;
-    gap: 11px;
+    gap: 10px;
 
     margin: 0;
     padding: 0;
@@ -205,9 +389,9 @@ const navigation = [
   }
 
   .footer-nav-group a {
-    color: #d7e2eb;
+    color: #d4e0ea;
 
-    font-size: 0.8rem;
+    font-size: 0.79rem;
     line-height: 1.5;
 
     transition: color var(--transition-fast);
@@ -217,6 +401,30 @@ const navigation = [
     color: var(--color-cyan);
   }
 
+  /* CONTACT */
+
+  .footer-contact {
+    padding-left: 30px;
+    border-left: 1px solid rgba(216, 229, 239, 0.12);
+  }
+
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .contact-details a {
+    color: var(--color-white);
+    font-size: 0.82rem;
+    font-weight: 600;
+  }
+
+  .contact-details span {
+    color: #71869b;
+    font-size: 0.75rem;
+  }
+
   /* BOTTOM */
 
   .footer-bottom {
@@ -224,8 +432,11 @@ const navigation = [
   }
 
   .footer-bottom-inner {
-    width: min(1200px, calc(100% - 48px));
-    min-height: 64px;
+    width: min(
+      calc(100% - (var(--container-padding) * 2)),
+      var(--container-width)
+    );
+    min-height: 68px;
     margin-inline: auto;
 
     display: flex;
@@ -266,25 +477,47 @@ const navigation = [
 
   /* RESPONSIVE */
 
-  @media (max-width: 900px) {
-    .footer-inner {
+  @media (max-width: 1000px) {
+    .footer-top {
       grid-template-columns: 1fr;
-      gap: 55px;
+      gap: 48px;
     }
 
-    .footer-brand {
-      max-width: 600px;
+    .footer-system {
+      max-width: 650px;
+    }
+
+    .footer-navigation {
+      grid-template-columns: 0.8fr 1.2fr;
+    }
+
+    .footer-contact {
+      grid-column: 1 / -1;
+      padding: 30px 0 0;
+      border-top: 1px solid rgba(216, 229, 239, 0.12);
+      border-left: 0;
     }
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 700px) {
     .footer-inner {
-      width: calc(100% - 40px);
-      padding-block: 56px;
+      padding-block: 60px 50px;
     }
 
     .footer-logo {
       width: 150px;
+    }
+
+    .footer-system {
+      min-height: 230px;
+    }
+
+    .system-map {
+      min-height: 188px;
+    }
+
+    .footer-divider {
+      margin-block: 52px 42px;
     }
 
     .footer-navigation {
@@ -292,15 +525,21 @@ const navigation = [
       gap: 38px;
     }
 
-    .footer-bottom-inner {
-      width: calc(100% - 40px);
-      min-height: auto;
+    .footer-contact {
+      grid-column: auto;
+    }
+  }
 
+  @media (max-width: 500px) {
+    .footer-bottom-inner {
       align-items: flex-start;
       flex-direction: column;
       gap: 14px;
-
       padding-block: 20px;
+    }
+
+    .footer-legal {
+      gap: 18px;
     }
   }
 </style>
