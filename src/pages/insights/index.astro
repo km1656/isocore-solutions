@@ -1,7 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Eyebrow from "../../components/Eyebrow.astro";
-import CTASection from "../../components/CTASection.astro";
 
 const insights = [
   {
@@ -72,7 +71,7 @@ const insights = [
 
           <h1>
             Identity engineering
-            <span class="text-gradient">for the enterprise.</span>
+            <span class="text-gradient"> for the enterprise.</span>
           </h1>
 
           <p>
@@ -223,7 +222,7 @@ const insights = [
 
             <h2>
               Thinking beyond
-              <span class="text-gradient">the platform.</span>
+              <span class="text-gradient"> the platform.</span>
             </h2>
           </div>
 
@@ -440,9 +439,7 @@ const insights = [
 
           <h2>
             Engineering identity
-            <span class="text-gradient">
-              in the real world.
-            </span>
+            <span class="text-gradient"> in the real world.</span>
           </h2>
 
           <p>
@@ -503,17 +500,14 @@ const insights = [
 
           <Eyebrow
             text="Isocore Perspective"
-            variant="system"
+            variant="bracket"
           />
 
-          <h2>
-            Build identity
-            <span class="text-gradient">
-              as infrastructure.
-            </span>
+          <h2 style="color: aliceblue;"">
+            Build identity as infrastructure.
           </h2>
 
-          <p>
+          <p style="color: var(--color-white);">
             Strong identity programs are not defined by the number
             of platforms they deploy. They are defined by how well
             identity works across the enterprise.
@@ -530,7 +524,7 @@ const insights = [
     </section>
 
 
-    <CTASection />
+    
 
   </main>
 </BaseLayout>
@@ -1276,7 +1270,13 @@ const insights = [
 .perspective-section {
   padding-block: 110px;
 
-  background: var(--color-dark);
+  background:
+      linear-gradient(
+        105deg,
+        #008fd0 0%,
+        #00b8c8 55%,
+        #0a2a6b 100%
+      );
 
   color: var(--color-white);
 }
