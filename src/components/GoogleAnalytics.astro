@@ -1,28 +1,78 @@
 ---
 interface Props {
-  measurementId?: string;
+  measurementId: string;
 }
 
 const { measurementId } = Astro.props;
 ---
 
-{measurementId && (
-  <>
-    <!-- Google Analytics 4 -->
-    <script
-      async
-      src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}
-    ></script>
+<script
+  async
+  src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}
+></script>
 
-    <script is:inline define:vars={{ measurementId }}>
-      window.dataLayer = window.dataLayer || [];
+<script is:inline define:vars={{ measurementId }}>
+  window.dataLayer = window.dataLayer || [];
 
-      function gtag() {
-        window.dataLayer.push(arguments);
-      }
+  function gtag() {
+    window.dataLayer.push(arguments);
+  }
 
-      gtag("js", new Date());
-      gtag("config", measurementId);
-    </script>
-  </>
-)}
+  /*
+   * Default to denied until the visitor explicitly accepts
+   * optional analytics technologies.
+   */
+  gtag("consent", "default", {
+    analytics_storage: "denied",
+    ad_storage: "denied",
+    ad_user_data: "denied",
+    ad_personalization: "denied",
+    wait_for_update: 500,
+  });
+
+  gtag("js", new Date());
+
+  gtag("config", measurementId, {
+    send_page_view: false,
+  });
+
+  /*
+   * Listen for the consent decision made by CookieNotice.astro.
+   */
+  window.addEventListener("isocore-cookie-consent", (event) => {
+    const consent = event.detail?.consent;
+
+    if (consent === "accepted") {
+      gtag("consent", "update", {
+        analytics_storage: "granted",
+      });
+
+      gtag("event", "page_view");
+    }
+
+    if (consent === "declined") {
+      gtag("consent", "update", {
+        analytics_storage: "denied",
+      });
+    }
+  });
+
+  /*
+   * Handle visitors who have already made a choice.
+   */
+  try {
+    const savedConsent = localStorage.getItem(
+      "isocore_cookie_consent_v1"
+    );
+
+    if (savedConsent === "accepted") {
+      gtag("consent", "update", {
+        analytics_storage: "granted",
+      });
+
+      gtag("event", "page_view");
+    }
+  } catch {
+    // Continue with analytics denied if localStorage is unavailable.
+  }
+</script>
