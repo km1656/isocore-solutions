@@ -10,7 +10,7 @@
         document.documentElement.classList.add("cookie-consent-resolved");
       }
     } catch {
-      // Keep the notice available if localStorage is unavailable.
+      // Keep the notice available if storage is unavailable.
     }
   })();
 </script>
@@ -18,20 +18,35 @@
 <aside
   class="cookie-notice"
   id="cookie-notice"
-  aria-label="Cookie and privacy notice"
+  aria-label="Cookie and privacy settings"
   aria-live="polite"
   hidden
 >
   <div class="cookie-inner">
     <div class="cookie-content">
-      <span class="cookie-eyebrow">Privacy &amp; Cookies</span>
+      <span class="cookie-eyebrow" data-cookie-eyebrow>
+        Privacy &amp; Cookies
+      </span>
 
-      <p class="cookie-message">
+      <p class="cookie-message" data-cookie-message>
         Isocore Solutions uses cookies and similar technologies to help keep
         the site secure, operate forms, understand site usage, and improve our
         services. Analytics technologies such as Google Analytics are used to
         understand how visitors interact with the site.
       </p>
+
+      <div class="cookie-status" data-cookie-status-container hidden>
+        <span
+          class="cookie-status-dot"
+          data-cookie-status-dot
+          aria-hidden="true"
+        ></span>
+
+        <span class="cookie-status-text">
+          Current preference:
+          <strong data-cookie-status>—</strong>
+        </span>
+      </div>
 
       <p class="cookie-policy">
         See our
@@ -64,6 +79,17 @@
   const COOKIE_CONSENT_KEY = "isocore_cookie_consent_v1";
 
   const notice = document.getElementById("cookie-notice");
+
+  const eyebrow = notice?.querySelector("[data-cookie-eyebrow]");
+  const message = notice?.querySelector("[data-cookie-message]");
+
+  const statusContainer = notice?.querySelector(
+    "[data-cookie-status-container]",
+  );
+
+  const statusElement = notice?.querySelector("[data-cookie-status]");
+  const statusDot = notice?.querySelector("[data-cookie-status-dot]");
+
   const acceptButton = notice?.querySelector("[data-cookie-accept]");
   const declineButton = notice?.querySelector("[data-cookie-decline]");
 
@@ -91,18 +117,62 @@
     );
   };
 
-  const hideNotice = () => {
-  if (!notice) return;
+  const updateCookieStatus = (consent) => {
+    if (!statusElement || !statusDot) return;
 
-  notice.classList.add("cookie-notice-hidden");
-
-  window.setTimeout(() => {
-    notice.hidden = true;
-    document.documentElement.classList.add(
-      "cookie-consent-resolved"
+    statusDot.classList.remove(
+      "is-accepted",
+      "is-declined",
     );
-  }, 240);
-};
+
+    if (consent === "accepted") {
+      statusElement.textContent = "Analytics accepted";
+      statusDot.classList.add("is-accepted");
+    } else if (consent === "declined") {
+      statusElement.textContent = "Analytics declined";
+      statusDot.classList.add("is-declined");
+    } else {
+      statusElement.textContent = "No preference set";
+    }
+  };
+
+  const setInitialMode = () => {
+    if (!eyebrow || !message || !statusContainer) return;
+
+    eyebrow.textContent = "Privacy & Cookies";
+
+    message.textContent =
+      "Isocore Solutions uses cookies and similar technologies to help keep the site secure, operate forms, understand site usage, and improve our services. Analytics technologies such as Google Analytics are used to understand how visitors interact with the site.";
+
+    statusContainer.hidden = true;
+  };
+
+  const setSettingsMode = () => {
+    if (!eyebrow || !message || !statusContainer) return;
+
+    eyebrow.textContent = "Cookie Settings";
+
+    message.textContent =
+      "Manage your optional analytics preference. You can change your choice at any time.";
+
+    statusContainer.hidden = false;
+
+    updateCookieStatus(getConsent());
+  };
+
+  const hideNotice = () => {
+    if (!notice) return;
+
+    notice.classList.add("cookie-notice-hidden");
+
+    window.setTimeout(() => {
+      notice.hidden = true;
+
+      document.documentElement.classList.add(
+        "cookie-consent-resolved",
+      );
+    }, 240);
+  };
 
   const showNotice = () => {
     if (!notice) return;
@@ -114,46 +184,58 @@
     });
   };
 
+  const openCookieSettings = () => {
+    setSettingsMode();
+
+    document.documentElement.classList.remove(
+      "cookie-consent-resolved",
+    );
+
+    showNotice();
+
+    requestAnimationFrame(() => {
+      acceptButton?.focus();
+    });
+  };
+
   /*
-   * Show the notice only when the visitor has not
-   * previously made a consent decision.
+   * First visit:
+   * show the initial consent notice only when
+   * no preference has previously been saved.
    */
   if (notice && !getConsent()) {
+    setInitialMode();
     showNotice();
   }
 
-  acceptButton?.addEventListener("click", () => {
-    setConsent("accepted");
-    hideNotice();
-  });
-
-  declineButton?.addEventListener("click", () => {
-    setConsent("declined");
-    hideNotice();
-  });
+  /*
+   * Footer / other site-wide Cookie Settings controls.
+   */
   const settingsTriggers = document.querySelectorAll(
-  "[data-cookie-settings]"
-);
-
-const openCookieSettings = () => {
-  if (!notice) return;
-
-  notice.hidden = false;
-
-  document.documentElement.classList.remove(
-    "cookie-consent-resolved"
+    "[data-cookie-settings]",
   );
 
-  notice.classList.remove("cookie-notice-hidden");
-
-  requestAnimationFrame(() => {
-    acceptButton?.focus();
+  settingsTriggers.forEach((trigger) => {
+    trigger.addEventListener("click", openCookieSettings);
   });
-};
 
-settingsTriggers.forEach((trigger) => {
-  trigger.addEventListener("click", openCookieSettings);
-});
+  /*
+   * Accept analytics.
+   */
+  acceptButton?.addEventListener("click", () => {
+    setConsent("accepted");
+    updateCookieStatus("accepted");
+    hideNotice();
+  });
+
+  /*
+   * Decline optional analytics.
+   */
+  declineButton?.addEventListener("click", () => {
+    setConsent("declined");
+    updateCookieStatus("declined");
+    hideNotice();
+  });
 </script>
 
 <style>
@@ -190,8 +272,7 @@ settingsTriggers.forEach((trigger) => {
   }
 
   /*
-   * Prevent the banner from flashing for visitors
-   * who already have a stored consent decision.
+   * Prevent the notice from flashing for returning visitors.
    */
   html.cookie-consent-resolved .cookie-notice {
     display: none;
@@ -263,6 +344,54 @@ settingsTriggers.forEach((trigger) => {
     color: var(--color-primary-hover);
     text-decoration-color: currentColor;
   }
+
+  /* CURRENT PREFERENCE */
+
+  .cookie-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    margin-top: 12px;
+    padding: 7px 10px;
+
+    border: 1px solid var(--color-border);
+    background: var(--color-surface-raised);
+  }
+
+  .cookie-status-dot {
+    width: 7px;
+    height: 7px;
+    flex-shrink: 0;
+
+    border-radius: 50%;
+    background: var(--color-text-muted);
+  }
+
+  .cookie-status-dot.is-accepted {
+    background: var(--color-teal);
+    box-shadow: 0 0 0 3px rgba(0, 184, 184, 0.1);
+  }
+
+  .cookie-status-dot.is-declined {
+    background: var(--color-text-muted);
+  }
+
+  .cookie-status-text {
+    color: var(--color-text-muted);
+
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    line-height: 1.3;
+    letter-spacing: 0.02em;
+  }
+
+  .cookie-status-text strong {
+    color: var(--color-text);
+    font-weight: 600;
+  }
+
+  /* ACTIONS */
 
   .cookie-actions {
     display: flex;
@@ -341,6 +470,8 @@ settingsTriggers.forEach((trigger) => {
     color: var(--color-primary);
     border-color: var(--color-primary);
   }
+
+  /* RESPONSIVE */
 
   @media (max-width: 800px) {
     .cookie-inner {
