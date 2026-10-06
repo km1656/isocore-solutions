@@ -138,9 +138,17 @@ const navigation = [
       </p>
 
       <div class="footer-legal">
-        <a href="/privacy">Privacy Policy</a>
-        <a href="/terms">Terms of Use</a>
-      </div>
+  <a href="/privacy">Privacy Policy</a>
+  <a href="/terms">Terms of Use</a>
+
+  <button
+    type="button"
+    class="cookie-settings-trigger"
+    data-cookie-settings
+  >
+    Cookie Settings
+  </button>
+</div>
     </div>
   </div>
 </footer>
@@ -543,4 +551,28 @@ const navigation = [
       gap: 18px;
     }
   }
+  .cookie-settings-trigger {
+  padding: 0;
+  border: 0;
+  background: transparent;
+
+  color: #71869b;
+
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  line-height: 1.5;
+
+  cursor: pointer;
+
+  transition: color var(--transition-fast);
+}
+
+.cookie-settings-trigger:hover {
+  color: #d7e2eb;
+}
+
+.cookie-settings-trigger:focus-visible {
+  outline: 2px solid var(--color-cyan);
+  outline-offset: 3px;
+}
 </style>

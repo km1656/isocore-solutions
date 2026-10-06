@@ -92,15 +92,17 @@
   };
 
   const hideNotice = () => {
-    if (!notice) return;
+  if (!notice) return;
 
-    notice.classList.add("cookie-notice-hidden");
+  notice.classList.add("cookie-notice-hidden");
 
-    window.setTimeout(() => {
-      notice.hidden = true;
-      document.documentElement.classList.add("cookie-consent-resolved");
-    }, 240);
-  };
+  window.setTimeout(() => {
+    notice.hidden = true;
+    document.documentElement.classList.add(
+      "cookie-consent-resolved"
+    );
+  }, 240);
+};
 
   const showNotice = () => {
     if (!notice) return;
@@ -129,6 +131,29 @@
     setConsent("declined");
     hideNotice();
   });
+  const settingsTriggers = document.querySelectorAll(
+  "[data-cookie-settings]"
+);
+
+const openCookieSettings = () => {
+  if (!notice) return;
+
+  notice.hidden = false;
+
+  document.documentElement.classList.remove(
+    "cookie-consent-resolved"
+  );
+
+  notice.classList.remove("cookie-notice-hidden");
+
+  requestAnimationFrame(() => {
+    acceptButton?.focus();
+  });
+};
+
+settingsTriggers.forEach((trigger) => {
+  trigger.addEventListener("click", openCookieSettings);
+});
 </script>
 
 <style>
