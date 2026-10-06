@@ -75,4 +75,28 @@ const { measurementId } = Astro.props;
   } catch {
     // Continue with analytics denied if localStorage is unavailable.
   }
+
+  /*
+   * Record a successful IAM assessment submission.
+   *
+   * The contact form dispatches this event only after the
+   * server successfully processes the submission.
+   */
+  window.addEventListener("isocore-contact-success", () => {
+    try {
+      const consent = localStorage.getItem(
+        "isocore_cookie_consent_v1"
+      );
+
+      if (consent !== "accepted") {
+        return;
+      }
+
+      gtag("event", "contact_form_submit", {
+        form_name: "iam_assessment",
+      });
+    } catch {
+      // Keep analytics failures from affecting form submission.
+    }
+  });
 </script>

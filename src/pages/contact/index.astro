@@ -1,6 +1,8 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Eyebrow from "../../components/Eyebrow.astro";
+
+const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 ---
 
 <BaseLayout
@@ -28,69 +30,85 @@ import Eyebrow from "../../components/Eyebrow.astro";
           </p>
 
           <div class="contact-details">
-  <div class="contact-detail">
-    <span class="detail-label">Office</span>
-    <address class="detail-value">
-      30 N Gould St<br />
-      Ste R<br />
-      Sheridan, WY 82801<br />
-      USA
-    </address>
-  </div>
+            <div class="contact-detail">
+              <span class="detail-label">Office</span>
 
-  <div class="contact-detail">
-    <span class="detail-label">Phone</span>
-    <a class="detail-value contact-link" href="tel:+1XXXXXXXXXX">
-      +1 XXX XXX XXXX
-    </a>
-  </div>
+              <address class="detail-value">
+                30 N Gould St<br />
+                Ste R<br />
+                Sheridan, WY 82801<br />
+                USA
+              </address>
+            </div>
 
-  <div class="contact-detail">
-    <span class="detail-label">Engagements</span>
-    <span class="detail-value">
-      Architecture · Modernization · Implementation · Support
-    </span>
-  </div>
+            <div class="contact-detail">
+              <span class="detail-label">Email</span>
 
-  <div class="contact-detail">
-    <span class="detail-label">Focus</span>
-    <span class="detail-value">
-      Enterprise IAM · Cloud · Hybrid · Directory Infrastructure
-    </span>
-  </div>
-</div>
+              <a
+                class="detail-value contact-link"
+                href="mailto:hr@isocoresolutions.com"
+              >
+                hr@isocoresolutions.com
+              </a>
+            </div>
+
+            <div class="contact-detail">
+              <span class="detail-label">Engagements</span>
+
+              <span class="detail-value">
+                Architecture · Modernization · Implementation · Support
+              </span>
+            </div>
+
+            <div class="contact-detail">
+              <span class="detail-label">Focus</span>
+
+              <span class="detail-value">
+                Enterprise IAM · Cloud · Hybrid · Directory Infrastructure
+              </span>
+            </div>
+          </div>
         </div>
 
         <div class="contact-form-wrap">
           <div class="form-heading">
-            
             <h2>Tell us about your environment.</h2>
+
             <p>
               A few details will help us understand your requirements
               before we connect.
             </p>
           </div>
 
-          <form class="contact-form" action="#" method="post">
+          <form
+            class="contact-form"
+            id="contact-form"
+            action="/api/contact"
+            method="post"
+          >
             <div class="form-row">
               <label>
                 <span>Full name</span>
+
                 <input
                   type="text"
                   name="name"
                   autocomplete="name"
                   placeholder="Your name"
+                  maxlength="100"
                   required
                 />
               </label>
 
               <label>
                 <span>Work email</span>
+
                 <input
                   type="email"
                   name="email"
                   autocomplete="email"
                   placeholder="you@company.com"
+                  maxlength="254"
                   required
                 />
               </label>
@@ -99,43 +117,53 @@ import Eyebrow from "../../components/Eyebrow.astro";
             <div class="form-row">
               <label>
                 <span>Company</span>
+
                 <input
                   type="text"
                   name="company"
                   autocomplete="organization"
                   placeholder="Company name"
+                  maxlength="150"
                 />
               </label>
 
               <label>
                 <span>Role</span>
+
                 <input
                   type="text"
                   name="role"
                   autocomplete="organization-title"
                   placeholder="Your role"
+                  maxlength="150"
                 />
               </label>
             </div>
 
             <label>
               <span>What can we help with?</span>
+
               <select name="service" required>
                 <option value="" disabled selected>
                   Select an area
                 </option>
+
                 <option value="strategy">
-                  IAM Strategy & Architecture
+                  IAM Strategy &amp; Architecture
                 </option>
+
                 <option value="modernization">
                   Identity Modernization
                 </option>
+
                 <option value="implementation">
-                  Implementation & Integration
+                  Implementation &amp; Integration
                 </option>
+
                 <option value="managed">
-                  Managed Identity & Support
+                  Managed Identity &amp; Support
                 </option>
+
                 <option value="other">
                   Other IAM Requirements
                 </option>
@@ -144,17 +172,64 @@ import Eyebrow from "../../components/Eyebrow.astro";
 
             <label>
               <span>Tell us about your environment</span>
+
               <textarea
                 name="message"
                 rows="6"
+                maxlength="5000"
                 placeholder="Describe your current identity environment, challenges, or objectives."
                 required
               ></textarea>
             </label>
 
-            <button type="submit" class="button button-primary">
-              <span>Request an IAM Assessment</span>
-              <span aria-hidden="true">→</span>
+            <!-- Honeypot -->
+            <div class="form-honeypot" aria-hidden="true">
+              <label>
+                <span>Website</span>
+                <input
+                  type="text"
+                  name="website"
+                  tabindex="-1"
+                  autocomplete="off"
+                />
+              </label>
+            </div>
+
+            {
+              turnstileSiteKey ? (
+                <div class="turnstile-wrap">
+                  <div
+                    class="cf-turnstile"
+                    data-sitekey={turnstileSiteKey}
+                    data-theme="light"
+                    data-size="flexible"
+                  ></div>
+                </div>
+              ) : (
+                <p class="form-config-warning">
+                  Security verification is not configured.
+                </p>
+              )
+            }
+
+            <div
+              class="form-status"
+              id="contact-form-status"
+              role="status"
+              aria-live="polite"
+              aria-atomic="true"
+            ></div>
+
+            <button
+              type="submit"
+              class="button button-primary form-submit"
+              id="contact-submit"
+            >
+              <span class="submit-label">
+                Request an IAM Assessment
+              </span>
+
+              <span class="submit-arrow" aria-hidden="true">→</span>
             </button>
 
             <p class="form-note">
@@ -168,11 +243,112 @@ import Eyebrow from "../../components/Eyebrow.astro";
   </main>
 </BaseLayout>
 
+<script
+  src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+  async
+  defer
+></script>
+
+<script>
+  const form = document.querySelector("#contact-form");
+  const submitButton = document.querySelector("#contact-submit");
+  const status = document.querySelector("#contact-form-status");
+
+  if (form && submitButton && status) {
+    const submitLabel = submitButton.querySelector(".submit-label");
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      if (
+        !(form instanceof HTMLFormElement) ||
+        !(submitButton instanceof HTMLButtonElement)
+      ) {
+        return;
+      }
+
+      status.textContent = "";
+      status.className = "form-status";
+
+      submitButton.disabled = true;
+      submitButton.setAttribute("aria-busy", "true");
+
+      if (submitLabel) {
+        submitLabel.textContent = "Submitting…";
+      }
+
+      try {
+        const formData = new FormData(form);
+
+        const response = await fetch("/api/contact", {
+          method: "POST",
+          body: formData,
+          headers: {
+            Accept: "application/json",
+          },
+        });
+
+        const result = await response.json();
+
+        if (!response.ok || !result.ok) {
+          throw new Error(
+            result.message ||
+              "We could not submit your request. Please try again.",
+          );
+        }
+
+        status.textContent =
+          result.message ||
+          "Your request has been received. We'll be in touch shortly.";
+
+        status.className = "form-status form-status-success";
+
+        form.reset();
+
+        const turnstile = window.turnstile;
+
+        if (turnstile) {
+          turnstile.reset();
+        }
+
+        /*
+         * GoogleAnalytics.astro listens for this event and only
+         * records the conversion when analytics consent is granted.
+         */
+        window.dispatchEvent(
+          new CustomEvent("isocore-contact-success"),
+        );
+      } catch (error) {
+        status.textContent =
+          error instanceof Error
+            ? error.message
+            : "Something went wrong. Please try again.";
+
+        status.className = "form-status form-status-error";
+
+        const turnstile = window.turnstile;
+
+        if (turnstile) {
+          turnstile.reset();
+        }
+      } finally {
+        submitButton.disabled = false;
+        submitButton.removeAttribute("aria-busy");
+
+        if (submitLabel) {
+          submitLabel.textContent = "Request an IAM Assessment";
+        }
+      }
+    });
+  }
+</script>
+
 <style>
   .contact-hero {
     position: relative;
     min-height: calc(100vh - 76px);
     overflow: hidden;
+
     background:
       radial-gradient(
         circle at 82% 30%,
@@ -191,6 +367,7 @@ import Eyebrow from "../../components/Eyebrow.astro";
     position: absolute;
     inset: 0;
     opacity: 0.35;
+
     background-image:
       linear-gradient(
         rgba(0, 114, 255, 0.035) 1px,
@@ -201,12 +378,15 @@ import Eyebrow from "../../components/Eyebrow.astro";
         rgba(0, 114, 255, 0.035) 1px,
         transparent 1px
       );
+
     background-size: 72px 72px;
+
     mask-image: linear-gradient(
       to bottom,
       black,
       transparent 85%
     );
+
     pointer-events: none;
   }
 
@@ -216,10 +396,13 @@ import Eyebrow from "../../components/Eyebrow.astro";
     height: 500px;
     top: 12%;
     right: -180px;
+
     border-radius: 50%;
+
     background: var(--color-cyan);
     opacity: 0.045;
     filter: blur(100px);
+
     pointer-events: none;
   }
 
@@ -228,8 +411,8 @@ import Eyebrow from "../../components/Eyebrow.astro";
     z-index: 2;
 
     width: min(
-      1200px,
-      calc(100% - 48px)
+      calc(100% - (var(--container-padding) * 2)),
+      var(--container-width)
     );
 
     margin-inline: auto;
@@ -243,8 +426,6 @@ import Eyebrow from "../../components/Eyebrow.astro";
 
     padding-block: 130px 110px;
   }
-
-  /* INTRO */
 
   .contact-intro {
     align-self: start;
@@ -302,7 +483,15 @@ import Eyebrow from "../../components/Eyebrow.astro";
     line-height: 1.6;
   }
 
-  /* FORM */
+  .contact-link {
+    transition:
+      color var(--transition-fast),
+      transform var(--transition-fast);
+  }
+
+  .contact-link:hover {
+    color: var(--color-primary);
+  }
 
   .contact-form-wrap {
     padding: 42px;
@@ -314,19 +503,6 @@ import Eyebrow from "../../components/Eyebrow.astro";
 
   .form-heading {
     margin-bottom: 34px;
-  }
-
-  .form-label {
-    display: block;
-    margin-bottom: 10px;
-
-    color: var(--color-primary);
-
-    font-family: var(--font-mono);
-    font-size: 0.62rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
   }
 
   .form-heading h2 {
@@ -425,8 +601,16 @@ import Eyebrow from "../../components/Eyebrow.astro";
     appearance: none;
 
     background-image:
-      linear-gradient(45deg, transparent 50%, var(--color-text-muted) 50%),
-      linear-gradient(135deg, var(--color-text-muted) 50%, transparent 50%);
+      linear-gradient(
+        45deg,
+        transparent 50%,
+        var(--color-text-muted) 50%
+      ),
+      linear-gradient(
+        135deg,
+        var(--color-text-muted) 50%,
+        transparent 50%
+      );
 
     background-position:
       calc(100% - 17px) 52%,
@@ -439,40 +623,74 @@ import Eyebrow from "../../components/Eyebrow.astro";
     background-repeat: no-repeat;
   }
 
-  .form-submit {
-    display: inline-flex;
+  .turnstile-wrap {
+    min-height: 65px;
+    display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 20px;
+  }
 
-    width: 100%;
+  .form-honeypot {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
 
-    margin-top: 4px;
-    padding: 15px 18px;
+  .form-config-warning {
+    margin: 0;
 
-    border: 0;
+    padding: 12px 14px;
+
+    border: 1px solid rgba(200, 80, 40, 0.25);
     border-radius: var(--radius-sm);
 
-    background: var(--color-primary);
-    color: var(--color-white);
+    background: rgba(200, 80, 40, 0.05);
+    color: var(--color-text-secondary);
 
-    font-family: var(--font-sans);
-    font-size: 0.84rem;
-    font-weight: 700;
-
-    transition:
-      background var(--transition-fast),
-      transform var(--transition-fast),
-      box-shadow var(--transition-fast);
+    font-size: 0.75rem;
   }
 
-  .form-submit:hover {
-    background: var(--color-primary-hover);
-    transform: translateY(-1px);
-    box-shadow: 0 8px 22px rgba(0, 114, 255, 0.2);
+  .form-status {
+    display: none;
+
+    padding: 13px 15px;
+
+    border-radius: var(--radius-sm);
+
+    font-size: 0.78rem;
+    line-height: 1.55;
   }
 
-  .form-submit span:last-child {
+  .form-status-success {
+    display: block;
+
+    border: 1px solid rgba(0, 150, 120, 0.22);
+    background: rgba(0, 180, 150, 0.06);
+    color: #08745f;
+  }
+
+  .form-status-error {
+    display: block;
+
+    border: 1px solid rgba(200, 60, 60, 0.22);
+    background: rgba(200, 60, 60, 0.05);
+    color: #9b3030;
+  }
+
+  .form-submit {
+    width: 100%;
+  }
+
+  .form-submit:disabled {
+    cursor: wait;
+    opacity: 0.7;
+    transform: none;
+    box-shadow: none;
+  }
+
+  .submit-arrow {
     font-size: 1.1rem;
   }
 
@@ -483,8 +701,6 @@ import Eyebrow from "../../components/Eyebrow.astro";
     font-size: 0.68rem;
     line-height: 1.6;
   }
-
-  /* RESPONSIVE */
 
   @media (max-width: 1000px) {
     .contact-inner {
@@ -498,23 +714,23 @@ import Eyebrow from "../../components/Eyebrow.astro";
     }
 
     .contact-lead {
-      max-width: 650px;
-    }
-
-    .contact-details {
-      max-width: 650px;
+      max-width: 620px;
     }
   }
 
   @media (max-width: 700px) {
     .contact-inner {
-      width: calc(100% - 40px);
+      width: min(
+        calc(100% - (var(--container-padding) * 2)),
+        var(--container-width)
+      );
+
       gap: 52px;
-      padding-block: 100px 70px;
+      padding-block: 82px 70px;
     }
 
     .contact-intro h1 {
-      font-size: clamp(2.7rem, 12vw, 3.6rem);
+      font-size: clamp(2.7rem, 12vw, 4rem);
     }
 
     .contact-details {
@@ -522,23 +738,12 @@ import Eyebrow from "../../components/Eyebrow.astro";
     }
 
     .contact-form-wrap {
-      padding: 28px 22px;
+      padding: 26px 20px;
     }
 
     .form-row {
       grid-template-columns: 1fr;
       gap: 20px;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .contact-inner {
-      width: calc(100% - 32px);
-      padding-block: 88px 60px;
-    }
-
-    .contact-form-wrap {
-      padding: 24px 18px;
     }
   }
 </style>
