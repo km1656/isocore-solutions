@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Eyebrow from "../../components/Eyebrow.astro";
-import CTASection from "../../components/CTASection.astro";
+
 
 const sectors = [
   {
@@ -151,7 +151,7 @@ const contextAreas = [
         <!-- Architectural visual -->
         <div class="hero-system" aria-hidden="true">
           <div class="system-topbar">
-            <span>SECTOR CONTEXT</span>
+            
             <span>IDENTITY ARCHITECTURE</span>
           </div>
 
@@ -203,7 +203,7 @@ const contextAreas = [
     <section class="section sector-perspective">
       <div class="container">
         <div class="section-header perspective-header">
-          <Eyebrow text="Sector Perspective" variant="system" />
+          <Eyebrow text="Sector Perspective" variant="bracket" />
 
           <h2>
             Identity architecture must account for the
@@ -241,7 +241,7 @@ const contextAreas = [
     <section class="section sectors-list">
       <div class="container">
         <div class="section-header sector-header">
-          <Eyebrow text="Sector Expertise" variant="signal" />
+          <Eyebrow text="Sector Expertise" variant="bracket" />
 
           <h2>
             Identity practices shaped around
@@ -261,8 +261,8 @@ const contextAreas = [
 
               <div class="sector-card-content">
                 <div class="sector-card-label">
-                  <span class="sector-status" aria-hidden="true"></span>
-                  <span>SECTOR CONTEXT</span>
+                  
+                  
                 </div>
 
                 <h3>{sector.title}</h3>
@@ -357,7 +357,7 @@ const contextAreas = [
       </div>
     </section>
 
-    <CTASection />
+  
   </main>
 </BaseLayout>
 
@@ -866,12 +866,12 @@ const contextAreas = [
   }
 
   .capability-list span {
-    padding: 5px 8px;
-    border: 1px solid var(--color-border);
+    padding: 6px 9px;
+    border: 1.5px solid var(--color-border);
     background: var(--color-bg);
     color: var(--color-text-muted);
     font-family: var(--font-mono);
-    font-size: 0.53rem;
+    font-size: 0.81rem;
     line-height: 1.2;
     letter-spacing: 0.01em;
     transition:
@@ -908,7 +908,7 @@ const contextAreas = [
   }
 
   .sector-card:hover .sector-arrow {
-    transform: translateX(4px);
+    transform: translateX(9px);
   }
 
   /* -------------------------------------------------------
