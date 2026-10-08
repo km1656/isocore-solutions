@@ -1,0 +1,184 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  type?: string;
+}
+
+const {
+  title,
+  description,
+  type = "WebPage",
+} = Astro.props;
+
+const siteUrl = "https://isocoresolutions.com";
+const currentUrl = new URL(Astro.url.pathname, siteUrl).toString();
+
+const organizationId = `${siteUrl}/#organization`;
+const websiteId = `${siteUrl}/#website`;
+
+const serviceData: Record<
+  string,
+  {
+    name: string;
+    description: string;
+    url: string;
+  }
+> = {
+  "/services/iam-strategy-architecture": {
+    name: "IAM Strategy & Architecture",
+    description:
+      "Enterprise IAM strategy and architecture services for scalable, secure, and maintainable identity environments.",
+    url: `${siteUrl}/services/iam-strategy-architecture`,
+  },
+
+  "/services/identity-modernization": {
+    name: "Identity Modernization",
+    description:
+      "Identity modernization services for cloud, hybrid, directory, authentication, and enterprise identity environments.",
+    url: `${siteUrl}/services/identity-modernization`,
+  },
+
+  "/services/implementation-integration": {
+    name: "Implementation & Integration",
+    description:
+      "Enterprise identity implementation and integration services across IAM platforms, directories, applications, and infrastructure.",
+    url: `${siteUrl}/services/implementation-integration`,
+  },
+
+  "/services/managed-identity-support": {
+    name: "Managed Identity & Support",
+    description:
+      "Ongoing identity engineering, operational support, maintenance, and optimization for enterprise IAM environments.",
+    url: `${siteUrl}/services/managed-identity-support`,
+  },
+};
+
+const breadcrumbLabels: Record<string, string> = {
+  about: "About",
+  services: "Services",
+  platforms: "Platforms",
+  sectors: "Sectors",
+  insights: "Insights",
+  contact: "Contact",
+  privacy: "Privacy Policy",
+  terms: "Terms of Use",
+  "iam-strategy-architecture": "IAM Strategy & Architecture",
+  "identity-modernization": "Identity Modernization",
+  "implementation-integration": "Implementation & Integration",
+  "managed-identity-support": "Managed Identity & Support",
+};
+
+const pathSegments = Astro.url.pathname
+  .split("/")
+  .filter(Boolean);
+
+const breadcrumbItems = [
+  {
+    "@type": "ListItem",
+    position: 1,
+    name: "Home",
+    item: siteUrl,
+  },
+  ...pathSegments.map((segment, index) => {
+    const path = `/${pathSegments
+      .slice(0, index + 1)
+      .join("/")}`;
+
+    return {
+      "@type": "ListItem",
+      position: index + 2,
+      name:
+        breadcrumbLabels[segment] ||
+        segment
+          .replace(/-/g, " ")
+          .replace(/\b\w/g, (character) =>
+            character.toUpperCase(),
+          ),
+      item: `${siteUrl}${path}`,
+    };
+  }),
+];
+
+const service = serviceData[Astro.url.pathname];
+
+const pageSchema = {
+  "@type": type,
+  "@id": `${currentUrl}#webpage`,
+  url: currentUrl,
+  name: title,
+  description,
+  isPartOf: {
+    "@id": websiteId,
+  },
+  about: {
+    "@id": organizationId,
+  },
+};
+
+const graph = [
+  {
+    "@type": "Organization",
+    "@id": organizationId,
+    name: "Isocore Solutions LLC",
+    legalName: "Isocore Solutions LLC",
+    url: siteUrl,
+    logo: {
+      "@type": "ImageObject",
+      url: `${siteUrl}/images/isocore.svg`,
+    },
+    email: "hr@isocoresolutions.com",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "30 N Gould St, Ste R",
+      addressLocality: "Sheridan",
+      addressRegion: "WY",
+      postalCode: "82801",
+      addressCountry: "US",
+    },
+  },
+
+  {
+    "@type": "WebSite",
+    "@id": websiteId,
+    url: siteUrl,
+    name: "Isocore Solutions",
+    description:
+      "Enterprise Identity & Access Management engineering, modernization, implementation, and support.",
+    publisher: {
+      "@id": organizationId,
+    },
+  },
+
+  pageSchema,
+
+  {
+    "@type": "BreadcrumbList",
+    "@id": `${currentUrl}#breadcrumb`,
+    itemListElement: breadcrumbItems,
+  },
+
+  ...(service
+    ? [
+        {
+          "@type": "Service",
+          "@id": `${service.url}#service`,
+          name: service.name,
+          description: service.description,
+          url: service.url,
+          provider: {
+            "@id": organizationId,
+          },
+        },
+      ]
+    : []),
+];
+---
+
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": graph,
+  })}
+/>
