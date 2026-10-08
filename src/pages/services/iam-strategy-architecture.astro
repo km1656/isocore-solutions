@@ -2,6 +2,78 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Eyebrow from "../../components/Eyebrow.astro";
 import CTASection from "../../components/CTASection.astro";
+
+const capabilities = [
+  {
+    title: "Enterprise IAM Architecture",
+    description:
+      "Define identity architecture across authentication, authorization, directories, governance, applications, infrastructure, and security controls.",
+    tag: "Identity Architecture",
+  },
+  {
+    title: "Identity Strategy & Roadmaps",
+    description:
+      "Establish practical identity strategies and modernization roadmaps aligned with business priorities, technology direction, and operational requirements.",
+    tag: "Strategy",
+  },
+  {
+    title: "Platform Architecture",
+    description:
+      "Evaluate and architect IAM platforms within the broader enterprise environment, including integration, scalability, resilience, and operational considerations.",
+    tag: "Platforms",
+  },
+  {
+    title: "Access Management Architecture",
+    description:
+      "Design access patterns covering authentication, single sign-on, federation, MFA, authorization, and application access.",
+    tag: "Access",
+  },
+  {
+    title: "Identity Governance Architecture",
+    description:
+      "Establish governance models for identity lifecycle, access certification, provisioning, policy enforcement, and accountability.",
+    tag: "Governance",
+  },
+  {
+    title: "Cloud & Hybrid Identity Strategy",
+    description:
+      "Architect identity environments that span cloud, on-premises infrastructure, directories, applications, and hybrid operating models.",
+    tag: "Cloud & Hybrid",
+  },
+];
+
+const technologyGroups = [
+  {
+    title: "Identity",
+    description:
+      "IAM Platforms · Access Management · Identity Governance",
+  },
+  {
+    title: "Directories",
+    description:
+      "Active Directory · LDAP · Directory Services",
+  },
+  {
+    title: "Authentication",
+    description:
+      "SSO · MFA · Federation · Adaptive Access",
+  },
+  {
+    title: "Cloud & Hybrid",
+    description:
+      "Cloud Identity · Hybrid Identity · Enterprise Integration",
+  },
+  {
+    title: "Applications",
+    description:
+      "Application Onboarding · Identity APIs · Provisioning",
+  },
+  {
+    title: "Governance",
+    description:
+      "Lifecycle Management · Access Reviews · Policy & Controls",
+  },
+];
 ---
 
 <BaseLayout
@@ -10,81 +82,136 @@ import CTASection from "../../components/CTASection.astro";
 >
   <main>
 
-    <!-- HERO -->
-    <section class="service-hero">
-      <div class="service-grid" aria-hidden="true"></div>
-      <div class="service-glow" aria-hidden="true"></div>
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
 
-      <div class="service-hero-inner">
-        <div class="service-hero-copy">
+    <section class="iam-hero">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-glow" aria-hidden="true"></div>
 
+      <div class="container hero-inner">
+
+        <div class="hero-copy">
           <Eyebrow
             variant="bracket"
             text="IAM Strategy & Architecture"
           />
 
           <h1>
-            Identity architecture <span class="text-gradient"> built for the enterprise.
+            Identity architecture
+            <span class="text-gradient">
+              built for the enterprise.
             </span>
           </h1>
 
-          <p class="service-hero-description">
+          <p class="hero-description">
             Design identity environments around business requirements,
             security controls, integration needs, operational realities,
             and long-term scale.
           </p>
 
-          <div class="service-actions">
-            <a
-              href="/contact"
-              class="service-button service-button-primary"
-            >
+          <div class="hero-actions">
+            <a href="/contact" class="button button-primary">
               <span>Schedule an IAM Assessment</span>
               <span aria-hidden="true">→</span>
             </a>
           </div>
 
+          <div class="hero-context">
+            <span>Enterprise IAM</span>
+            <span>Identity Architecture</span>
+            <span>Cloud & Hybrid</span>
+          </div>
         </div>
 
-        <div class="service-hero-context">
+        <div class="hero-architecture" aria-hidden="true">
+          <div class="architecture-header">
+            <span>IDENTITY ARCHITECTURE</span>
+            <span>ENTERPRISE CONTEXT</span>
+          </div>
 
-          <span class="context-label">
-            Enterprise IAM
-          </span>
+          <div class="architecture-canvas">
+            <div class="architecture-grid"></div>
 
-          <div class="context-line"></div>
+            <div class="architecture-ring ring-large"></div>
+            <div class="architecture-ring ring-medium"></div>
+            <div class="architecture-ring ring-small"></div>
 
-          <p>
-            Strategy and architecture across identity,
-            access, directories, applications, cloud,
-            governance, and security.
-          </p>
+            <div class="architecture-axis axis-horizontal"></div>
+            <div class="architecture-axis axis-vertical"></div>
 
+            <div class="architecture-node node-top">
+              <span></span>
+            </div>
+
+            <div class="architecture-node node-left">
+              <span></span>
+            </div>
+
+            <div class="architecture-node node-center">
+              <span></span>
+            </div>
+
+            <div class="architecture-node node-right">
+              <span></span>
+            </div>
+
+            <div class="architecture-node node-bottom">
+              <span></span>
+            </div>
+
+            <span class="architecture-label label-top">
+              IDENTITY
+            </span>
+
+            <span class="architecture-label label-left">
+              ACCESS
+            </span>
+
+            <span class="architecture-label label-right">
+              PLATFORMS
+            </span>
+
+            <span class="architecture-label label-bottom">
+              ENTERPRISE
+            </span>
+
+            <div class="architecture-note">
+              <span></span>
+              Architecture before complexity
+            </div>
+          </div>
         </div>
+
       </div>
     </section>
 
 
-    <!-- OVERVIEW -->
-    <section class="service-overview section">
-      <div class="service-overview-inner">
+    <!-- =====================================================
+         PERSPECTIVE
+    ====================================================== -->
 
-        <div class="section-header">
+    <section class="section perspective-section">
+      <div class="container">
+
+        <div class="section-header perspective-header">
           <Eyebrow
             variant="bracket"
-            text="What We Solve"
+            text="Architecture Perspective"
           />
 
           <h2>
-            Build the foundation 
-            <span class="text-gradient"> before the complexity.
+            Build the foundation
+            <span class="text-gradient">
+              before the complexity.
             </span>
           </h2>
         </div>
 
-        <div class="overview-content">
+        <div class="perspective-layout">
 
-          <div class="overview-lead">
+          <div class="perspective-lead">
             <p>
               Enterprise identity decisions have consequences across
               applications, infrastructure, security, operations,
@@ -92,7 +219,7 @@ import CTASection from "../../components/CTASection.astro";
             </p>
           </div>
 
-          <div class="overview-copy">
+          <div class="perspective-copy">
             <p>
               We help organizations establish a clear identity
               architecture before individual platforms, integrations,
@@ -108,15 +235,47 @@ import CTASection from "../../components/CTASection.astro";
           </div>
 
         </div>
+
+        <div class="architecture-principles">
+
+          <div class="principle">
+            <span class="principle-line"></span>
+            <strong>Identity</strong>
+            <span>People · Workloads · Credentials</span>
+          </div>
+
+          <div class="principle">
+            <span class="principle-line"></span>
+            <strong>Access</strong>
+            <span>Authentication · Authorization · Policy</span>
+          </div>
+
+          <div class="principle">
+            <span class="principle-line"></span>
+            <strong>Platforms</strong>
+            <span>Directories · Applications · Cloud</span>
+          </div>
+
+          <div class="principle">
+            <span class="principle-line"></span>
+            <strong>Enterprise</strong>
+            <span>Operations · Governance · Continuity</span>
+          </div>
+
+        </div>
+
       </div>
     </section>
 
 
-    <!-- CAPABILITIES -->
-    <section class="service-capabilities">
-      <div class="capabilities-inner">
+    <!-- =====================================================
+         CAPABILITIES
+    ====================================================== -->
 
-        <div class="section-header">
+    <section class="section capabilities-section">
+      <div class="container">
+
+        <div class="section-header capabilities-header">
           <Eyebrow
             variant="bracket"
             text="Capabilities"
@@ -124,175 +283,153 @@ import CTASection from "../../components/CTASection.astro";
 
           <h2>
             Architecture that connects
-            <span class="text-gradient"> the identity ecosystem.
+            <span class="text-gradient">
+              the identity ecosystem.
             </span>
           </h2>
         </div>
 
-        <div class="capability-list">
+        <div class="capability-grid">
 
-          <article class="capability-row">
-            <div class="capability-title">
-              <h3>Enterprise IAM Architecture</h3>
-            </div>
+          {capabilities.map((capability) => (
+            <article class="capability-card">
 
-            <div class="capability-description">
-              <p>
-                Define identity architecture across authentication,
-                authorization, directories, governance, applications,
-                infrastructure, and security controls.
-              </p>
-            </div>
-          </article>
+              <div class="capability-top">
+                <span class="capability-tag">
+                  {capability.tag}
+                </span>
 
-          <article class="capability-row">
-            <div class="capability-title">
-              <h3>Identity Strategy & Roadmaps</h3>
-            </div>
+                <span
+                  class="capability-marker"
+                  aria-hidden="true"
+                ></span>
+              </div>
 
-            <div class="capability-description">
-              <p>
-                Establish practical identity strategies and
-                modernization roadmaps aligned with business
-                priorities, technology direction, and operational
-                requirements.
-              </p>
-            </div>
-          </article>
+              <h3>{capability.title}</h3>
 
-          <article class="capability-row">
-            <div class="capability-title">
-              <h3>Platform Architecture</h3>
-            </div>
+              <p>{capability.description}</p>
 
-            <div class="capability-description">
-              <p>
-                Evaluate and architect IAM platforms within the
-                broader enterprise environment, including integration,
-                scalability, resilience, and operational considerations.
-              </p>
-            </div>
-          </article>
+              <div class="capability-footer">
+                <span>Identity Engineering</span>
+                <span aria-hidden="true">→</span>
+              </div>
 
-          <article class="capability-row">
-            <div class="capability-title">
-              <h3>Access Management Architecture</h3>
-            </div>
-
-            <div class="capability-description">
-              <p>
-                Design access patterns covering authentication,
-                single sign-on, federation, MFA, authorization,
-                and application access.
-              </p>
-            </div>
-          </article>
-
-          <article class="capability-row">
-            <div class="capability-title">
-              <h3>Identity Governance Architecture</h3>
-            </div>
-
-            <div class="capability-description">
-              <p>
-                Establish governance models for identity lifecycle,
-                access certification, provisioning, policy enforcement,
-                and accountability.
-              </p>
-            </div>
-          </article>
-
-          <article class="capability-row">
-            <div class="capability-title">
-              <h3>Cloud & Hybrid Identity Strategy</h3>
-            </div>
-
-            <div class="capability-description">
-              <p>
-                Architect identity environments that span cloud,
-                on-premises infrastructure, directories, applications,
-                and hybrid operating models.
-              </p>
-            </div>
-          </article>
+            </article>
+          ))}
 
         </div>
+
       </div>
     </section>
 
 
-    <!-- APPROACH -->
-    <section class="service-approach">
-      <div class="approach-inner">
+    <!-- =====================================================
+         APPROACH
+    ====================================================== -->
 
-        <div class="approach-intro">
+    <section class="section approach-section">
+      <div class="container">
 
-          <Eyebrow
-            variant="bracket"
-            text="How We Approach It"
-          />
+        <div class="approach-layout">
 
-          <h2>
-            Architecture grounded
-            <span class="text-gradient"> in reality.</span>
-          </h2>
+          <div class="approach-intro">
+            <Eyebrow
+              variant="bracket"
+              text="How We Approach It"
+            />
 
-          <p>
-            Good identity architecture accounts for more than
-            technology. It has to work within the organization's
-            existing environment and operating model.
-          </p>
+            <h2>
+              Architecture grounded
+              <span class="text-gradient">
+                in reality.
+              </span>
+            </h2>
+
+            <p>
+              Good identity architecture accounts for more than
+              technology. It has to work within the organization's
+              existing environment and operating model.
+            </p>
+          </div>
+
+          <div class="approach-flow">
+
+            <article class="approach-step">
+              <div class="step-visual">
+                <span class="step-node"></span>
+              </div>
+
+              <div class="step-content">
+                <span class="step-label">
+                  Current State
+                </span>
+
+                <h3>Understand the environment.</h3>
+
+                <p>
+                  Understand existing identity platforms,
+                  directories, applications, integrations,
+                  dependencies, and operational processes.
+                </p>
+              </div>
+            </article>
+
+            <article class="approach-step">
+              <div class="step-visual">
+                <span class="step-node"></span>
+              </div>
+
+              <div class="step-content">
+                <span class="step-label">
+                  Target State
+                </span>
+
+                <h3>Define the architecture.</h3>
+
+                <p>
+                  Define the desired identity architecture,
+                  capabilities, integration patterns, and
+                  operating model.
+                </p>
+              </div>
+            </article>
+
+            <article class="approach-step">
+              <div class="step-visual">
+                <span class="step-node"></span>
+              </div>
+
+              <div class="step-content">
+                <span class="step-label">
+                  Transition
+                </span>
+
+                <h3>Establish the path forward.</h3>
+
+                <p>
+                  Establish a practical roadmap that moves
+                  from the current environment toward the target
+                  architecture without unnecessary disruption.
+                </p>
+              </div>
+            </article>
+
+          </div>
 
         </div>
 
-        <div class="approach-list">
-
-          <div class="approach-item">
-            <span class="approach-label">
-              Current State
-            </span>
-
-            <p>
-              Understand existing identity platforms,
-              directories, applications, integrations,
-              dependencies, and operational processes.
-            </p>
-          </div>
-
-          <div class="approach-item">
-            <span class="approach-label">
-              Target State
-            </span>
-
-            <p>
-              Define the desired identity architecture,
-              capabilities, integration patterns, and
-              operating model.
-            </p>
-          </div>
-
-          <div class="approach-item">
-            <span class="approach-label">
-              Transition
-            </span>
-
-            <p>
-              Establish a practical roadmap that moves
-              from the current environment toward the target
-              architecture without unnecessary disruption.
-            </p>
-          </div>
-
-        </div>
       </div>
     </section>
 
 
-    <!-- TECHNOLOGY -->
-    <section class="service-technology section">
-      <div class="technology-inner">
+    <!-- =====================================================
+         TECHNOLOGY
+    ====================================================== -->
 
-        <div class="section-header">
+    <section class="section technology-section">
+      <div class="container">
+
+        <div class="section-header technology-header">
           <Eyebrow
             variant="bracket"
             text="Technology Context"
@@ -300,7 +437,9 @@ import CTASection from "../../components/CTASection.astro";
 
           <h2>
             Designed across
-            <span class="text-gradient"> the enterprise stack.</span>
+            <span class="text-gradient">
+              the enterprise stack.
+            </span>
           </h2>
 
           <p>
@@ -311,96 +450,18 @@ import CTASection from "../../components/CTASection.astro";
 
         <div class="technology-grid">
 
-          <div class="technology-group">
-            <span>Identity</span>
-            <p>
-              IAM Platforms · Access Management ·
-              Identity Governance
-            </p>
-          </div>
+          {technologyGroups.map((group) => (
+            <article class="technology-card">
 
-          <div class="technology-group">
-            <span>Directories</span>
-            <p>
-              Active Directory · LDAP · Directory Services
-            </p>
-          </div>
+              <div class="technology-card-top">
+                <span class="technology-dot"></span>
+                <span>{group.title}</span>
+              </div>
 
-          <div class="technology-group">
-            <span>Authentication</span>
-            <p>
-              SSO · MFA · Federation · Adaptive Access
-            </p>
-          </div>
+              <p>{group.description}</p>
 
-          <div class="technology-group">
-            <span>Cloud & Hybrid</span>
-            <p>
-              Cloud Identity · Hybrid Identity ·
-              Enterprise Integration
-            </p>
-          </div>
-
-          <div class="technology-group">
-            <span>Applications</span>
-            <p>
-              Application Onboarding · Identity APIs ·
-              Provisioning
-            </p>
-          </div>
-
-          <div class="technology-group">
-            <span>Governance</span>
-            <p>
-              Lifecycle Management · Access Reviews ·
-              Policy & Controls
-            </p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ENGAGEMENT -->
-    <section class="service-engagement">
-      <div class="engagement-inner">
-
-        <div class="engagement-copy">
-          <Eyebrow
-            variant="bracket"
-            text="Engagement"
-          />
-
-          <h2>
-            Start with the
-            <span class="text-gradient"> architecture.</span>
-          </h2>
-
-          <p>
-            Whether you are defining a new IAM strategy,
-            modernizing an existing environment, or preparing
-            for a major identity initiative, Isocore can help
-            establish the architectural foundation.
-          </p>
-        </div>
-
-        <div class="engagement-actions">
-
-          <a
-            href="/contact"
-            class="service-button service-button-primary"
-          >
-            <span>Schedule an IAM Assessment</span>
-            <span aria-hidden="true">→</span>
-          </a>
-
-          <a
-            href="/services"
-            class="service-button service-button-secondary"
-          >
-            Explore All Services
-          </a>
+            </article>
+          ))}
 
         </div>
 
@@ -408,46 +469,127 @@ import CTASection from "../../components/CTASection.astro";
     </section>
 
 
-    
+    <!-- =====================================================
+         DARK ARCHITECTURE PERSPECTIVE
+    ====================================================== -->
+
+    <section class="section-dark architecture-section">
+      <div class="container">
+
+        <div class="architecture-layout">
+
+          <div class="architecture-copy">
+
+            <Eyebrow
+              variant="bracket"
+              text="Enterprise Perspective"
+            />
+
+            <h2>
+              Start with the
+              <span>architecture.</span>
+            </h2>
+
+            <p>
+              Whether you are defining a new IAM strategy,
+              modernizing an existing environment, or preparing
+              for a major identity initiative, Isocore can help
+              establish the architectural foundation.
+            </p>
+
+            <a
+              href="/contact"
+              class="button button-primary"
+            >
+              <span>Schedule an IAM Assessment</span>
+              <span aria-hidden="true">→</span>
+            </a>
+
+          </div>
+
+
+          <div class="architecture-map" aria-hidden="true">
+
+            <div class="map-grid"></div>
+
+            <div class="map-axis map-axis-horizontal"></div>
+            <div class="map-axis map-axis-vertical"></div>
+
+            <div class="map-layer map-identity">
+              <span>IDENTITY</span>
+              <small>
+                People · Workloads · Credentials
+              </small>
+            </div>
+
+            <div class="map-layer map-access">
+              <span>ACCESS</span>
+              <small>
+                Authentication · Authorization · Policy
+              </small>
+            </div>
+
+            <div class="map-layer map-platforms">
+              <span>PLATFORMS</span>
+              <small>
+                Directories · Applications · Cloud
+              </small>
+            </div>
+
+            <div class="map-layer map-enterprise">
+              <span>ENTERPRISE</span>
+              <small>
+                Operations · Governance · Continuity
+              </small>
+            </div>
+
+            <div class="map-core">
+              <span></span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <CTASection />
 
   </main>
 </BaseLayout>
 
 
 <style>
-
-  /* =================================
+  /* =========================================================
      HERO
-     ================================= */
+  ========================================================= */
 
-  .service-hero {
+  .iam-hero {
     position: relative;
-    min-height: 610px;
+    overflow: hidden;
+    min-height: 640px;
 
     display: flex;
     align-items: center;
 
-    overflow: hidden;
-
     background:
       radial-gradient(
-        circle at 78% 42%,
+        circle at 82% 42%,
         rgba(0, 180, 219, 0.075),
-        transparent 30%
-      ),
-      radial-gradient(
-        circle at 20% 80%,
-        rgba(0, 114, 255, 0.045),
-        transparent 30%
+        transparent 29%
       ),
       var(--color-bg);
+
+    border-bottom: 1px solid var(--color-border);
   }
 
-  .service-grid {
+  .hero-grid {
     position: absolute;
     inset: 0;
 
-    opacity: 0.3;
+    opacity: 0.42;
 
     background-image:
       linear-gradient(
@@ -460,351 +602,573 @@ import CTASection from "../../components/CTASection.astro";
         transparent 1px
       );
 
-    background-size: 72px 72px;
+    background-size: 64px 64px;
 
-    mask-image:
-      linear-gradient(
-        to bottom,
-        black,
-        transparent 90%
-      );
-  }
-
-  .service-glow {
-    position: absolute;
-
-    width: 500px;
-    height: 500px;
-
-    right: -180px;
-    top: 10%;
-
-    border-radius: 50%;
-
-    background: var(--color-cyan);
-
-    opacity: 0.05;
-
-    filter: blur(110px);
+    mask-image: linear-gradient(
+      90deg,
+      black,
+      transparent 90%
+    );
 
     pointer-events: none;
   }
 
-  .service-hero-inner {
-    position: relative;
-    z-index: 2;
+  .hero-glow {
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    right: -160px;
+    top: 15%;
 
-    width: min(
-      1200px,
-      calc(100% - 48px)
-    );
+    border-radius: 50%;
 
-    margin-inline: auto;
+    background: var(--color-cyan);
+    opacity: 0.045;
+    filter: blur(100px);
 
-    display: grid;
-
-    grid-template-columns:
-      minmax(0, 1fr)
-      minmax(260px, 0.42fr);
-
-    gap: 100px;
-
-    align-items: end;
-
-    padding-block: 125px 90px;
+    pointer-events: none;
   }
 
-  .service-hero-copy {
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+
+    display: grid;
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(360px, 0.72fr);
+
+    gap: clamp(50px, 8vw, 100px);
+
+    align-items: center;
+
+    padding-block: 105px 90px;
+  }
+
+  .hero-copy {
     max-width: 760px;
   }
 
-  .service-hero h1 {
-    margin: 0 0 28px;
+  .hero-copy h1 {
+    margin: 0 0 25px;
 
-    font-size: clamp(
-      3.25rem,
-      5.7vw,
-      5rem
-    );
-
-    line-height: 1;
+    font-size: clamp(3rem, 5.5vw, 5.15rem);
+    font-weight: 800;
+    line-height: 0.98;
     letter-spacing: -0.055em;
   }
 
-  .service-hero-description {
+  .hero-description {
     max-width: 650px;
-
     margin: 0;
-
-    color: var(--color-text-secondary);
 
     font-size: 1rem;
     line-height: 1.8;
   }
 
-  .service-actions {
+  .hero-actions {
     margin-top: 32px;
   }
 
-  .service-button {
-    display: inline-flex;
+  .hero-context {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 22px;
 
-    align-items: center;
-    justify-content: center;
+    margin-top: 27px;
 
-    gap: 16px;
-
-    min-height: 48px;
-
-    padding: 0 18px;
-
-    border-radius: var(--radius-sm);
-
-    font-size: 0.82rem;
-    font-weight: 700;
-
-    transition:
-      background var(--transition-fast),
-      color var(--transition-fast),
-      border-color var(--transition-fast),
-      transform var(--transition-fast);
-  }
-
-  .service-button-primary {
-    background: var(--color-primary);
-    color: var(--color-white);
-  }
-
-  .service-button-primary:hover {
-    background: var(--color-primary-hover);
-    transform: translateY(-1px);
-  }
-
-  .service-button-secondary {
-    border: 1px solid var(--color-border-strong);
-    color: var(--color-text);
-    background: transparent;
-  }
-
-  .service-button-secondary:hover {
-    border-color: var(--color-primary);
-    color: var(--color-primary);
-  }
-
-  .service-hero-context {
-    padding-left: 26px;
-
-    border-left: 1px solid var(--color-border-strong);
-  }
-
-  .context-label {
-    color: var(--color-primary);
+    color: var(--color-text-muted);
 
     font-family: var(--font-mono);
-    font-size: 0.62rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
+    font-size: 0.58rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
   }
 
-  .context-line {
-    width: 36px;
-    height: 1px;
+  .hero-context span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
 
-    margin-block: 17px;
+  .hero-context span::before {
+    content: "";
 
-    background:
+    width: 4px;
+    height: 4px;
+
+    border-radius: 50%;
+
+    background: var(--color-cyan);
+  }
+
+
+  /* =========================================================
+     HERO ARCHITECTURE VISUAL
+  ========================================================= */
+
+  .hero-architecture {
+    border: 1px solid var(--color-border);
+    background: rgba(255, 255, 255, 0.78);
+    box-shadow: var(--shadow-card);
+  }
+
+  .architecture-header {
+    min-height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding-inline: 17px;
+
+    border-bottom: 1px solid var(--color-border);
+
+    color: var(--color-text-muted);
+
+    font-family: var(--font-mono);
+    font-size: 0.5rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+  }
+
+  .architecture-header span:last-child {
+    color: var(--color-primary);
+  }
+
+  .architecture-canvas {
+    position: relative;
+    min-height: 385px;
+    overflow: hidden;
+  }
+
+  .architecture-grid {
+    position: absolute;
+    inset: 0;
+
+    background-image:
+      linear-gradient(
+        rgba(6, 20, 38, 0.035) 1px,
+        transparent 1px
+      ),
       linear-gradient(
         90deg,
-        var(--color-primary),
-        var(--color-cyan)
+        rgba(6, 20, 38, 0.035) 1px,
+        transparent 1px
       );
+
+    background-size: 30px 30px;
   }
 
-  .service-hero-context p {
-    margin: 0;
+  .architecture-ring {
+    position: absolute;
 
-    color: var(--color-text-secondary);
+    top: 50%;
+    left: 50%;
 
-    font-size: 0.83rem;
-    line-height: 1.7;
+    border: 1px solid rgba(0, 114, 255, 0.11);
+    border-radius: 50%;
+
+    transform: translate(-50%, -50%);
+  }
+
+  .ring-large {
+    width: 275px;
+    height: 275px;
+  }
+
+  .ring-medium {
+    width: 195px;
+    height: 195px;
+
+    border-color: rgba(0, 180, 219, 0.14);
+  }
+
+  .ring-small {
+    width: 105px;
+    height: 105px;
+  }
+
+  .architecture-axis {
+    position: absolute;
+
+    background: rgba(0, 180, 219, 0.17);
+  }
+
+  .axis-horizontal {
+    top: 50%;
+    left: 15%;
+    width: 70%;
+    height: 1px;
+  }
+
+  .axis-vertical {
+    top: 15%;
+    left: 50%;
+    width: 1px;
+    height: 70%;
+  }
+
+  .architecture-node {
+    position: absolute;
+    z-index: 2;
+
+    width: 12px;
+    height: 12px;
+
+    border: 1px solid rgba(0, 114, 255, 0.55);
+    background: var(--color-bg);
+  }
+
+  .architecture-node span {
+    position: absolute;
+    inset: 3px;
+    background: var(--color-primary);
+  }
+
+  .node-top {
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .node-left {
+    top: 50%;
+    left: 15%;
+    transform: translate(-50%, -50%);
+  }
+
+  .node-center {
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    box-shadow:
+      0 0 0 8px rgba(0, 114, 255, 0.05);
+  }
+
+  .node-right {
+    top: 50%;
+    left: 85%;
+    transform: translate(-50%, -50%);
+  }
+
+  .node-bottom {
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .architecture-label {
+    position: absolute;
+
+    color: var(--color-text-muted);
+
+    font-family: var(--font-mono);
+    font-size: 0.47rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+  }
+
+  .label-top {
+    top: 9%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .label-left {
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+  }
+
+  .label-right {
+    top: 50%;
+    right: 4%;
+    transform: translateY(-50%);
+  }
+
+  .label-bottom {
+    bottom: 9%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .architecture-note {
+    position: absolute;
+
+    right: 16px;
+    bottom: 14px;
+
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    color: var(--color-text-muted);
+
+    font-family: var(--font-mono);
+    font-size: 0.48rem;
+  }
+
+  .architecture-note span {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--color-cyan);
   }
 
 
-  /* =================================
-     OVERVIEW
-     ================================= */
+  /* =========================================================
+     PERSPECTIVE
+  ========================================================= */
 
-  .service-overview {
-    background: var(--color-white);
-
-    border-top: 1px solid var(--color-border);
+  .perspective-section {
+    background: var(--color-surface);
     border-bottom: 1px solid var(--color-border);
   }
 
-  .service-overview-inner {
-    width: min(
-      1200px,
-      calc(100% - 48px)
-    );
-
-    margin-inline: auto;
-  }
-
-  .service-overview .section-header {
+  .perspective-header {
     max-width: 780px;
   }
 
-  .service-overview h2,
-  .service-capabilities h2,
-  .service-technology h2 {
-    margin-bottom: 0;
-  }
-
-  .overview-content {
+  .perspective-layout {
     display: grid;
-
     grid-template-columns:
       minmax(0, 0.9fr)
       minmax(0, 1.1fr);
 
-    gap: 100px;
+    gap: clamp(40px, 8vw, 105px);
 
-    margin-top: 58px;
-
-    padding-top: 42px;
+    margin-top: 55px;
+    padding-top: 38px;
 
     border-top: 1px solid var(--color-border);
   }
 
-  .overview-lead p {
+  .perspective-lead p {
     margin: 0;
 
     color: var(--color-text);
 
     font-family: var(--font-display);
-
-    font-size: 1.35rem;
+    font-size: clamp(1.25rem, 2vw, 1.55rem);
     font-weight: 650;
-
-    line-height: 1.5;
-
+    line-height: 1.45;
     letter-spacing: -0.025em;
   }
 
-  .overview-copy p {
+  .perspective-copy p {
     margin: 0 0 20px;
 
-    color: var(--color-text-secondary);
-
-    font-size: 0.94rem;
-
+    font-size: 0.9rem;
     line-height: 1.8;
   }
 
-  .overview-copy p:last-child {
+  .perspective-copy p:last-child {
     margin-bottom: 0;
   }
 
+  .architecture-principles {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
 
-  /* =================================
+    margin-top: 65px;
+
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .principle {
+    min-height: 150px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 24px;
+
+    border-right: 1px solid var(--color-border);
+  }
+
+  .principle:last-child {
+    border-right: 0;
+  }
+
+  .principle-line {
+    width: 25px;
+    height: 2px;
+
+    margin-bottom: 20px;
+
+    background: linear-gradient(
+      90deg,
+      var(--color-primary),
+      var(--color-cyan)
+    );
+  }
+
+  .principle strong {
+    margin-bottom: 7px;
+
+    font-family: var(--font-display);
+    font-size: 1rem;
+  }
+
+  .principle > span:last-child {
+    color: var(--color-text-muted);
+
+    font-family: var(--font-mono);
+    font-size: 0.5rem;
+    line-height: 1.5;
+  }
+
+
+  /* =========================================================
      CAPABILITIES
-     ================================= */
+  ========================================================= */
 
-  .service-capabilities {
-    padding-block: 120px;
-
+  .capabilities-section {
     background: var(--color-bg);
   }
 
-  .capabilities-inner {
-    width: min(
-      1200px,
-      calc(100% - 48px)
-    );
-
-    margin-inline: auto;
+  .capabilities-header {
+    max-width: 780px;
   }
 
-  .capability-list {
-    margin-top: 58px;
-
-    border-top: 1px solid var(--color-border);
-  }
-
-  .capability-row {
+  .capability-grid {
     display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 
-    grid-template-columns:
-      minmax(260px, 0.7fr)
-      minmax(0, 1.3fr);
+    gap: 16px;
 
-    gap: 80px;
+    margin-top: 55px;
+  }
 
-    padding-block: 32px 34px;
+  .capability-card {
+    position: relative;
 
-    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+
+    min-height: 285px;
+
+    overflow: hidden;
+
+    border: 1px solid var(--color-border);
+
+    background: var(--color-surface);
 
     transition:
-      background var(--transition-normal),
-      padding-left var(--transition-normal),
-      padding-right var(--transition-normal);
+      transform var(--transition-normal),
+      border-color var(--transition-normal),
+      box-shadow var(--transition-normal);
   }
 
-  .capability-row:hover {
-    background: var(--color-surface-raised);
+  .capability-card:hover {
+    transform: translateY(-4px);
 
-    padding-left: 18px;
-    padding-right: 18px;
+    border-color: var(--color-border-strong);
+
+    box-shadow: var(--shadow-card-hover);
   }
 
-  .capability-title h3 {
-    margin: 0;
+  .capability-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-    font-size: 1.15rem;
-    letter-spacing: -0.02em;
+    padding: 22px 24px 0;
   }
 
-  .capability-description p {
-    max-width: 620px;
+  .capability-tag {
+    color: var(--color-primary);
 
-    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 0.52rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
 
-    color: var(--color-text-secondary);
+  .capability-marker {
+    width: 7px;
+    height: 7px;
 
-    font-size: 0.88rem;
+    border-radius: 50%;
 
-    line-height: 1.75;
+    background: var(--color-cyan);
+
+    box-shadow:
+      0 0 0 5px rgba(0, 180, 219, 0.06);
+  }
+
+  .capability-card h3 {
+    margin: 26px 24px 12px;
+
+    font-size: 1.25rem;
+    line-height: 1.2;
+  }
+
+  .capability-card p {
+    margin: 0 24px;
+
+    font-size: 0.82rem;
+    line-height: 1.72;
+  }
+
+  .capability-footer {
+    margin-top: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    min-height: 45px;
+
+    padding-inline: 18px;
+
+    border-top: 1px solid var(--color-border);
+
+    color: var(--color-text-muted);
+
+    font-family: var(--font-mono);
+    font-size: 0.49rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .capability-footer span:last-child {
+    color: var(--color-primary);
+
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+
+    transition: transform var(--transition-fast);
+  }
+
+  .capability-card:hover .capability-footer span:last-child {
+    transform: translateX(4px);
   }
 
 
-  /* =================================
+  /* =========================================================
      APPROACH
-     ================================= */
+  ========================================================= */
 
-  .service-approach {
-    padding-block: 120px;
-
-    background: var(--color-white);
-
+  .approach-section {
+    background: var(--color-surface);
     border-top: 1px solid var(--color-border);
   }
 
-  .approach-inner {
-    width: min(
-      1200px,
-      calc(100% - 48px)
-    );
-
-    margin-inline: auto;
-
+  .approach-layout {
     display: grid;
-
     grid-template-columns:
       minmax(0, 0.8fr)
       minmax(0, 1.2fr);
 
-    gap: 110px;
+    gap: clamp(50px, 9vw, 115px);
   }
 
   .approach-intro {
@@ -812,324 +1176,636 @@ import CTASection from "../../components/CTASection.astro";
   }
 
   .approach-intro h2 {
-    margin: 0 0 24px;
-
-    font-size: clamp(
-      2.4rem,
-      4vw,
-      3.6rem
-    );
+    margin: 0 0 22px;
   }
 
   .approach-intro p {
     margin: 0;
 
-    color: var(--color-text-secondary);
-
-    font-size: 0.94rem;
-
+    font-size: 0.9rem;
     line-height: 1.8;
   }
 
-  .approach-list {
+  .approach-flow {
     border-top: 1px solid var(--color-border);
   }
 
-  .approach-item {
-    padding-block: 28px 30px;
+  .approach-step {
+    position: relative;
+
+    display: grid;
+    grid-template-columns: 55px 1fr;
+
+    gap: 22px;
+
+    padding-block: 27px;
 
     border-bottom: 1px solid var(--color-border);
   }
 
-  .approach-label {
+  .step-visual {
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+  }
+
+  .step-visual::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    bottom: -28px;
+
+    width: 1px;
+
+    background: var(--color-border);
+  }
+
+  .approach-step:last-child .step-visual::before {
+    bottom: 50%;
+  }
+
+  .step-node {
+    position: relative;
+    z-index: 1;
+
+    width: 11px;
+    height: 11px;
+
+    margin-top: 4px;
+
+    border: 1px solid var(--color-primary);
+
+    background: var(--color-surface);
+  }
+
+  .step-node::after {
+    content: "";
+
+    position: absolute;
+    inset: 3px;
+
+    background: var(--color-cyan);
+  }
+
+  .step-label {
     display: block;
 
-    margin-bottom: 10px;
+    margin-bottom: 7px;
 
     color: var(--color-primary);
 
     font-family: var(--font-mono);
-
-    font-size: 0.62rem;
+    font-size: 0.55rem;
     font-weight: 700;
-
-    letter-spacing: 0.11em;
-
+    letter-spacing: 0.1em;
     text-transform: uppercase;
   }
 
-  .approach-item p {
+  .step-content h3 {
+    margin-bottom: 9px;
+
+    font-size: 1.12rem;
+  }
+
+  .step-content p {
     max-width: 620px;
 
     margin: 0;
 
-    color: var(--color-text-secondary);
-
-    font-size: 0.88rem;
-
+    font-size: 0.82rem;
     line-height: 1.75;
   }
 
 
-  /* =================================
+  /* =========================================================
      TECHNOLOGY
-     ================================= */
+  ========================================================= */
 
-  .service-technology {
+  .technology-section {
     background: var(--color-bg);
+    border-top: 1px solid var(--color-border);
   }
 
-  .technology-inner {
-    width: min(
-      1200px,
-      calc(100% - 48px)
-    );
+  .technology-header {
+    max-width: 780px;
+  }
 
-    margin-inline: auto;
+  .technology-header p {
+    max-width: 650px;
+    margin-top: 22px;
   }
 
   .technology-grid {
     display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
 
-    grid-template-columns: repeat(2, 1fr);
-
-    margin-top: 58px;
+    margin-top: 55px;
 
     border-top: 1px solid var(--color-border);
     border-left: 1px solid var(--color-border);
   }
 
-  .technology-group {
-    min-height: 155px;
+  .technology-card {
+    min-height: 175px;
 
-    padding: 30px;
+    padding: 27px;
 
     border-right: 1px solid var(--color-border);
     border-bottom: 1px solid var(--color-border);
+
+    background: var(--color-surface);
+
+    transition:
+      background var(--transition-normal),
+      border-color var(--transition-normal);
   }
 
-  .technology-group span {
-    display: block;
+  .technology-card:hover {
+    background: var(--color-surface-raised);
+    border-color: var(--color-border-strong);
+  }
 
-    margin-bottom: 12px;
+  .technology-card-top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    margin-bottom: 15px;
 
     color: var(--color-primary);
 
     font-family: var(--font-mono);
-
-    font-size: 0.62rem;
+    font-size: 0.58rem;
     font-weight: 700;
-
     letter-spacing: 0.1em;
-
     text-transform: uppercase;
   }
 
-  .technology-group p {
-    max-width: 480px;
+  .technology-dot {
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: var(--color-cyan);
+  }
+
+  .technology-card p {
+    max-width: 430px;
 
     margin: 0;
 
-    color: var(--color-text-secondary);
-
-    font-size: 0.84rem;
-
+    font-size: 0.8rem;
     line-height: 1.7;
   }
 
 
-  /* =================================
-     ENGAGEMENT
-     ================================= */
+  /* =========================================================
+     DARK ARCHITECTURE
+  ========================================================= */
 
-  .service-engagement {
-    padding-block: 100px;
-
-    background:
-      linear-gradient(
-        105deg,
-        #008fd0 0%,
-        #00b8c8 55%,
-        #0a2a6b 100%
-      );
-
-    border-top: 1px solid var(--color-border);
+  .architecture-section {
+    overflow: hidden;
   }
 
-  .engagement-inner {
-    width: min(
-      1320px,
-      calc(100% - 48px)
-    );
+  .architecture-layout {
+    display: grid;
+    grid-template-columns:
+      minmax(0, 0.8fr)
+      minmax(0, 1.2fr);
 
-    margin-inline: auto;
-
-    display: flex;
+    gap: clamp(50px, 9vw, 110px);
 
     align-items: center;
-    justify-content: space-between;
-
-    gap: 60px;
   }
 
-  .engagement-copy {
-    max-width: 650px;
+  .architecture-copy {
+    max-width: 570px;
   }
 
-  .engagement-copy h2 {
-    margin: 0 0 20px;
-    color: var(--color-white)
-
-    font-size: clamp(
-      2.3rem,
-      4vw,
-      3.5rem
-    );
-  }
-
-  .engagement-copy p {
-    max-width: 620px;
-
-    margin: 0;
+  .architecture-copy h2 {
+    margin-bottom: 23px;
 
     color: var(--color-white);
+  }
 
-    font-size: 0.94rem;
+  .architecture-copy h2 span {
+    display: block;
+    color: var(--color-cyan);
+  }
 
+  .architecture-copy p {
+    margin-bottom: 30px;
+
+    color: #a9bbcd;
+    font-size: 0.9rem;
     line-height: 1.8;
   }
 
-  .engagement-actions {
-    display: flex;
+  .architecture-map {
+    position: relative;
 
-    flex-wrap: wrap;
+    min-height: 430px;
 
-    gap: 12px;
+    overflow: hidden;
 
-    flex-shrink: 0;
-  
-  .engagement-copy span{
-    color: azure;
+    border: 1px solid rgba(216, 229, 239, 0.12);
+
+    background: var(--color-dark-surface);
   }
 
+  .map-grid {
+    position: absolute;
+    inset: 0;
 
-  /* =================================
-     RESPONSIVE
-     ================================= */
-
-  @media (max-width: 1000px) {
-
-    .service-hero-inner {
-      grid-template-columns: 1fr;
-
-      gap: 55px;
-    }
-
-    .service-hero-context {
-      max-width: 520px;
-    }
-
-    .overview-content,
-    .approach-inner {
-      grid-template-columns: 1fr;
-
-      gap: 50px;
-    }
-
-    .engagement-inner {
-      align-items: flex-start;
-
-      flex-direction: column;
-    }
-  }
-
-
-  @media (max-width: 768px) {
-
-    .service-hero-inner {
-      width: calc(100% - 40px);
-
-      padding-block: 105px 75px;
-    }
-
-    .service-hero h1 {
-      font-size: clamp(
-        2.9rem,
-        11vw,
-        4rem
+    background-image:
+      linear-gradient(
+        rgba(216, 229, 239, 0.035) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        90deg,
+        rgba(216, 229, 239, 0.035) 1px,
+        transparent 1px
       );
-    }
 
-    .service-capabilities,
-    .service-approach {
-      padding-block: 88px;
-    }
+    background-size: 32px 32px;
+  }
 
-    .service-overview-inner,
-    .capabilities-inner,
-    .technology-inner,
-    .engagement-inner,
-    .approach-inner {
-      width: calc(100% - 40px);
-    }
+  .map-axis {
+    position: absolute;
+    z-index: 1;
 
-    .capability-row {
+    background: rgba(0, 180, 219, 0.13);
+  }
+
+  .map-axis-horizontal {
+    top: 50%;
+    left: 7%;
+    width: 86%;
+    height: 1px;
+  }
+
+  .map-axis-vertical {
+    top: 8%;
+    left: 50%;
+    width: 1px;
+    height: 84%;
+  }
+
+  .map-layer {
+    position: absolute;
+    z-index: 2;
+
+    left: 9%;
+    width: 82%;
+    height: 67px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding-left: 21px;
+
+    border: 1px solid rgba(216, 229, 239, 0.11);
+
+    background: rgba(255, 255, 255, 0.018);
+  }
+
+  .map-layer span {
+    color: #8196aa;
+
+    font-family: var(--font-mono);
+    font-size: 0.53rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+  }
+
+  .map-layer small {
+    margin-top: 5px;
+
+    color: #526b82;
+
+    font-family: var(--font-mono);
+    font-size: 0.46rem;
+  }
+
+  .map-identity {
+    top: 6%;
+  }
+
+  .map-access {
+    top: 29%;
+  }
+
+  .map-platforms {
+    top: 52%;
+  }
+
+  .map-enterprise {
+    top: 75%;
+  }
+
+  .map-core {
+    position: absolute;
+    z-index: 4;
+
+    top: 50%;
+    left: 50%;
+
+    width: 17px;
+    height: 17px;
+
+    border: 1px solid var(--color-cyan);
+
+    background: var(--color-dark);
+
+    transform: translate(-50%, -50%);
+
+    box-shadow:
+      0 0 0 8px rgba(0, 180, 219, 0.05),
+      0 0 30px rgba(0, 180, 219, 0.15);
+  }
+
+  .map-core span {
+    position: absolute;
+    inset: 4px;
+
+    background: var(--color-cyan);
+  }
+
+
+  /* =========================================================
+     TABLET
+  ========================================================= */
+
+  @media (max-width: 1050px) {
+    .hero-inner {
       grid-template-columns: 1fr;
-
-      gap: 14px;
-
-      padding-block: 26px 28px;
     }
 
-    .capability-row:hover {
-      padding-left: 12px;
-      padding-right: 12px;
+    .hero-copy {
+      max-width: 820px;
+    }
+
+    .hero-architecture {
+      width: min(100%, 720px);
+    }
+
+    .architecture-principles {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .principle:nth-child(2) {
+      border-right: 0;
+    }
+
+    .principle:nth-child(-n + 2) {
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .perspective-layout,
+    .approach-layout,
+    .architecture-layout {
+      grid-template-columns: 1fr;
+    }
+
+    .perspective-lead,
+    .approach-intro,
+    .architecture-copy {
+      max-width: 720px;
+    }
+
+    .technology-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+
+  /* =========================================================
+     MOBILE
+  ========================================================= */
+
+  @media (max-width: 700px) {
+    .iam-hero {
+      min-height: auto;
+    }
+
+    .hero-inner {
+      padding-block: 72px 60px;
+    }
+
+    .hero-copy h1 {
+      font-size: clamp(2.7rem, 12vw, 4rem);
+    }
+
+    .hero-description {
+      font-size: 0.92rem;
+      line-height: 1.75;
+    }
+
+    .hero-actions .button {
+      width: 100%;
+    }
+
+    .hero-context {
+      gap: 8px 15px;
+      font-size: 0.52rem;
+    }
+
+    .hero-architecture {
+      width: 100%;
+    }
+
+    .architecture-canvas {
+      min-height: 310px;
+    }
+
+    .ring-large {
+      width: 225px;
+      height: 225px;
+    }
+
+    .ring-medium {
+      width: 160px;
+      height: 160px;
+    }
+
+    .ring-small {
+      width: 88px;
+      height: 88px;
+    }
+
+    .architecture-note {
+      display: none;
+    }
+
+    .perspective-layout {
+      gap: 32px;
+      margin-top: 40px;
+      padding-top: 28px;
+    }
+
+    .perspective-lead p {
+      font-size: 1.22rem;
+    }
+
+    .architecture-principles {
+      grid-template-columns: 1fr;
+      margin-top: 45px;
+    }
+
+    .principle,
+    .principle:nth-child(2) {
+      min-height: 120px;
+
+      border-right: 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .principle:last-child {
+      border-bottom: 0;
+    }
+
+    .capability-grid {
+      grid-template-columns: 1fr;
+      margin-top: 40px;
+    }
+
+    .capability-card {
+      min-height: 270px;
+    }
+
+    .approach-layout {
+      gap: 45px;
+    }
+
+    .approach-step {
+      grid-template-columns: 38px 1fr;
+      gap: 14px;
     }
 
     .technology-grid {
       grid-template-columns: 1fr;
+      margin-top: 40px;
     }
 
-    .technology-group {
+    .technology-card {
       min-height: auto;
-    }
-
-    .service-engagement {
-      padding-block: 80px;
-    }
-
-    .engagement-actions {
-      width: 100%;
-    }
-
-    .engagement-actions .service-button {
-      width: 100%;
-    }
-  }
-
-
-  @media (max-width: 500px) {
-
-    .service-hero-inner,
-    .service-overview-inner,
-    .capabilities-inner,
-    .technology-inner,
-    .engagement-inner,
-    .approach-inner {
-      width: calc(100% - 32px);
-    }
-
-    .service-hero-inner {
-      padding-block: 92px 65px;
-    }
-
-    .service-hero-context {
-      padding-left: 20px;
-    }
-
-    .technology-group {
       padding: 24px;
     }
+
+    .architecture-map {
+      min-height: 350px;
+    }
+
+    .map-layer {
+      left: 6%;
+      width: 88%;
+      height: 58px;
+      padding-left: 14px;
+    }
+
+    .map-layer small {
+      max-width: 190px;
+      line-height: 1.4;
+    }
+
+    .map-identity {
+      top: 6%;
+    }
+
+    .map-access {
+      top: 29%;
+    }
+
+    .map-platforms {
+      top: 52%;
+    }
+
+    .map-enterprise {
+      top: 75%;
+    }
+
+    .architecture-copy .button {
+      width: 100%;
+    }
   }
 
+
+  /* =========================================================
+     SMALL PHONES
+  ========================================================= */
+
+  @media (max-width: 430px) {
+    .hero-inner {
+      padding-block: 62px 50px;
+    }
+
+    .hero-copy h1 {
+      font-size: clamp(2.55rem, 13vw, 3.4rem);
+    }
+
+    .architecture-header {
+      padding-inline: 12px;
+      font-size: 0.43rem;
+    }
+
+    .architecture-canvas {
+      min-height: 275px;
+    }
+
+    .ring-large {
+      width: 190px;
+      height: 190px;
+    }
+
+    .ring-medium {
+      width: 135px;
+      height: 135px;
+    }
+
+    .ring-small {
+      width: 75px;
+      height: 75px;
+    }
+
+    .architecture-label {
+      font-size: 0.4rem;
+    }
+
+    .label-left {
+      left: 3%;
+    }
+
+    .label-right {
+      right: 2%;
+    }
+
+    .capability-card h3 {
+      font-size: 1.16rem;
+    }
+
+    .capability-card p,
+    .step-content p,
+    .technology-card p,
+    .architecture-copy p {
+      font-size: 0.78rem;
+    }
+
+    .architecture-map {
+      min-height: 315px;
+    }
+
+    .map-layer span {
+      font-size: 0.47rem;
+    }
+
+    .map-layer small {
+      font-size: 0.41rem;
+    }
+  }
 </style>
